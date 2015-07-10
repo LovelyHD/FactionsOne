@@ -9,7 +9,7 @@ import java.util.Map.Entry;
 
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.libs.com.google.gson.Gson;
+import com.google.gson.Gson;
 
 import com.massivecraft.factions.FPlayer;
 import com.massivecraft.factions.zcore.util.DiscUtil;
