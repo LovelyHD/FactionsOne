@@ -1,7 +1,9 @@
 package com.massivecraft.factions.integration;
 
 import com.massivecraft.factions.P;
+
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -10,9 +12,10 @@ import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.ApplicableRegionSet;
 import com.sk89q.worldguard.protection.regions.ProtectedCuboidRegion;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
-import static com.sk89q.worldguard.bukkit.BukkitUtil.*;
-import com.sk89q.worldguard.protection.flags.DefaultFlag;
 
+import static com.sk89q.worldguard.bukkit.BukkitUtil.*;
+
+import com.sk89q.worldguard.protection.flags.DefaultFlag;
 import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.BlockVector;
 
@@ -102,7 +105,7 @@ public class Worldguard
 		RegionManager regionManager = wg.getRegionManager(world);
 		ProtectedCuboidRegion region = new ProtectedCuboidRegion("wgfactionoverlapcheck", minChunk, maxChunk);
 		Map<String, ProtectedRegion> allregions = regionManager.getRegions(); 
-		List<ProtectedRegion> allregionslist = new ArrayList<ProtectedRegion>(allregions.values());
+		Collection<ProtectedRegion> allregionslist = new ArrayList<ProtectedRegion>(allregions.values());
 		List<ProtectedRegion> overlaps;
 		boolean foundregions = false;
 
