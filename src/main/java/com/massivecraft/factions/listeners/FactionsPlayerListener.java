@@ -237,11 +237,71 @@ public class FactionsPlayerListener implements Listener
 		Location loc = block.getLocation();
 		Material material = block.getType();
 		
-		if (Conf.materialsEditOnInteract.contains(material) && ! FPerm.BUILD.has(me, loc, ! justCheck)) return false;
-		if (Conf.materialsContainer.contains(material) && ! FPerm.CONTAINER.has(me, loc, ! justCheck)) return false;
-		if (Conf.materialsDoor.contains(material)      && ! FPerm.DOOR.has(me, loc, ! justCheck)) return false;
-		if (material == Material.STONE_BUTTON          && ! FPerm.BUTTON.has(me, loc, ! justCheck)) return false;
-		if (material == Material.LEVER                 && ! FPerm.LEVER.has(me, loc, ! justCheck)) return false;
+		ArrayList<Material> misc = new ArrayList<Material>();
+		misc.add(Material.ANVIL);
+		misc.add(Material.ENCHANTMENT_TABLE);
+		misc.add(Material.WORKBENCH);
+		misc.add(Material.TNT);
+		misc.add(Material.SIGN);
+		misc.add(Material.SIGN_POST);
+		misc.add(Material.CROPS);
+		misc.add(Material.MELON_STEM);
+		misc.add(Material.PUMPKIN_STEM);
+		misc.add(Material.CAULDRON);
+		misc.add(Material.ENDER_PORTAL_FRAME);
+		misc.add(Material.FIRE);
+		misc.add(Material.CAKE);
+		misc.add(Material.DRAGON_EGG);
+		misc.add(Material.LAVA);
+		misc.add(Material.STATIONARY_LAVA);
+		misc.add(Material.WATER);
+		misc.add(Material.STATIONARY_WATER);
+		misc.add(Material.NOTE_BLOCK);
+		misc.add(Material.REDSTONE_COMPARATOR_ON);
+		misc.add(Material.REDSTONE_COMPARATOR_OFF);
+		misc.add(Material.SOIL);
+		
+		ArrayList<Material> containers = new ArrayList<Material>();
+		containers.add(Material.CHEST);
+		containers.add(Material.TRAPPED_CHEST);
+		containers.add(Material.ENDER_CHEST);
+		containers.add(Material.FURNACE);
+		containers.add(Material.HOPPER);
+		containers.add(Material.BREWING_STAND);
+		containers.add(Material.DROPPER);
+		containers.add(Material.BEACON);
+		containers.add(Material.ITEM_FRAME);
+		containers.add(Material.JUKEBOX);
+		
+		ArrayList<Material> buttons = new ArrayList<Material>();
+		buttons.add(Material.WOOD_BUTTON);
+		buttons.add(Material.STONE_BUTTON);
+		buttons.add(Material.WOOD_PLATE);
+		buttons.add(Material.STONE_PLATE);
+		buttons.add(Material.IRON_PLATE);
+		buttons.add(Material.GOLD_PLATE);
+		buttons.add(Material.TRIPWIRE);
+		
+		ArrayList<Material> doors = new ArrayList<Material>();
+		doors.add(Material.WOODEN_DOOR);
+		doors.add(Material.FENCE_GATE);
+		doors.add(Material.TRAP_DOOR);
+		doors.add(Material.ACACIA_DOOR);
+		doors.add(Material.ACACIA_FENCE_GATE);
+		doors.add(Material.BIRCH_DOOR);
+		doors.add(Material.BIRCH_FENCE_GATE);
+		doors.add(Material.DARK_OAK_DOOR);
+		doors.add(Material.DARK_OAK_FENCE_GATE);
+		doors.add(Material.JUNGLE_DOOR);
+		doors.add(Material.JUNGLE_FENCE_GATE);
+		doors.add(Material.SPRUCE_DOOR);
+		doors.add(Material.SPRUCE_FENCE_GATE);
+		
+		if (misc.contains(material)       && ! FPerm.BUILD.has(me, loc, ! justCheck)) return false;
+		if (containers.contains(material) && ! FPerm.CONTAINER.has(me, loc, ! justCheck)) return false;
+		if (doors.contains(material)      && ! FPerm.DOOR.has(me, loc, ! justCheck)) return false;
+		if (buttons.contains(material)    && ! FPerm.BUTTON.has(me, loc, ! justCheck)) return false;
+		if (material == Material.LEVER    && ! FPerm.LEVER.has(me, loc, ! justCheck)) return false;
 		return true;
 	}
 
