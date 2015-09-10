@@ -14,21 +14,19 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
-
-public class LocationTypeAdapter implements JsonDeserializer<LazyLocation>, JsonSerializer<LazyLocation>
-{
+public class LocationTypeAdapter implements JsonDeserializer<LazyLocation>,
+		JsonSerializer<LazyLocation> {
 	private static final String WORLD = "world";
 	private static final String X = "x";
 	private static final String Y = "y";
 	private static final String Z = "z";
 	private static final String YAW = "yaw";
 	private static final String PITCH = "pitch";
-	
+
 	@Override
-	public LazyLocation deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException
-	{
-		try
-		{
+	public LazyLocation deserialize(JsonElement json, Type typeOfT,
+			JsonDeserializationContext context) throws JsonParseException {
+		try {
 			JsonObject obj = json.getAsJsonObject();
 
 			String worldName = obj.get(WORLD).getAsString();
@@ -40,21 +38,20 @@ public class LocationTypeAdapter implements JsonDeserializer<LazyLocation>, Json
 
 			return new LazyLocation(worldName, x, y, z, yaw, pitch);
 
-		}
-		catch (Exception ex)
-		{
+		} catch (Exception ex) {
 			ex.printStackTrace();
-			P.p.log(Level.WARNING, "Error encountered while deserializing a LazyLocation.");
+			P.p.log(Level.WARNING,
+					"Error encountered while deserializing a LazyLocation.");
 			return null;
 		}
 	}
 
 	@Override
-	public JsonElement serialize(LazyLocation src, Type typeOfSrc, JsonSerializationContext context) {
+	public JsonElement serialize(LazyLocation src, Type typeOfSrc,
+			JsonSerializationContext context) {
 		JsonObject obj = new JsonObject();
 
-		try
-		{
+		try {
 			obj.addProperty(WORLD, src.getWorldName());
 			obj.addProperty(X, src.getX());
 			obj.addProperty(Y, src.getY());
@@ -63,11 +60,10 @@ public class LocationTypeAdapter implements JsonDeserializer<LazyLocation>, Json
 			obj.addProperty(PITCH, src.getPitch());
 
 			return obj;
-		}
-		catch (Exception ex)
-		{
+		} catch (Exception ex) {
 			ex.printStackTrace();
-			P.p.log(Level.WARNING, "Error encountered while serializing a LazyLocation.");
+			P.p.log(Level.WARNING,
+					"Error encountered while serializing a LazyLocation.");
 			return obj;
 		}
 	}

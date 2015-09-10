@@ -9,8 +9,7 @@ import com.massivecraft.factions.Faction;
 import com.massivecraft.factions.FPlayer;
 import org.bukkit.entity.Player;
 
-public class LandClaimEvent extends Event implements Cancellable
-{
+public class LandClaimEvent extends Event implements Cancellable {
 	private static final HandlerList handlers = new HandlerList();
 
 	private boolean cancelled;
@@ -18,63 +17,52 @@ public class LandClaimEvent extends Event implements Cancellable
 	private Faction faction;
 	private FPlayer fplayer;
 
-	public LandClaimEvent(FLocation loc, Faction f, FPlayer p)
-	{
+	public LandClaimEvent(FLocation loc, Faction f, FPlayer p) {
 		cancelled = false;
 		location = loc;
 		faction = f;
 		fplayer = p;
 	}
 
-	public HandlerList getHandlers() 
-	{
+	public HandlerList getHandlers() {
 		return handlers;
 	}
 
-	public static HandlerList getHandlerList() 
-	{
+	public static HandlerList getHandlerList() {
 		return handlers;
 	}
 
-	public FLocation getLocation()
-	{
+	public FLocation getLocation() {
 		return this.location;
 	}
 
-	public Faction getFaction()
-	{
+	public Faction getFaction() {
 		return faction;
 	}
 
-	public String getFactionId()
-	{
+	public String getFactionId() {
 		return faction.getId();
 	}
 
-	public String getFactionTag()
-	{
+	public String getFactionTag() {
 		return faction.getTag();
 	}
 
-	public FPlayer getFPlayer()
-	{
+	public FPlayer getFPlayer() {
 		return fplayer;
 	}
 
-	public Player getPlayer()
-	{
+	public Player getPlayer() {
 		return fplayer.getPlayer();
 	}
 
 	@Override
-	public boolean isCancelled() 
-	{
+	public boolean isCancelled() {
 		return cancelled;
 	}
 
 	@Override
-	public void setCancelled(boolean c) 
-	{
+	public void setCancelled(boolean c) {
 		this.cancelled = c;
 	}
 }

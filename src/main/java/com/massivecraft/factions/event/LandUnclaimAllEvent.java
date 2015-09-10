@@ -7,51 +7,42 @@ import com.massivecraft.factions.Faction;
 import com.massivecraft.factions.FPlayer;
 import org.bukkit.entity.Player;
 
-public class LandUnclaimAllEvent extends Event
-{	
+public class LandUnclaimAllEvent extends Event {
 	private static final HandlerList handlers = new HandlerList();
 
 	private Faction faction;
 	private FPlayer fplayer;
 
-	public LandUnclaimAllEvent(Faction f, FPlayer p)
-	{
+	public LandUnclaimAllEvent(Faction f, FPlayer p) {
 		faction = f;
 		fplayer = p;
 	}
 
-	public HandlerList getHandlers() 
-	{
+	public HandlerList getHandlers() {
 		return handlers;
 	}
 
-	public static HandlerList getHandlerList() 
-	{
+	public static HandlerList getHandlerList() {
 		return handlers;
 	}
 
-	public Faction getFaction()
-	{
+	public Faction getFaction() {
 		return faction;
 	}
 
-	public String getFactionId()
-	{
+	public String getFactionId() {
 		return faction.getId();
 	}
 
-	public String getFactionTag()
-	{
+	public String getFactionTag() {
 		return faction.getTag();
 	}
 
-	public FPlayer getFPlayer()
-	{
+	public FPlayer getFPlayer() {
 		return fplayer;
 	}
 
-	public Player getPlayer()
-	{
+	public Player getPlayer() {
 		return fplayer.getPlayer();
 	}
 }

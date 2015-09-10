@@ -9,8 +9,7 @@ import org.bukkit.World;
  * yet when an object of this class is created, only when the Location is first accessed.
  */
 
-public class LazyLocation
-{
+public class LazyLocation {
 	private Location location = null;
 	private String worldName;
 	private double x;
@@ -19,18 +18,17 @@ public class LazyLocation
 	private float pitch;
 	private float yaw;
 
-	public LazyLocation(Location loc)
-	{
+	public LazyLocation(Location loc) {
 		setLocation(loc);
 	}
 
-	public LazyLocation(final String worldName, final double x, final double y, final double z)
-	{
+	public LazyLocation(final String worldName, final double x, final double y,
+			final double z) {
 		this(worldName, x, y, z, 0, 0);
 	}
 
-	public LazyLocation(final String worldName, final double x, final double y, final double z, final float yaw, final float pitch)
-	{
+	public LazyLocation(final String worldName, final double x, final double y,
+			final double z, final float yaw, final float pitch) {
 		this.worldName = worldName;
 		this.x = x;
 		this.y = y;
@@ -40,16 +38,14 @@ public class LazyLocation
 	}
 
 	// This returns the actual Location
-	public final Location getLocation()
-	{
+	public final Location getLocation() {
 		// make sure Location is initialized before returning it
 		initLocation();
 		return location;
 	}
 
 	// change the Location
-	public final void setLocation(Location loc)
-	{
+	public final void setLocation(Location loc) {
 		this.location = loc;
 		this.worldName = loc.getWorld().getName();
 		this.x = loc.getX();
@@ -59,49 +55,42 @@ public class LazyLocation
 		this.pitch = loc.getPitch();
 	}
 
-
 	// This initializes the Location
-	private void initLocation()
-	{
+	private void initLocation() {
 		// if location is already initialized, simply return
-		if (location != null) return;
+		if (location != null)
+			return;
 
 		// get World; hopefully it's initialized at this point
 		World world = Bukkit.getWorld(worldName);
-		if (world == null) return;
+		if (world == null)
+			return;
 
 		// store the Location for future calls, and pass it on
 		location = new Location(world, x, y, z, yaw, pitch);
 	}
 
-
-	public final String getWorldName()
-	{
+	public final String getWorldName() {
 		return worldName;
 	}
 
-	public final double getX()
-	{
+	public final double getX() {
 		return x;
 	}
 
-	public final double getY()
-	{
+	public final double getY() {
 		return y;
 	}
 
-	public final double getZ()
-	{
+	public final double getZ() {
 		return z;
 	}
 
-	public final double getPitch()
-	{
+	public final double getPitch() {
 		return pitch;
 	}
 
-	public final double getYaw()
-	{
+	public final double getYaw() {
 		return yaw;
 	}
 }

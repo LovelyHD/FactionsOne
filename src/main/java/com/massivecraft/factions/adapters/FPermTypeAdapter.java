@@ -8,11 +8,10 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 import com.massivecraft.factions.struct.FPerm;
 
-public class FPermTypeAdapter implements JsonDeserializer<FPerm>
-{
+public class FPermTypeAdapter implements JsonDeserializer<FPerm> {
 	@Override
-	public FPerm deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException
-	{
+	public FPerm deserialize(JsonElement json, Type typeOfT,
+			JsonDeserializationContext context) throws JsonParseException {
 		return FPerm.parse(json.getAsString());
 	}
 }

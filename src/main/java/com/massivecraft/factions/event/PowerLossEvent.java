@@ -9,9 +9,7 @@ import com.massivecraft.factions.Faction;
 
 import org.bukkit.entity.Player;
 
-
-public class PowerLossEvent extends Event implements Cancellable
-{
+public class PowerLossEvent extends Event implements Cancellable {
 	private static final HandlerList handlers = new HandlerList();
 
 	private boolean cancelled;
@@ -19,46 +17,38 @@ public class PowerLossEvent extends Event implements Cancellable
 	private FPlayer fplayer;
 	private String message;
 
-	public PowerLossEvent(Faction f, FPlayer p)
-	{
+	public PowerLossEvent(Faction f, FPlayer p) {
 		cancelled = false;
 		faction = f;
 		fplayer = p;
 	}
 
 	@Override
-	public HandlerList getHandlers()
-	{
+	public HandlerList getHandlers() {
 		return handlers;
 	}
 
-	public static HandlerList getHandlerList()
-	{
+	public static HandlerList getHandlerList() {
 		return handlers;
 	}
 
-	public Faction getFaction()
-	{
+	public Faction getFaction() {
 		return faction;
 	}
 
-	public String getFactionId()
-	{
+	public String getFactionId() {
 		return faction.getId();
 	}
 
-	public String getFactionTag()
-	{
+	public String getFactionTag() {
 		return faction.getTag();
 	}
 
-	public FPlayer getFPlayer()
-	{
+	public FPlayer getFPlayer() {
 		return fplayer;
 	}
 
-	public Player getPlayer()
-	{
+	public Player getPlayer() {
 		return fplayer.getPlayer();
 	}
 
@@ -71,14 +61,12 @@ public class PowerLossEvent extends Event implements Cancellable
 	}
 
 	@Override
-	public boolean isCancelled()
-	{
+	public boolean isCancelled() {
 		return cancelled;
 	}
 
 	@Override
-	public void setCancelled(boolean c)
-	{
+	public void setCancelled(boolean c) {
 		this.cancelled = c;
 	}
 

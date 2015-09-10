@@ -8,22 +8,18 @@ import org.bukkit.event.server.PluginEnableEvent;
 
 import com.massivecraft.factions.P;
 
-
-public class FactionsServerListener implements Listener
-{
+public class FactionsServerListener implements Listener {
 	public P p;
-	public FactionsServerListener(P p)
-	{
+
+	public FactionsServerListener(P p) {
 		this.p = p;
 	}
-	
+
 	@EventHandler(priority = EventPriority.MONITOR)
-	public void onPluginDisable(PluginDisableEvent event)
-	{
+	public void onPluginDisable(PluginDisableEvent event) {
 	}
 
 	@EventHandler(priority = EventPriority.MONITOR)
-	public void onPluginEnable(PluginEnableEvent event)
-	{
+	public void onPluginEnable(PluginEnableEvent event) {
 	}
 }

@@ -7,62 +7,52 @@ import org.bukkit.event.HandlerList;
 import com.massivecraft.factions.FPlayer;
 import com.massivecraft.factions.Faction;
 
-public class FPlayerLeaveEvent extends Event implements Cancellable
-{
+public class FPlayerLeaveEvent extends Event implements Cancellable {
 	private static final HandlerList handlers = new HandlerList();
 	private PlayerLeaveReason reason;
 	FPlayer FPlayer;
 	Faction Faction;
 	boolean cancelled = false;
 
-	public enum PlayerLeaveReason
-	{
+	public enum PlayerLeaveReason {
 		KICKED, DISBAND, RESET, JOINOTHER, LEAVE
 	}
 
-	public FPlayerLeaveEvent(FPlayer p, Faction f, PlayerLeaveReason r)
-	{
+	public FPlayerLeaveEvent(FPlayer p, Faction f, PlayerLeaveReason r) {
 		FPlayer = p;
 		Faction = f;
 		reason = r;
 	}
 
-	public HandlerList getHandlers() 
-	{
+	public HandlerList getHandlers() {
 		return handlers;
 	}
 
-	public static HandlerList getHandlerList() 
-	{
+	public static HandlerList getHandlerList() {
 		return handlers;
 	}
-	
-	public PlayerLeaveReason getReason() 
-	{
+
+	public PlayerLeaveReason getReason() {
 		return reason;
 	}
-	
-	public FPlayer getFPlayer()
-	{
+
+	public FPlayer getFPlayer() {
 		return FPlayer;
 	}
-	
-	public Faction getFaction()
-	{
+
+	public Faction getFaction() {
 		return Faction;
 	}
 
 	@Override
-	public boolean isCancelled() 
-	{
+	public boolean isCancelled() {
 		return cancelled;
 	}
 
 	@Override
-	public void setCancelled(boolean c) 
-	{
-		if (reason == PlayerLeaveReason.DISBAND || reason == PlayerLeaveReason.RESET)
-		{
+	public void setCancelled(boolean c) {
+		if (reason == PlayerLeaveReason.DISBAND
+				|| reason == PlayerLeaveReason.RESET) {
 			cancelled = false;
 			return;
 		}

@@ -8,8 +8,7 @@ import org.bukkit.event.HandlerList;
 import com.massivecraft.factions.FPlayer;
 import com.massivecraft.factions.Faction;
 
-public class FactionRenameEvent extends Event implements Cancellable
-{
+public class FactionRenameEvent extends Event implements Cancellable {
 	private static final HandlerList handlers = new HandlerList();
 
 	private boolean cancelled;
@@ -17,58 +16,48 @@ public class FactionRenameEvent extends Event implements Cancellable
 	private Faction faction;
 	private String tag;
 
-	public FactionRenameEvent(FPlayer sender, String newTag) 
-	{
+	public FactionRenameEvent(FPlayer sender, String newTag) {
 		fplayer = sender;
 		faction = sender.getFaction();
 		tag = newTag;
 		this.cancelled = false;
 	}
 
-	public Faction getFaction()
-	{
-		return(faction);
+	public Faction getFaction() {
+		return (faction);
 	}
 
-	public FPlayer getFPlayer()
-	{
-		return(fplayer);
+	public FPlayer getFPlayer() {
+		return (fplayer);
 	}
 
-	public Player getPlayer()
-	{
-		return(fplayer.getPlayer());
+	public Player getPlayer() {
+		return (fplayer.getPlayer());
 	}
 
-	public String getOldFactionTag()
-	{
-		return(faction.getTag());
+	public String getOldFactionTag() {
+		return (faction.getTag());
 	}
 
-	public String getFactionTag()
-	{
-		return(tag);
+	public String getFactionTag() {
+		return (tag);
 	}
 
-	public HandlerList getHandlers() 
-	{
+	public HandlerList getHandlers() {
 		return handlers;
 	}
 
-	public static HandlerList getHandlerList() 
-	{
+	public static HandlerList getHandlerList() {
 		return handlers;
 	}
 
 	@Override
-	public boolean isCancelled() 
-	{
+	public boolean isCancelled() {
 		return cancelled;
 	}
 
 	@Override
-	public void setCancelled(boolean c) 
-	{
+	public void setCancelled(boolean c) {
 		this.cancelled = c;
 	}
 }
