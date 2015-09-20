@@ -47,78 +47,77 @@ public class FCmdRoot extends FCommand {
 	public CmdUnclaim cmdUnclaim = new CmdUnclaim();
 	public CmdUnclaimall cmdUnclaimall = new CmdUnclaimall();
 	public CmdVersion cmdVersion = new CmdVersion();
-
+	
 	public FCmdRoot() {
 		super();
-		this.aliases.addAll(Conf.baseCommandAliases);
-		this.aliases.removeAll(Collections.singletonList(null)); // remove any
-																	// nulls
-																	// from
-																	// extra
-																	// commas
-
+		aliases.addAll(Conf.baseCommandAliases);
+		aliases.removeAll(Collections.singletonList(null)); // remove any
+		                                                    // nulls
+		                                                    // from
+		                                                    // extra
+		                                                    // commas
+		
 		// this.requiredArgs.add("");
 		// this.optionalArgs.put("","")
-
+		
 		senderMustBePlayer = false;
 		senderMustBeMember = false;
 		senderMustBeOfficer = false;
 		senderMustBeLeader = false;
-
-		this.disableOnLock = false;
-
-		this.setHelpShort("The faction base command");
-		this.helpLong.add(p.txt
-				.parseTags("<i>This command contains all faction stuff."));
-
-		this.addSubCommand(P.p.cmdAutoHelp);
-		this.addSubCommand(this.cmdList);
-		this.addSubCommand(this.cmdShow);
-		this.addSubCommand(this.cmdPower);
-		this.addSubCommand(this.cmdJoin);
-		this.addSubCommand(this.cmdLeave);
-		this.addSubCommand(this.cmdHome);
-		this.addSubCommand(this.cmdCreate);
-		this.addSubCommand(this.cmdSethome);
-		this.addSubCommand(this.cmdTag);
-		this.addSubCommand(this.cmdDemote);
-		this.addSubCommand(this.cmdDescription);
-		this.addSubCommand(this.cmdPerm);
-		this.addSubCommand(this.cmdFlag);
-		this.addSubCommand(this.cmdInvite);
-		this.addSubCommand(this.cmdDeinvite);
-		this.addSubCommand(this.cmdOpen);
-		this.addSubCommand(this.cmdMoney);
-		this.addSubCommand(this.cmdClaim);
-		this.addSubCommand(this.cmdAutoClaim);
-		this.addSubCommand(this.cmdUnclaim);
-		this.addSubCommand(this.cmdUnclaimall);
-		this.addSubCommand(this.cmdAccess);
-		this.addSubCommand(this.cmdKick);
-		this.addSubCommand(this.cmdOfficer);
-		this.addSubCommand(this.cmdLeader);
-		this.addSubCommand(this.cmdTitle);
-		this.addSubCommand(this.cmdMap);
-		this.addSubCommand(this.cmdSeeChunks);
-		this.addSubCommand(this.cmdDisband);
-		this.addSubCommand(this.cmdRelationAlly);
-		this.addSubCommand(this.cmdRelationEnemy);
-		this.addSubCommand(this.cmdRelationNeutral);
-		this.addSubCommand(this.cmdRelationTruce);
-		this.addSubCommand(this.cmdBypass);
-		this.addSubCommand(this.cmdPowerBoost);
-		this.addSubCommand(this.cmdPromote);
-		this.addSubCommand(this.cmdLock);
-		this.addSubCommand(this.cmdReload);
-		this.addSubCommand(this.cmdConfig);
-		this.addSubCommand(this.cmdSaveAll);
-		this.addSubCommand(this.cmdVersion);
+		
+		disableOnLock = false;
+		
+		setHelpShort("The faction base command");
+		helpLong.add(p.txt.parseTags("<i>This command contains all faction stuff."));
+		
+		addSubCommand(P.p.cmdAutoHelp);
+		addSubCommand(cmdList);
+		addSubCommand(cmdShow);
+		addSubCommand(cmdPower);
+		addSubCommand(cmdJoin);
+		addSubCommand(cmdLeave);
+		addSubCommand(cmdHome);
+		addSubCommand(cmdCreate);
+		addSubCommand(cmdSethome);
+		addSubCommand(cmdTag);
+		addSubCommand(cmdDemote);
+		addSubCommand(cmdDescription);
+		addSubCommand(cmdPerm);
+		addSubCommand(cmdFlag);
+		addSubCommand(cmdInvite);
+		addSubCommand(cmdDeinvite);
+		addSubCommand(cmdOpen);
+		addSubCommand(cmdMoney);
+		addSubCommand(cmdClaim);
+		addSubCommand(cmdAutoClaim);
+		addSubCommand(cmdUnclaim);
+		addSubCommand(cmdUnclaimall);
+		addSubCommand(cmdAccess);
+		addSubCommand(cmdKick);
+		addSubCommand(cmdOfficer);
+		addSubCommand(cmdLeader);
+		addSubCommand(cmdTitle);
+		addSubCommand(cmdMap);
+		addSubCommand(cmdSeeChunks);
+		addSubCommand(cmdDisband);
+		addSubCommand(cmdRelationAlly);
+		addSubCommand(cmdRelationEnemy);
+		addSubCommand(cmdRelationNeutral);
+		addSubCommand(cmdRelationTruce);
+		addSubCommand(cmdBypass);
+		addSubCommand(cmdPowerBoost);
+		addSubCommand(cmdPromote);
+		addSubCommand(cmdLock);
+		addSubCommand(cmdReload);
+		addSubCommand(cmdConfig);
+		addSubCommand(cmdSaveAll);
+		addSubCommand(cmdVersion);
 	}
-
+	
 	@Override
 	public void perform() {
-		this.commandChain.add(this);
-		P.p.cmdAutoHelp.execute(this.sender, this.args, this.commandChain);
+		commandChain.add(this);
+		P.p.cmdAutoHelp.execute(sender, args, commandChain);
 	}
-
+	
 }

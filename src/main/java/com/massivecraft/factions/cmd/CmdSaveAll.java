@@ -7,24 +7,24 @@ import com.massivecraft.factions.Factions;
 import com.massivecraft.factions.struct.Permission;
 
 public class CmdSaveAll extends FCommand {
-
+	
 	public CmdSaveAll() {
 		super();
-		this.aliases.add("saveall");
-		this.aliases.add("save");
-
+		aliases.add("saveall");
+		aliases.add("save");
+		
 		// this.requiredArgs.add("");
 		// this.optionalArgs.put("", "");
-
-		this.permission = Permission.SAVE.node;
-		this.disableOnLock = false;
-
+		
+		permission = Permission.SAVE.node;
+		disableOnLock = false;
+		
 		senderMustBePlayer = false;
 		senderMustBeMember = false;
 		senderMustBeOfficer = false;
 		senderMustBeLeader = false;
 	}
-
+	
 	@Override
 	public void perform() {
 		FPlayers.i.saveToDisc();
@@ -33,5 +33,5 @@ public class CmdSaveAll extends FCommand {
 		Conf.save();
 		msg("<i>Factions saved to disk!");
 	}
-
+	
 }

@@ -7,45 +7,45 @@ import com.massivecraft.factions.zcore.util.TextUtil;
 
 public class CmdTitle extends FCommand {
 	public CmdTitle() {
-		this.aliases.add("title");
-
-		this.requiredArgs.add("player");
-		this.optionalArgs.put("title", "");
-
-		this.permission = Permission.TITLE.node;
-		this.disableOnLock = true;
-
+		aliases.add("title");
+		
+		requiredArgs.add("player");
+		optionalArgs.put("title", "");
+		
+		permission = Permission.TITLE.node;
+		disableOnLock = true;
+		
 		senderMustBePlayer = true;
 		senderMustBeMember = false;
 		senderMustBeOfficer = true;
 		senderMustBeLeader = false;
 	}
-
+	
 	@Override
 	public void perform() {
 		FPlayer you = this.argAsBestFPlayerMatch(0);
-		if (you == null)
+		if (you == null) {
 			return;
-
+		}
+		
 		args.remove(0);
 		String title = TextUtil.implode(args, " ");
-
-		if (!canIAdministerYou(fme, you))
+		
+		if ( !canIAdministerYou(fme, you)) {
 			return;
-
+		}
+		
 		// if economy is enabled, they're not on the bypass list, and this
 		// command has a cost set, make 'em pay
-		if (!payForCommand(Conf.econCostTitle, "to change a players title",
-				"for changing a players title"))
+		if ( !payForCommand(Conf.econCostTitle, "to change a players title", "for changing a players title")) {
 			return;
-
+		}
+		
 		you.setTitle(title);
-
+		
 		// Inform
-		myFaction.msg("%s<i> changed a title: %s",
-				fme.describeTo(myFaction, true),
-				you.describeTo(myFaction, true));
-
+		myFaction.msg("%s<i> changed a title: %s", fme.describeTo(myFaction, true), you.describeTo(myFaction, true));
+		
 	}
-
+	
 }

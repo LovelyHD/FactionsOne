@@ -13,16 +13,15 @@ import com.massivecraft.factions.zcore.persist.PlayerEntityCollection;
 
 public class MPluginSecretPlayerListener implements Listener {
 	public MPlugin p;
-
+	
 	public MPluginSecretPlayerListener(MPlugin p) {
 		this.p = p;
 		Bukkit.getPluginManager().registerEvents(this, this.p);
 	}
-
+	
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onPlayerPreLogin(PlayerLoginEvent event) {
-		for (EntityCollection<? extends Entity> ecoll : EM.class2Entities
-				.values()) {
+		for (EntityCollection<? extends Entity> ecoll : EM.class2Entities.values()) {
 			if (ecoll instanceof PlayerEntityCollection) {
 				ecoll.get(event.getPlayer().getName());
 			}

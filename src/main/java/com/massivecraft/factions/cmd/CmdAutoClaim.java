@@ -7,20 +7,20 @@ import com.massivecraft.factions.struct.Permission;
 public class CmdAutoClaim extends FCommand {
 	public CmdAutoClaim() {
 		super();
-		this.aliases.add("autoclaim");
-
+		aliases.add("autoclaim");
+		
 		// this.requiredArgs.add("");
-		this.optionalArgs.put("faction", "your");
-
-		this.permission = Permission.AUTOCLAIM.node;
-		this.disableOnLock = true;
-
+		optionalArgs.put("faction", "your");
+		
+		permission = Permission.AUTOCLAIM.node;
+		disableOnLock = true;
+		
 		senderMustBePlayer = true;
 		senderMustBeMember = false;
 		senderMustBeOfficer = false;
 		senderMustBeLeader = false;
 	}
-
+	
 	@Override
 	public void perform() {
 		Faction forFaction = this.argAsFaction(0, myFaction);
@@ -29,15 +29,15 @@ public class CmdAutoClaim extends FCommand {
 			msg("<i>Auto-claiming of land disabled.");
 			return;
 		}
-
-		if (!FPerm.TERRITORY.has(fme, forFaction, true))
+		
+		if ( !FPerm.TERRITORY.has(fme, forFaction, true)) {
 			return;
-
+		}
+		
 		fme.setAutoClaimFor(forFaction);
-
-		msg("<i>Now auto-claiming land for <h>%s<i>.",
-				forFaction.describeTo(fme));
+		
+		msg("<i>Now auto-claiming land for <h>%s<i>.", forFaction.describeTo(fme));
 		fme.attemptClaim(forFaction, me.getLocation(), true);
 	}
-
+	
 }

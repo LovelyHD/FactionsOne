@@ -10,54 +10,55 @@ import com.massivecraft.factions.Faction;
 
 public class FactionRenameEvent extends Event implements Cancellable {
 	private static final HandlerList handlers = new HandlerList();
-
+	
 	private boolean cancelled;
 	private FPlayer fplayer;
 	private Faction faction;
 	private String tag;
-
+	
 	public FactionRenameEvent(FPlayer sender, String newTag) {
 		fplayer = sender;
 		faction = sender.getFaction();
 		tag = newTag;
-		this.cancelled = false;
+		cancelled = false;
 	}
-
+	
 	public Faction getFaction() {
-		return (faction);
+		return faction;
 	}
-
+	
 	public FPlayer getFPlayer() {
-		return (fplayer);
+		return fplayer;
 	}
-
+	
 	public Player getPlayer() {
-		return (fplayer.getPlayer());
+		return fplayer.getPlayer();
 	}
-
+	
 	public String getOldFactionTag() {
-		return (faction.getTag());
+		return faction.getTag();
 	}
-
+	
 	public String getFactionTag() {
-		return (tag);
+		return tag;
 	}
-
+	
+	@Override
 	public HandlerList getHandlers() {
 		return handlers;
 	}
-
+	
 	public static HandlerList getHandlerList() {
 		return handlers;
 	}
-
+	
 	@Override
 	public boolean isCancelled() {
 		return cancelled;
 	}
-
+	
 	@Override
 	public void setCancelled(boolean c) {
-		this.cancelled = c;
+		cancelled = c;
 	}
 }

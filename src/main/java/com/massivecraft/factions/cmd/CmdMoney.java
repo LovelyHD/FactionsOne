@@ -9,36 +9,36 @@ public class CmdMoney extends FCommand {
 	public CmdMoneyTransferFf cmdMoneyTransferFf = new CmdMoneyTransferFf();
 	public CmdMoneyTransferFp cmdMoneyTransferFp = new CmdMoneyTransferFp();
 	public CmdMoneyTransferPf cmdMoneyTransferPf = new CmdMoneyTransferPf();
-
+	
 	public CmdMoney() {
 		super();
-		this.aliases.add("money");
-
+		aliases.add("money");
+		
 		// this.requiredArgs.add("");
 		// this.optionalArgs.put("","")
-
-		this.isMoneyCommand = true;
-
+		
+		isMoneyCommand = true;
+		
 		senderMustBePlayer = false;
 		senderMustBeMember = false;
 		senderMustBeOfficer = false;
 		senderMustBeLeader = false;
-
-		this.setHelpShort("faction money commands");
-		this.helpLong.add(p.txt.parseTags("<i>The faction money commands."));
-
-		this.addSubCommand(this.cmdMoneyBalance);
-		this.addSubCommand(this.cmdMoneyDeposit);
-		this.addSubCommand(this.cmdMoneyWithdraw);
-		this.addSubCommand(this.cmdMoneyTransferFf);
-		this.addSubCommand(this.cmdMoneyTransferFp);
-		this.addSubCommand(this.cmdMoneyTransferPf);
+		
+		setHelpShort("faction money commands");
+		helpLong.add(p.txt.parseTags("<i>The faction money commands."));
+		
+		addSubCommand(cmdMoneyBalance);
+		addSubCommand(cmdMoneyDeposit);
+		addSubCommand(cmdMoneyWithdraw);
+		addSubCommand(cmdMoneyTransferFf);
+		addSubCommand(cmdMoneyTransferFp);
+		addSubCommand(cmdMoneyTransferPf);
 	}
-
+	
 	@Override
 	public void perform() {
-		this.commandChain.add(this);
-		P.p.cmdAutoHelp.execute(this.sender, this.args, this.commandChain);
+		commandChain.add(this);
+		P.p.cmdAutoHelp.execute(sender, args, commandChain);
 	}
-
+	
 }
