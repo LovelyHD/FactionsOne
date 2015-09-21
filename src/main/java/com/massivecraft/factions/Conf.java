@@ -315,15 +315,31 @@ public class Conf {
 		materialsContainer.add(Material.DROPPER);
 		materialsContainer.add(Material.HOPPER);
 		
+		materialsEditOnInteract.add(Material.CAKE_BLOCK);
+		materialsEditOnInteract.add(Material.CAULDRON);
 		materialsEditOnInteract.add(Material.DIODE_BLOCK_OFF);
 		materialsEditOnInteract.add(Material.DIODE_BLOCK_ON);
+		materialsEditOnInteract.add(Material.DRAGON_EGG);
+		materialsEditOnInteract.add(Material.FIRE);
 		materialsEditOnInteract.add(Material.NOTE_BLOCK);
-		materialsEditOnInteract.add(Material.CAULDRON);
+		materialsEditOnInteract.add(Material.REDSTONE_COMPARATOR_OFF);
+		materialsEditOnInteract.add(Material.REDSTONE_COMPARATOR_ON);
 		materialsEditOnInteract.add(Material.SOIL);
+		materialsEditOnInteract.add(Material.TNT);
 		
 		materialsDoor.add(Material.WOODEN_DOOR);
-		materialsDoor.add(Material.TRAP_DOOR);
 		materialsDoor.add(Material.FENCE_GATE);
+		materialsDoor.add(Material.ACACIA_DOOR);
+		materialsDoor.add(Material.ACACIA_FENCE_GATE);
+		materialsDoor.add(Material.BIRCH_DOOR);
+		materialsDoor.add(Material.BIRCH_FENCE_GATE);
+		materialsDoor.add(Material.DARK_OAK_DOOR);
+		materialsDoor.add(Material.DARK_OAK_FENCE_GATE);
+		materialsDoor.add(Material.JUNGLE_DOOR);
+		materialsDoor.add(Material.JUNGLE_FENCE_GATE);
+		materialsDoor.add(Material.SPRUCE_DOOR);
+		materialsDoor.add(Material.SPRUCE_FENCE_GATE);
+		materialsDoor.add(Material.TRAP_DOOR);
 		
 		materialsEditTools.add(Material.FIREBALL);
 		materialsEditTools.add(Material.FLINT_AND_STEEL);
@@ -335,9 +351,11 @@ public class Conf {
 		monsters.add(EntityType.CAVE_SPIDER);
 		monsters.add(EntityType.CREEPER);
 		monsters.add(EntityType.ENDERMAN);
+		monsters.add(EntityType.ENDERMITE);
 		monsters.add(EntityType.ENDER_DRAGON);
 		monsters.add(EntityType.GHAST);
 		monsters.add(EntityType.GIANT);
+		monsters.add(EntityType.GUARDIAN);
 		monsters.add(EntityType.MAGMA_CUBE);
 		monsters.add(EntityType.PIG_ZOMBIE);
 		monsters.add(EntityType.SILVERFISH);

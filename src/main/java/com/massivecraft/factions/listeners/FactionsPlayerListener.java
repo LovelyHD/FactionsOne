@@ -1,6 +1,5 @@
 package com.massivecraft.factions.listeners;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -71,8 +70,7 @@ public class FactionsPlayerListener implements Listener {
 		
 		// Make sure player's power is up to date when they log off.
 		me.getPower();
-		// and update their last login time to point to when the logged off, for
-		// auto-remove routine
+		// and update their last login time to point to when the logged off, for auto-remove routine
 		me.setLastLoginTime(System.currentTimeMillis());
 		
 		// Set NoBoom timer update.
@@ -89,8 +87,7 @@ public class FactionsPlayerListener implements Listener {
 			return;
 		}
 		
-		// quick check to make sure player is moving between chunks; good
-		// performance boost
+		// quick check to make sure player is moving between chunks; good performance boost
 		if (event.getFrom().getBlockX() >> 4 == event.getTo().getBlockX() >> 4 && event.getFrom().getBlockZ() >> 4 == event.getTo().getBlockZ() >> 4
 		        && event.getFrom().getWorld() == event.getTo().getWorld()) {
 			return;
@@ -144,8 +141,7 @@ public class FactionsPlayerListener implements Listener {
 		if (event.isCancelled()) {
 			return;
 		}
-		// only need to check right-clicks and physical as of MC 1.4+; good
-		// performance boost
+		// only need to check right-clicks and physical as of MC 1.4+; good performance boost
 		if (event.getAction() != Action.RIGHT_CLICK_BLOCK && event.getAction() != Action.PHYSICAL) {
 			return;
 		}
@@ -154,7 +150,7 @@ public class FactionsPlayerListener implements Listener {
 		Player player = event.getPlayer();
 		
 		if (block == null) {
-			return; // clicked in air, apparently
+			return;  // clicked in air, apparently
 		}
 		
 		if ( !canPlayerUseBlock(player, block, false)) {
@@ -177,7 +173,7 @@ public class FactionsPlayerListener implements Listener {
 		}
 		
 		if (event.getAction() != Action.RIGHT_CLICK_BLOCK) {
-			return; // only interested on right-clicks for below
+			return;  // only interested on right-clicks for below
 		}
 		
 		if ( !playerCanUseItemHere(player, block.getLocation(), event.getMaterial(), false)) {
@@ -186,8 +182,8 @@ public class FactionsPlayerListener implements Listener {
 		}
 	}
 	
-	// for handling people who repeatedly spam attempts to open a door (or
-	// similar) in another faction's territory
+	// for handling people who repeatedly spam attempts to open a door (or similar) in another
+	// faction's territory
 	private Map<String, InteractAttemptSpam> interactSpammers = new HashMap<String, InteractAttemptSpam>();
 	
 	private static class InteractAttemptSpam {
@@ -237,71 +233,16 @@ public class FactionsPlayerListener implements Listener {
 		Location loc = block.getLocation();
 		Material material = block.getType();
 		
-		ArrayList<Material> misc = new ArrayList<Material>();
-		misc.add(Material.ANVIL);
-		misc.add(Material.ENCHANTMENT_TABLE);
-		misc.add(Material.WORKBENCH);
-		misc.add(Material.TNT);
-		misc.add(Material.SIGN);
-		misc.add(Material.SIGN_POST);
-		misc.add(Material.CROPS);
-		misc.add(Material.MELON_STEM);
-		misc.add(Material.PUMPKIN_STEM);
-		misc.add(Material.CAULDRON);
-		misc.add(Material.ENDER_PORTAL_FRAME);
-		misc.add(Material.FIRE);
-		misc.add(Material.CAKE);
-		misc.add(Material.DRAGON_EGG);
-		misc.add(Material.LAVA);
-		misc.add(Material.STATIONARY_LAVA);
-		misc.add(Material.WATER);
-		misc.add(Material.STATIONARY_WATER);
-		misc.add(Material.NOTE_BLOCK);
-		misc.add(Material.REDSTONE_COMPARATOR_ON);
-		misc.add(Material.REDSTONE_COMPARATOR_OFF);
-		misc.add(Material.SOIL);
-		
-		ArrayList<Material> containers = new ArrayList<Material>();
-		containers.add(Material.CHEST);
-		containers.add(Material.TRAPPED_CHEST);
-		containers.add(Material.ENDER_CHEST);
-		containers.add(Material.FURNACE);
-		containers.add(Material.HOPPER);
-		containers.add(Material.BREWING_STAND);
-		containers.add(Material.DROPPER);
-		containers.add(Material.BEACON);
-		containers.add(Material.ITEM_FRAME);
-		containers.add(Material.JUKEBOX);
-		
-		ArrayList<Material> buttons = new ArrayList<Material>();
-		buttons.add(Material.WOOD_BUTTON);
-		buttons.add(Material.STONE_BUTTON);
-		
-		ArrayList<Material> doors = new ArrayList<Material>();
-		doors.add(Material.WOODEN_DOOR);
-		doors.add(Material.FENCE_GATE);
-		doors.add(Material.TRAP_DOOR);
-		doors.add(Material.ACACIA_DOOR);
-		doors.add(Material.ACACIA_FENCE_GATE);
-		doors.add(Material.BIRCH_DOOR);
-		doors.add(Material.BIRCH_FENCE_GATE);
-		doors.add(Material.DARK_OAK_DOOR);
-		doors.add(Material.DARK_OAK_FENCE_GATE);
-		doors.add(Material.JUNGLE_DOOR);
-		doors.add(Material.JUNGLE_FENCE_GATE);
-		doors.add(Material.SPRUCE_DOOR);
-		doors.add(Material.SPRUCE_FENCE_GATE);
-		
-		if (misc.contains(material) && !FPerm.BUILD.has(me, loc, !justCheck)) {
+		if (Conf.materialsEditOnInteract.contains(material) && !FPerm.BUILD.has(me, loc, !justCheck)) {
 			return false;
 		}
-		if (containers.contains(material) && !FPerm.CONTAINER.has(me, loc, !justCheck)) {
+		if (Conf.materialsContainer.contains(material) && !FPerm.CONTAINER.has(me, loc, !justCheck)) {
 			return false;
 		}
-		if (doors.contains(material) && !FPerm.DOOR.has(me, loc, !justCheck)) {
+		if (Conf.materialsDoor.contains(material) && !FPerm.DOOR.has(me, loc, !justCheck)) {
 			return false;
 		}
-		if (buttons.contains(material) && !FPerm.BUTTON.has(me, loc, !justCheck)) {
+		if (material == Material.STONE_BUTTON && !FPerm.BUTTON.has(me, loc, !justCheck)) {
 			return false;
 		}
 		if (material == Material.LEVER && !FPerm.LEVER.has(me, loc, !justCheck)) {
@@ -314,19 +255,17 @@ public class FactionsPlayerListener implements Listener {
 	public void onPlayerRespawn(PlayerRespawnEvent event) {
 		FPlayer me = FPlayers.i.get(event.getPlayer());
 		
-		me.getPower(); // update power, so they won't have gained any while dead
+		me.getPower();  // update power, so they won't have gained any while dead
 		
-		Location home = me.getFaction().getHome(); // TODO: WARNING FOR NPE HERE
-		                                           // THE ORIO FOR RESPAWN
-		                                           // SHOULD BE ASSIGNABLE FROM
-		                                           // CONFIG.
+		Location home = me.getFaction().getHome(); // TODO: WARNING FOR NPE HERE THE ORIO FOR
+		// RESPAWN SHOULD BE ASSIGNABLE FROM CONFIG.
 		if (Conf.homesEnabled && Conf.homesTeleportToOnDeath && home != null && (Conf.homesRespawnFromNoPowerLossWorlds || !Conf.worldsNoPowerLoss.contains(event.getPlayer().getWorld().getName()))) {
 			event.setRespawnLocation(home);
 		}
 	}
 	
-	// For some reason onPlayerInteract() sometimes misses bucket events
-	// depending on distance (something like 2-3 blocks away isn't detected),
+	// For some reason onPlayerInteract() sometimes misses bucket events depending on distance
+	// (something like 2-3 blocks away isn't detected),
 	// but these separate bucket events below always fire without fail
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void onPlayerBucketEmpty(PlayerBucketEmptyEvent event) {
@@ -369,8 +308,7 @@ public class FactionsPlayerListener implements Listener {
 			return;
 		}
 		
-		// The full command is converted to lowercase and does include the slash
-		// in the front
+		// The full command is converted to lowercase and does include the slash in the front
 		String fullCmd = event.getMessage().toLowerCase();
 		
 		if (me.hasFaction() && me.getFaction().getFlag(FFlag.PERMANENT) && isCommandInList(fullCmd, Conf.permanentFactionMemberDenyCommands)) {
