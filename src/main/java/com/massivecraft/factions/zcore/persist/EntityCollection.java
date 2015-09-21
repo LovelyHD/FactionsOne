@@ -238,6 +238,7 @@ public abstract class EntityCollection<E extends Entity> {
 		return true;
 	}
 	
+	@SuppressWarnings("unchecked")
 	private Map<String, E> loadCore() {
 		if ( !this.file.exists()) {
 			return new HashMap<>();

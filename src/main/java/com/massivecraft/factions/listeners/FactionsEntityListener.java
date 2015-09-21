@@ -10,6 +10,7 @@ import java.util.Set;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Enderman;
 import org.bukkit.entity.Entity;
@@ -148,11 +149,13 @@ public class FactionsEntityListener implements Listener {
 			targets.add(center.getRelative(1, 0, 0));
 			targets.add(center.getRelative( -1, 0, 0));
 			for (Block target : targets) {
-				int id = target.getTypeId();
+				Material type = target.getType();
 				// ignore air, bedrock, water, lava, obsidian, enchanting table,
 				// etc.... too bad we can't get a blast resistance value through
 				// Bukkit yet
-				if (id != 0 && (id < 7 || id > 11) && id != 49 && id != 90 && id != 116 && id != 119 && id != 120 && id != 130) {
+				if (type != Material.AIR && type != Material.BEDROCK && type != Material.STATIONARY_WATER && type != Material.WATER && type != Material.STATIONARY_LAVA && type != Material.LAVA
+				        && type != Material.OBSIDIAN && type != Material.PORTAL && type != Material.ENCHANTMENT_TABLE && type != Material.ENDER_PORTAL && type != Material.ENDER_PORTAL_FRAME
+				        && type != Material.ENDER_CHEST) {
 					target.breakNaturally();
 				}
 			}
@@ -202,7 +205,7 @@ public class FactionsEntityListener implements Listener {
 		if (thrower instanceof Player) {
 			Player player = (Player) thrower;
 			FPlayer fPlayer = FPlayers.i.get(player);
-			if (badjuju && fPlayer.getFaction().isPeaceful()) {
+			if (badjuju && fPlayer.getFaction().getFlag(FFlag.PEACEFUL)) {
 				event.setCancelled(true);
 				return;
 			}

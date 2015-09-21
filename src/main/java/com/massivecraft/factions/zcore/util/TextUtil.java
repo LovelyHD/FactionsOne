@@ -70,7 +70,7 @@ public class TextUtil {
 	}
 	
 	public static String parseColorAmp(String string) {
-		string = string.replaceAll("(ยง([a-z0-9]))", "\u00A7$2");
+		string = string.replaceAll("(ง([a-z0-9]))", "\u00A7$2");
 		string = string.replaceAll("(&([a-z0-9]))", "\u00A7$2");
 		string = string.replace("&&", "&");
 		return string;
@@ -146,6 +146,9 @@ public class TextUtil {
 		return material.toString().replace('_', ' ').toLowerCase();
 	}
 	
+	/**
+	 * @deprecated Use getMaterialName(Material) instead
+	 */
 	public static String getMaterialName(int materialId) {
 		return getMaterialName(Material.getMaterial(materialId));
 	}

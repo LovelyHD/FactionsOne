@@ -17,7 +17,7 @@ public class MiscUtil {
 		String name = entity.getClass().getSimpleName();
 		name = name.substring(5); // Remove "Craft"
 		
-		return EntityType.fromName(name);
+		return EntityType.valueOf(name);
 	}
 	
 	// Inclusive range
