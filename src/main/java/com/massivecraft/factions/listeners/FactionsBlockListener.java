@@ -1,5 +1,7 @@
 package com.massivecraft.factions.listeners;
 
+import java.util.UUID;
+
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -63,7 +65,8 @@ public class FactionsBlockListener implements Listener {
 	
 	public static boolean playerCanBuildDestroyBlock(Player player, Location location, String action, boolean justCheck) {
 		String name = player.getName();
-		if (Conf.playersWhoBypassAllProtection.contains(name)) {
+		UUID uuid = player.getUniqueId();
+		if (Conf.playersWhoBypassAllProtection.contains(name) || Conf.playersWhoBypassAllProtection.contains(uuid.toString())) {
 			return true;
 		}
 		

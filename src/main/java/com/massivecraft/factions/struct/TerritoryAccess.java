@@ -91,7 +91,7 @@ public class TerritoryAccess implements JsonDeserializer<TerritoryAccess>, JsonS
 	}
 	
 	public void addFPlayer(FPlayer fplayer) {
-		addFPlayer(fplayer.getPlayer().getName());
+		addFPlayer(fplayer.getPlayer().getUniqueId().toString());
 	}
 	
 	public void removeFaction(String factionID) {
@@ -107,7 +107,7 @@ public class TerritoryAccess implements JsonDeserializer<TerritoryAccess>, JsonS
 	}
 	
 	public void removeFPlayer(FPlayer fplayer) {
-		removeFPlayer(fplayer.getPlayer().getName());
+		removeFPlayer(fplayer.getPlayer().getUniqueId().toString());
 	}
 	
 	// return true if faction was added, false if it was removed
@@ -140,7 +140,7 @@ public class TerritoryAccess implements JsonDeserializer<TerritoryAccess>, JsonS
 	}
 	
 	public boolean toggleFPlayer(FPlayer fplayer) {
-		return toggleFPlayer(fplayer.getPlayer().getName());
+		return toggleFPlayer(fplayer.getPlayer().getUniqueId().toString());
 	}
 	
 	public String factionList() {
@@ -185,7 +185,7 @@ public class TerritoryAccess implements JsonDeserializer<TerritoryAccess>, JsonS
 		if (factionHasAccess(fplayer.getFactionId())) {
 			return true;
 		}
-		return fplayerIDs.contains(fplayer.getPlayer().getName());
+		return fplayerIDs.contains(fplayer.getPlayer().getUniqueId());
 	}
 	
 	public boolean factionHasAccess(Faction faction) {

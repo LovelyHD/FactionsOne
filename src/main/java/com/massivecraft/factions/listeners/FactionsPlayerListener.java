@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.UUID;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -206,7 +207,8 @@ public class FactionsPlayerListener implements Listener {
 	// TODO: Possibly incorporate pain build...
 	public static boolean playerCanUseItemHere(Player player, Location loc, Material material, boolean justCheck) {
 		String name = player.getName();
-		if (Conf.playersWhoBypassAllProtection.contains(name)) {
+		UUID uuid = player.getUniqueId();
+		if (Conf.playersWhoBypassAllProtection.contains(name) || Conf.playersWhoBypassAllProtection.contains(uuid.toString())) {
 			return true;
 		}
 		
@@ -221,7 +223,9 @@ public class FactionsPlayerListener implements Listener {
 	}
 	
 	public static boolean canPlayerUseBlock(Player player, Block block, boolean justCheck) {
-		if (Conf.playersWhoBypassAllProtection.contains(player.getName())) {
+		String name = player.getName();
+		UUID uuid = player.getUniqueId();
+		if (Conf.playersWhoBypassAllProtection.contains(name) || Conf.playersWhoBypassAllProtection.contains(uuid.toString())) {
 			return true;
 		}
 		

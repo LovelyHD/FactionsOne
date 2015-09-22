@@ -23,7 +23,7 @@ public class MPluginSecretPlayerListener implements Listener {
 	public void onPlayerPreLogin(PlayerLoginEvent event) {
 		for (EntityCollection<? extends Entity> ecoll : EM.class2Entities.values()) {
 			if (ecoll instanceof PlayerEntityCollection) {
-				ecoll.get(event.getPlayer().getName());
+				ecoll.get(event.getPlayer().getUniqueId().toString());
 			}
 		}
 	}

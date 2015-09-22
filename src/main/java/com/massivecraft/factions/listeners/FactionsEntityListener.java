@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -283,7 +284,9 @@ public class FactionsEntityListener implements Listener {
 			return true;
 		}
 		
-		if (Conf.playersWhoBypassAllProtection.contains(attacker.getName())) {
+		String name = damager.getName();
+		UUID uuid = damager.getUniqueId();
+		if (Conf.playersWhoBypassAllProtection.contains(name) || Conf.playersWhoBypassAllProtection.contains(uuid.toString())) {
 			return true;
 		}
 		
