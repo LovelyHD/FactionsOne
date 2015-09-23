@@ -14,7 +14,7 @@ public class MiscUtil {
 			return null;
 		}
 		
-		String name = entity.getClass().getSimpleName();
+		String name = entity.getClass().getSimpleName().toUpperCase();
 		name = name.substring(5); // Remove "Craft"
 		
 		return EntityType.valueOf(name);
