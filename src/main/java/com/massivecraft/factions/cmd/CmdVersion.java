@@ -1,6 +1,7 @@
 package com.massivecraft.factions.cmd;
 
 import com.massivecraft.factions.P;
+import com.massivecraft.factions.Patch;
 import com.massivecraft.factions.struct.Permission;
 
 public class CmdVersion extends FCommand {
@@ -21,6 +22,6 @@ public class CmdVersion extends FCommand {
 	
 	@Override
 	public void perform() {
-		msg("<i>You are running " + P.p.getDescription().getFullName());
+		msg("<i>You are running " + P.p.getDescription().getFullName() + "\nPatch: " + Patch.getFullName());
 	}
 }

@@ -16,6 +16,7 @@ import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 
 import com.google.gson.Gson;
+import com.massivecraft.factions.Conf;
 import com.massivecraft.factions.FPlayer;
 import com.massivecraft.factions.zcore.util.DiscUtil;
 import com.massivecraft.factions.zcore.util.TextUtil;
@@ -266,9 +267,11 @@ public abstract class EntityCollection<E extends Entity> {
 						// We'll mark this as one for conversion to UUID
 						list.add(value);
 					}
+					
 				}
 			}
-			if (list.size() > 0) {
+			
+			if (list.size() > 0 && Conf.convertToUniqueIds) {
 				// Got some converting to do
 				Bukkit.getLogger().log(Level.INFO, "Please wait while Factions converts " + list.size() + " old player names to UUID. This may take a while.");
 				// First we'll make a backup, because god forbid anybody heed a

@@ -13,11 +13,7 @@ public class MiscUtil {
 		if ( !(entity instanceof Creature)) {
 			return null;
 		}
-		
-		String name = entity.getClass().getSimpleName().toUpperCase();
-		name = name.substring(5); // Remove "Craft"
-		
-		return EntityType.valueOf(name);
+		return entity.getType();
 	}
 	
 	// Inclusive range

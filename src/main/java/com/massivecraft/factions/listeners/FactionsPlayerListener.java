@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.UUID;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -156,15 +157,15 @@ public class FactionsPlayerListener implements Listener {
 		if ( !canPlayerUseBlock(player, block, false)) {
 			event.setCancelled(true);
 			if (Conf.handleExploitInteractionSpam) {
-				String name = player.getName();
-				InteractAttemptSpam attempt = interactSpammers.get(name);
+				UUID id = player.getUniqueId();
+				InteractAttemptSpam attempt = interactSpammers.get(id);
 				if (attempt == null) {
 					attempt = new InteractAttemptSpam();
-					interactSpammers.put(name, attempt);
+					interactSpammers.put(id, attempt);
 				}
 				int count = attempt.increment();
 				if (count >= 10) {
-					FPlayer me = FPlayers.i.get(name);
+					FPlayer me = FPlayers.i.get(Bukkit.getServer().getPlayer(id));
 					me.msg("<b>Ouch, that is starting to hurt. You should give it a rest.");
 					player.damage(NumberConversions.floor((double) count / 10));
 				}
@@ -184,7 +185,7 @@ public class FactionsPlayerListener implements Listener {
 	
 	// for handling people who repeatedly spam attempts to open a door (or similar) in another
 	// faction's territory
-	private Map<String, InteractAttemptSpam> interactSpammers = new HashMap<String, InteractAttemptSpam>();
+	private Map<UUID, InteractAttemptSpam> interactSpammers = new HashMap<UUID, InteractAttemptSpam>();
 	
 	private static class InteractAttemptSpam {
 		private int attempts = 0;

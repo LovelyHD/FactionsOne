@@ -20,6 +20,9 @@ import com.massivecraft.factions.struct.Rel;
 public class Conf {
 	public final static transient List<String> baseCommandAliases = new ArrayList<String>();
 	
+	// FactionsOne
+	public static boolean convertToUniqueIds = true;
+	
 	// Colors
 	public static ChatColor colorMember = ChatColor.GREEN;
 	public static ChatColor colorAlly = ChatColor.DARK_PURPLE;
