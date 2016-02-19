@@ -361,6 +361,7 @@ public class Conf {
 		monsters.add(EntityType.GUARDIAN);
 		monsters.add(EntityType.MAGMA_CUBE);
 		monsters.add(EntityType.PIG_ZOMBIE);
+		monsters.add(EntityType.SHULKER);
 		monsters.add(EntityType.SILVERFISH);
 		monsters.add(EntityType.SKELETON);
 		monsters.add(EntityType.SLIME);

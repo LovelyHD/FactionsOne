@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.massivecraft</groupId>
   <artifactId>FactionsOne</artifactId>
-  <version>1.1</version>
+  <version>1.2.2</version>
   <name>Factions</name>
 	<build>
 	  <finalName>Factions</finalName>
@@ -32,17 +32,12 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.8.3-R0.1-SNAPSHOT</version>
+            <version>1.9-R0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>craftbukkit</artifactId>
-            <version>1.8.3-R0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>net.daboross.vault</groupId>
-            <artifactId>vault-api</artifactId>
-            <version>LATEST</version>
+            <groupId>net.milkbowl.vault</groupId>
+            <artifactId>VaultAPI</artifactId>
+            <version>1.5</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -57,29 +52,29 @@
         </dependency>
         <dependency>
             <groupId>net.ess3</groupId>
-            <artifactId>Essentials</artifactId>
-            <version>LATEST</version>
+            <artifactId>EssentialsX</artifactId>
+            <version>2.0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>net.ess3</groupId>
-            <artifactId>EssentialsChat</artifactId>
-            <version>LATEST</version>
+            <artifactId>EssentialsXChat</artifactId>
+            <version>2.0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
     <repositories>
             <repository>
-            <id>repo-daboross-net</id>
-            <url>http://repo.daboross.net/</url>
+            <id>vault-repo</id>
+            <url>http://nexus.theyeticave.net/content/repositories/pub_releases</url>
         </repository>
         <repository>
             <id>ess-repo</id>
-            <url>http://repo.ess3.net/content/groups/public</url>
+            <url>https://ci.drtshock.net/plugin/repository/everything/</url>
         </repository>
         <repository>
-            <id>bukkit-repo</id>
-            <url>http://repo.bukkit.org/content/groups/public/</url>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
         </repository>
         <repository>
             <id>maven.sk89q.com</id>
