@@ -1,5 +1,7 @@
 package com.massivecraft.factions.cmd;
 
+import io.github.dre2n.factionsone.api.event.FactionsReloadEvent;
+
 import com.massivecraft.factions.Conf;
 import com.massivecraft.factions.struct.Permission;
 
@@ -23,6 +25,12 @@ public class CmdReload extends FCommand {
 	
 	@Override
 	public void perform() {
+		FactionsReloadEvent event = new FactionsReloadEvent();
+		
+		if (event.isCancelled()) {
+			return;
+		}
+		
 		long timeInitStart = System.currentTimeMillis();
 		/* String file = this.argAsString(0, "all").toLowerCase();
 		 * 
