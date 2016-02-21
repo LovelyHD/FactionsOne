@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.bukkit.ChatColor;
+
+import com.massivecraft.factions.Conf;
 import com.massivecraft.factions.FPlayer;
 import com.massivecraft.factions.Faction;
 import com.massivecraft.factions.iface.RelationParticipator;
@@ -51,13 +54,28 @@ public enum Placeholders {
 	 * the faction the replacements are taken from
 	 */
 	public static String replaceFactionPlaceholders(String string, Faction faction) {
-		string.replaceAll(FACTION_LEADER.toString(), faction.getFPlayerLeader().getName());
-		string.replaceAll(FACTION_MEMBER_LIST.toString(), TextUtil.implodeCommaAnd(getNames(faction.getFPlayersWhereRole(Rel.MEMBER))));
-		string.replaceAll(FACTION_OFFICER_LIST.toString(), TextUtil.implodeCommaAnd(getNames(faction.getFPlayersWhereRole(Rel.OFFICER))));
-		string.replaceAll(FACTION_PLAYER_COUNT.toString(), String.valueOf(faction.getFPlayers().size()));
-		string.replaceAll(FACTION_PLAYER_LIST.toString(), TextUtil.implodeCommaAnd(getNames(faction.getFPlayers())));
-		string.replaceAll(FACTION_RECRUIT_LIST.toString(), TextUtil.implodeCommaAnd(getNames(faction.getFPlayersWhereRole(Rel.RECRUIT))));
-		string.replaceAll(FACTION_TAG.toString(), faction.getTag());
+		switch (faction.getId()) {
+			case "0":
+			case "-1":
+			case "-2":
+				string = string.replaceAll(FACTION_LEADER.toString(), "");
+				string = string.replaceAll(FACTION_MEMBER_LIST.toString(), "");
+				string = string.replaceAll(FACTION_OFFICER_LIST.toString(), "");
+				string = string.replaceAll(FACTION_PLAYER_COUNT.toString(), "");
+				string = string.replaceAll(FACTION_PLAYER_LIST.toString(), "");
+				string = string.replaceAll(FACTION_RECRUIT_LIST.toString(), "");
+				string = string.replaceAll(FACTION_TAG.toString(), faction.getTag());
+				break;
+			default:
+				string = string.replaceAll(FACTION_LEADER.toString(), faction.getFPlayerLeader().getName());
+				string = string.replaceAll(FACTION_MEMBER_LIST.toString(), TextUtil.implodeCommaAnd(getNames(faction.getFPlayersWhereRole(Rel.MEMBER))));
+				string = string.replaceAll(FACTION_OFFICER_LIST.toString(), TextUtil.implodeCommaAnd(getNames(faction.getFPlayersWhereRole(Rel.OFFICER))));
+				string = string.replaceAll(FACTION_PLAYER_COUNT.toString(), String.valueOf(faction.getFPlayers().size()));
+				string = string.replaceAll(FACTION_PLAYER_LIST.toString(), TextUtil.implodeCommaAnd(getNames(faction.getFPlayers())));
+				string = string.replaceAll(FACTION_RECRUIT_LIST.toString(), TextUtil.implodeCommaAnd(getNames(faction.getFPlayersWhereRole(Rel.RECRUIT))));
+				string = string.replaceAll(FACTION_TAG.toString(), faction.getTag());
+		}
+		
 		return string;
 	}
 	
@@ -72,8 +90,28 @@ public enum Placeholders {
 	 * the Faction or FPlayer to compare to the standpoint faction
 	 */
 	public static String replaceRelationPlaceholders(String string, Faction standpoint, RelationParticipator object) {
-		string.replaceAll(RELATION.toString(), standpoint.getRelationTo(object).toString());
-		string.replaceAll(RELATION_COLOR.toString(), standpoint.getColorTo(object).toString());
+		String id = "";
+		if (object instanceof Faction) {
+			id = ((Faction) object).getId();
+		}
+		
+		switch (id) {
+			case "0":
+				string = string.replaceAll(RELATION.toString(), "");
+				string = string.replaceAll(RELATION_COLOR.toString(), ChatColor.DARK_GREEN.toString());
+				break;
+			case "-1":
+				string = string.replaceAll(RELATION.toString(), "Free from PVP and monsters");
+				string = string.replaceAll(RELATION_COLOR.toString(), Conf.colorNoPVP.toString());
+				break;
+			case "-2":
+				string = string.replaceAll(RELATION.toString(), "Not the safest place to be");
+				string = string.replaceAll(RELATION_COLOR.toString(), Conf.colorFriendlyFire.toString());
+				break;
+			default:
+				string = string.replaceAll(RELATION.toString(), standpoint.getRelationTo(object).toString());
+				string = string.replaceAll(RELATION_COLOR.toString(), standpoint.getColorTo(object).toString());
+		}
 		return string;
 	}
 	
