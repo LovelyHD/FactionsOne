@@ -2,7 +2,7 @@ name: Factions
 version: 1.8.2
 main: com.massivecraft.factions.P
 authors: [Olof Cayorion Larsson, Brett Flannigan, externo6]
-softdepend: [PermissionsEx, Essentials, EssentialsChat, Vault, WorldEdit, WorldGuard, CombatTag]
+softdepend: [BlueRoseCommons, PermissionsEx, Essentials, EssentialsChat, Vault, WorldEdit, WorldGuard, CombatTag]
 commands:
   factions:
     description: The Factions base command
