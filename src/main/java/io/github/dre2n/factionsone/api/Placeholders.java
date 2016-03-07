@@ -99,8 +99,10 @@ public enum Placeholders {
                 string = string.replaceAll(RELATION.toString(), "");
                 string = string.replaceAll(RELATION_COLOR.toString(), ChatColor.DARK_GREEN.toString());
                 if (object instanceof FPlayer) {
-                    string = string.replaceAll(PLAYER_PREFIX.toString(), ((FPlayer) object).getRole().getPrefix());
-                    string = string.replaceAll(PLAYER_TITLE.toString(), ((FPlayer) object).getTitle());
+                    if (((FPlayer) object).hasFaction()) {
+                        string = string.replaceAll(PLAYER_PREFIX.toString(), ((FPlayer) object).getRole().getPrefix());
+                        string = string.replaceAll(PLAYER_TITLE.toString(), ((FPlayer) object).getTitle());
+                    }
                 }
                 break;
 
@@ -108,8 +110,10 @@ public enum Placeholders {
                 string = string.replaceAll(RELATION.toString(), "Free from PVP and monsters");
                 string = string.replaceAll(RELATION_COLOR.toString(), Conf.colorNoPVP.toString());
                 if (object instanceof FPlayer) {
-                    string = string.replaceAll(PLAYER_PREFIX.toString(), ((FPlayer) object).getRole().getPrefix());
-                    string = string.replaceAll(PLAYER_TITLE.toString(), ((FPlayer) object).getTitle());
+                    if (((FPlayer) object).hasFaction()) {
+                        string = string.replaceAll(PLAYER_PREFIX.toString(), ((FPlayer) object).getRole().getPrefix());
+                        string = string.replaceAll(PLAYER_TITLE.toString(), ((FPlayer) object).getTitle());
+                    }
                 }
                 break;
 
@@ -117,8 +121,10 @@ public enum Placeholders {
                 string = string.replaceAll(RELATION.toString(), "Not the safest place to be");
                 string = string.replaceAll(RELATION_COLOR.toString(), Conf.colorFriendlyFire.toString());
                 if (object instanceof FPlayer) {
-                    string = string.replaceAll(PLAYER_PREFIX.toString(), ((FPlayer) object).getRole().getPrefix());
-                    string = string.replaceAll(PLAYER_TITLE.toString(), ((FPlayer) object).getTitle());
+                    if (((FPlayer) object).hasFaction()) {
+                        string = string.replaceAll(PLAYER_PREFIX.toString(), ((FPlayer) object).getRole().getPrefix());
+                        string = string.replaceAll(PLAYER_TITLE.toString(), ((FPlayer) object).getTitle());
+                    }
                 }
                 break;
 
@@ -126,8 +132,10 @@ public enum Placeholders {
                 string = string.replaceAll(RELATION.toString(), standpoint.getRelationTo(object).toString());
                 string = string.replaceAll(RELATION_COLOR.toString(), standpoint.getColorTo(object).toString());
                 if (object instanceof FPlayer) {
-                    string = string.replaceAll(PLAYER_PREFIX.toString(), ((FPlayer) object).getRole().getPrefix());
-                    string = string.replaceAll(PLAYER_TITLE.toString(), ((FPlayer) object).getTitle());
+                    if (((FPlayer) object).hasFaction()) {
+                        string = string.replaceAll(PLAYER_PREFIX.toString(), ((FPlayer) object).getRole().getPrefix());
+                        string = string.replaceAll(PLAYER_TITLE.toString(), ((FPlayer) object).getTitle());
+                    }
                 }
         }
         return string;
