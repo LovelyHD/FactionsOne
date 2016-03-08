@@ -66,7 +66,9 @@ public enum Placeholders {
                 string = string.replaceAll(FACTION_TAG.toString(), faction.getTag());
                 break;
             default:
-                string = string.replaceAll(FACTION_LEADER.toString(), faction.getFPlayerLeader().getName());
+                if (faction.getFPlayerLeader() != null) {
+                    string = string.replaceAll(FACTION_LEADER.toString(), faction.getFPlayerLeader().getName());
+                }
                 string = string.replaceAll(FACTION_MEMBER_LIST.toString(), TextUtil.implodeCommaAnd(getNames(faction.getFPlayersWhereRole(Rel.MEMBER))));
                 string = string.replaceAll(FACTION_OFFICER_LIST.toString(), TextUtil.implodeCommaAnd(getNames(faction.getFPlayersWhereRole(Rel.OFFICER))));
                 string = string.replaceAll(FACTION_PLAYER_COUNT.toString(), String.valueOf(faction.getFPlayers().size()));
