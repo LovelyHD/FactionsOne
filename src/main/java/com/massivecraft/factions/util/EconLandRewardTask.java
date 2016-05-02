@@ -5,20 +5,20 @@ import com.massivecraft.factions.Factions;
 import com.massivecraft.factions.P;
 
 public class EconLandRewardTask implements Runnable {
-	
-	double rate;
-	
-	public EconLandRewardTask() {
-		rate = Conf.econLandRewardTaskRunsEveryXMinutes;
-	}
-	
-	@Override
-	public void run() {
-		Factions.i.econLandRewardRoutine();
-		// maybe setting has been changed? if so, restart task at new rate
-		if (rate != Conf.econLandRewardTaskRunsEveryXMinutes) {
-			P.p.startEconLandRewardTask(true);
-		}
-	}
-	
+
+    double rate;
+
+    public EconLandRewardTask() {
+        rate = Conf.econLandRewardTaskRunsEveryXMinutes;
+    }
+
+    @Override
+    public void run() {
+        Factions.i.econLandRewardRoutine();
+        // maybe setting has been changed? if so, restart task at new rate
+        if (rate != Conf.econLandRewardTaskRunsEveryXMinutes) {
+            P.p.startEconLandRewardTask(true);
+        }
+    }
+
 }
