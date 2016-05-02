@@ -73,13 +73,13 @@
         <dependency>
             <groupId>net.ess3</groupId>
             <artifactId>Essentials</artifactId>
-            <version>LATEST</version>
+            <version>2.13.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>net.ess3</groupId>
             <artifactId>EssentialsChat</artifactId>
-            <version>LATEST</version>
+            <version>2.13.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -95,7 +95,7 @@
         </repository>
         <repository>
             <id>ess-repo</id>
-            <url>http://repo.ess3.net/content/groups/public</url>
+            <url>http://repo.ess3.net/content/groups/essentials</url>
         </repository>
         <repository>
             <id>spigot-repo</id>
