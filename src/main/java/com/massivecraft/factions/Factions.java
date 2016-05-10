@@ -8,6 +8,7 @@ import com.massivecraft.factions.struct.Rel;
 import com.massivecraft.factions.util.MiscUtil;
 import com.massivecraft.factions.zcore.persist.EntityCollection;
 import com.massivecraft.factions.zcore.util.TextUtil;
+import io.github.dre2n.factionsone.config.FMessages;
 import java.io.File;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -192,16 +193,16 @@ public class Factions extends EntityCollection<Faction> {
         ArrayList<String> errors = new ArrayList<>();
 
         if (MiscUtil.getComparisonString(str).length() < Conf.factionTagLengthMin) {
-            errors.add(P.p.txt.parse("<i>The faction tag can't be shorter than <h>%s<i> chars.", Conf.factionTagLengthMin));
+            errors.add(P.p.txt.parse(FMessages.ERROR_TAG_TOO_SHORT.getMessage(), Conf.factionTagLengthMin));
         }
 
         if (str.length() > Conf.factionTagLengthMax) {
-            errors.add(P.p.txt.parse("<i>The faction tag can't be longer than <h>%s<i> chars.", Conf.factionTagLengthMax));
+            errors.add(P.p.txt.parse(FMessages.ERROR_TAG_TOO_LONG.getMessage(), Conf.factionTagLengthMax));
         }
 
         for (char c : str.toCharArray()) {
             if (!MiscUtil.substanceChars.contains(String.valueOf(c))) {
-                errors.add(P.p.txt.parse("<i>Faction tag must be alphanumeric. \"<h>%s<i>\" is not allowed.", c));
+                errors.add(P.p.txt.parse(FMessages.ERROR_TAG_NOT_ALPHANUMERIC.getMessage(), c));
             }
         }
 

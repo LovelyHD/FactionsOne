@@ -21,12 +21,21 @@ import org.bukkit.entity.Player;
  * faction have many Rel's assigned to each one of these Perms.
  */
 public enum FPerm {
-    BUILD("build", "edit the terrain", Rel.LEADER, Rel.OFFICER, Rel.MEMBER, Rel.RECRUIT, Rel.ALLY), PAINBUILD("painbuild", "edit, take damage"), DOOR("door", "use doors", Rel.LEADER, Rel.OFFICER,
-            Rel.MEMBER, Rel.RECRUIT, Rel.ALLY), BUTTON("button", "use stone buttons", Rel.LEADER, Rel.OFFICER, Rel.MEMBER, Rel.RECRUIT, Rel.ALLY), LEVER("lever", "use levers", Rel.LEADER,
-            Rel.OFFICER, Rel.MEMBER, Rel.RECRUIT, Rel.ALLY), CONTAINER("container", "use containers", Rel.LEADER, Rel.OFFICER, Rel.MEMBER), INVITE("invite", "invite players", Rel.LEADER, Rel.OFFICER), KICK(
-            "kick", "kick members", Rel.LEADER, Rel.OFFICER), SETHOME("sethome", "set the home", Rel.LEADER, Rel.OFFICER), WITHDRAW("withdraw", "withdraw money", Rel.LEADER, Rel.OFFICER), TERRITORY(
-            "territory", "claim or unclaim", Rel.LEADER, Rel.OFFICER), CAPE("cape", "set the cape", Rel.LEADER, Rel.OFFICER), ACCESS("access", "grant territory", Rel.LEADER, Rel.OFFICER), DISBAND(
-            "disband", "disband the faction", Rel.LEADER), PERMS("perms", "manage permissions", Rel.LEADER),;
+    BUILD("build", "edit the terrain", Rel.LEADER, Rel.OFFICER, Rel.MEMBER, Rel.RECRUIT, Rel.ALLY),
+    PAINBUILD("painbuild", "edit, take damage"),
+    DOOR("door", "use doors", Rel.LEADER, Rel.OFFICER, Rel.MEMBER, Rel.RECRUIT, Rel.ALLY),
+    BUTTON("button", "use stone buttons", Rel.LEADER, Rel.OFFICER, Rel.MEMBER, Rel.RECRUIT, Rel.ALLY),
+    LEVER("lever", "use levers", Rel.LEADER, Rel.OFFICER, Rel.MEMBER, Rel.RECRUIT, Rel.ALLY),
+    CONTAINER("container", "use containers", Rel.LEADER, Rel.OFFICER, Rel.MEMBER),
+    INVITE("invite", "invite players", Rel.LEADER, Rel.OFFICER),
+    KICK("kick", "kick members", Rel.LEADER, Rel.OFFICER),
+    SETHOME("sethome", "set the home", Rel.LEADER, Rel.OFFICER),
+    WITHDRAW("withdraw", "withdraw money", Rel.LEADER, Rel.OFFICER),
+    TERRITORY("territory", "claim or unclaim", Rel.LEADER, Rel.OFFICER),
+    CAPE("cape", "set the cape", Rel.LEADER, Rel.OFFICER),
+    ACCESS("access", "grant territory", Rel.LEADER, Rel.OFFICER),
+    DISBAND("disband", "disband the faction", Rel.LEADER),
+    PERMS("perms", "manage permissions", Rel.LEADER);
 
     private final String nicename;
     private final String desc;

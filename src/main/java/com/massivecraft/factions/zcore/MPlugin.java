@@ -21,8 +21,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public abstract class MPlugin extends JavaPlugin {
-    // Some utils
 
+    // Some utils
     public Persist persist;
     public TextUtil txt;
     public LibLoader lib;
@@ -78,11 +78,7 @@ public abstract class MPlugin extends JavaPlugin {
         // Register recurring tasks
         if (saveTask == null && Conf.saveToFileEveryXMinutes > 0.0) {
             long saveTicks = (long) (20 * 60 * Conf.saveToFileEveryXMinutes); // Approximately
-            // every
-            // 30
-            // min
-            // by
-            // default
+            // every 30 min by default
             saveTask = Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new SaveTask(this), saveTicks, saveTicks);
         }
 

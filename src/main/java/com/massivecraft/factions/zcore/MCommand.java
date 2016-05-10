@@ -1,6 +1,7 @@
 package com.massivecraft.factions.zcore;
 
 import com.massivecraft.factions.zcore.util.TextUtil;
+import io.github.dre2n.factionsone.config.FMessages;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -165,7 +166,7 @@ public abstract class MCommand<T extends MPlugin> {
     public boolean validSenderType(CommandSender sender, boolean informSenderIfNot) {
         if (this.senderMustBePlayer && !(sender instanceof Player)) {
             if (informSenderIfNot) {
-                msg(Lang.commandSenderMustBePlayer);
+                msg(FMessages.ERROR_COMMAND_SENDER_MUST_BE_PLAYER.getMessage());
             }
             return false;
         }
@@ -182,7 +183,7 @@ public abstract class MCommand<T extends MPlugin> {
     public boolean validArgs(List<String> args, CommandSender sender) {
         if (args.size() < this.requiredArgs.size()) {
             if (sender != null) {
-                msg(Lang.commandToFewArgs);
+                msg(FMessages.ERROR_COMMAND_TOO_FEW_ARGUMENTS.getMessage());
                 sender.sendMessage(this.getUseageTemplate());
             }
             return false;
@@ -192,7 +193,7 @@ public abstract class MCommand<T extends MPlugin> {
             if (sender != null) {
                 // Get the to many string slice
                 List<String> theToMany = args.subList(this.requiredArgs.size() + this.optionalArgs.size(), args.size());
-                msg(Lang.commandToManyArgs, TextUtil.implode(theToMany, " "));
+                msg(FMessages.ERROR_COMMAND_TOO_MANY_ARGUMENTS.getMessage(), TextUtil.implode(theToMany, " "));
                 sender.sendMessage(this.getUseageTemplate());
             }
             return false;

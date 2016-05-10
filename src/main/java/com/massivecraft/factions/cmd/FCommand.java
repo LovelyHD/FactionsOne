@@ -11,6 +11,7 @@ import com.massivecraft.factions.struct.FFlag;
 import com.massivecraft.factions.struct.FPerm;
 import com.massivecraft.factions.struct.Rel;
 import com.massivecraft.factions.zcore.MCommand;
+import io.github.dre2n.factionsone.config.FMessages;
 import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
@@ -58,17 +59,17 @@ public abstract class FCommand extends MCommand<P> {
     @Override
     public boolean isEnabled() {
         if (p.getLocked() && disableOnLock) {
-            msg("<b>Factions was locked by an admin. Please try again later.");
+            msg(FMessages.ERROR_LOCKED.getMessage());
             return false;
         }
 
         if (isMoneyCommand && !Conf.econEnabled) {
-            msg("<b>Faction economy features are disabled on this server.");
+            msg(FMessages.ERROR_ECONOMY_DISABLED.getMessage());
             return false;
         }
 
         if (isMoneyCommand && !Conf.bankEnabled) {
-            msg("<b>The faction bank system is disabled on this server.");
+            msg(FMessages.ERROR_BANK_DISABLED.getMessage());
             return false;
         }
 

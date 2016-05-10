@@ -11,6 +11,7 @@ import com.massivecraft.factions.struct.FPerm;
 import com.massivecraft.factions.struct.Rel;
 import com.massivecraft.factions.util.RelationUtil;
 import com.massivecraft.factions.zcore.persist.PlayerEntity;
+import io.github.dre2n.factionsone.config.FMessages;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -472,18 +473,17 @@ public class FPlayer extends PlayerEntity implements EconomyParticipator {
         boolean perm = myFaction.getFlag(FFlag.PERMANENT);
 
         if (!perm && getRole() == Rel.LEADER && myFaction.getFPlayers().size() > 1) {
-            msg("<b>You must give the admin role to someone else first.");
+            msg(FMessages.ERROR_MUST_PASS_LEADERSHIP.getMessage());
             return;
         }
 
         if (!Conf.canLeaveWithNegativePower && getPower() < 0) {
-            msg("<b>You cannot leave until your power is positive.");
+            msg(FMessages.ERROR_POWER_NOT_POSITIVE.getMessage());
             return;
         }
 
-        // if economy is enabled and they're not on the bypass list, make sure
-        // they can pay
-        if (makePay && !Econ.hasAtLeast(this, Conf.econCostLeave, "to leave your faction.")) {
+        // if economy is enabled and they're not on the bypass list, make sure they can pay
+        if (makePay && !Econ.hasAtLeast(this, Conf.econCostLeave, FMessages.ERROR_NOT_ENOUGH_MONEY_TO_LEAVE.getMessage())) {
             return;
         }
 
@@ -494,7 +494,7 @@ public class FPlayer extends PlayerEntity implements EconomyParticipator {
         }
 
         // then make 'em pay (if applicable)
-        if (makePay && !Econ.modifyMoney(this, -Conf.econCostLeave, "to leave your faction.", "for leaving your faction.")) {
+        if (makePay && !Econ.modifyMoney(this, -Conf.econCostLeave, FMessages.ERROR_NOT_ENOUGH_MONEY_TO_LEAVE.getMessage(), FMessages.ERROR_NOT_ENOUGH_MONEY_FOR_LEAVING.getMessage())) {
             return;
         }
 
@@ -508,7 +508,7 @@ public class FPlayer extends PlayerEntity implements EconomyParticipator {
 
         if (myFaction.isNormal()) {
             for (FPlayer fplayer : myFaction.getFPlayersWhereOnline(true)) {
-                fplayer.msg("%s<i> left %s<i>.", this.describeTo(fplayer, true), myFaction.describeTo(fplayer));
+                fplayer.msg(FMessages.PLAYER_LEFT.getMessage(), this.describeTo(fplayer, true), myFaction.describeTo(fplayer));
             }
 
             if (Conf.logFactionLeave) {
@@ -522,7 +522,7 @@ public class FPlayer extends PlayerEntity implements EconomyParticipator {
         if (myFaction.isNormal() && !perm && myFaction.getFPlayers().isEmpty()) {
             // Remove this faction
             for (FPlayer fplayer : FPlayers.i.getOnline()) {
-                fplayer.msg("<i>%s<i> was disbanded.", myFaction.describeTo(fplayer, true));
+                fplayer.msg(FMessages.FACTION_DISBANDED.getMessage(), myFaction.describeTo(fplayer, true));
             }
 
             myFaction.detach();
@@ -540,40 +540,39 @@ public class FPlayer extends PlayerEntity implements EconomyParticipator {
         int ownedLand = forFaction.getLandRounded();
 
         if (Conf.worldGuardChecking && Worldguard.checkForRegionsInChunk(location)) {
-            // Checks for WorldGuard regions in the chunk attempting to be
-            // claimed
-            error = P.p.txt.parse("<b>This land is protected");
+            // Checks for WorldGuard regions in the chunk attempting to be claimed
+            error = P.p.txt.parse(FMessages.ERROR_LAND_PROTECTED.getMessage());
         } else if (Conf.worldsNoClaiming.contains(flocation.getWorldName())) {
-            error = P.p.txt.parse("<b>Sorry, this world has land claiming disabled.");
+            error = P.p.txt.parse(FMessages.ERROR_WORLD_NO_CLAIMING.getMessage());
         } else if (hasAdminMode()) {
             return true;
         } else if (forFaction == currentFaction) {
-            error = P.p.txt.parse("%s<i> already own this land.", forFaction.describeTo(this, true));
+            error = P.p.txt.parse(FMessages.ERROR_LAND_OWNED.getMessage(), forFaction.describeTo(this, true));
         } else if (!FPerm.TERRITORY.has(this, forFaction, true)) {
             return false;
         } else if (forFaction.getFPlayers().size() < Conf.claimsRequireMinFactionMembers) {
-            error = P.p.txt.parse("Factions must have at least <h>%s<b> members to claim land.", Conf.claimsRequireMinFactionMembers);
+            error = P.p.txt.parse(FMessages.ERROR_NOT_ENOUGH_MEMBERS_TO_CLAIM.getMessage(), Conf.claimsRequireMinFactionMembers);
         } else if (ownedLand >= forFaction.getPowerRounded()) {
-            error = P.p.txt.parse("<b>You can't claim more land! You need more power!");
+            error = P.p.txt.parse(FMessages.ERROR_NOT_ENOUGH_POWER_TO_CLAIM.getMessage());
         } else if (Conf.claimedLandsMax != 0 && ownedLand >= Conf.claimedLandsMax && !forFaction.getFlag(FFlag.INFPOWER)) {
-            error = P.p.txt.parse("<b>Limit reached. You can't claim more land!");
+            error = P.p.txt.parse(FMessages.ERROR_LAND_LIMIT_REACHED.getMessage());
         } else if (!Conf.claimingFromOthersAllowed && currentFaction.isNormal()) {
-            error = P.p.txt.parse("<b>You may not claim land from others.");
+            error = P.p.txt.parse(FMessages.ERROR_CLAIMING_FROM_OTHERS.getMessage());
         } else if (currentFaction.getRelationTo(forFaction).isAtLeast(Rel.TRUCE) && !currentFaction.isNone()) {
-            error = P.p.txt.parse("<b>You can't claim this land due to your relation with the current owner.");
+            error = P.p.txt.parse(FMessages.ERROR_CLAIM_RELATION.getMessage());
         } else if (Conf.claimsMustBeConnected && !hasAdminMode() && myFaction.getLandRoundedInWorld(flocation.getWorldName()) > 0 && !Board.isConnectedLocation(flocation, myFaction)
                 && (!Conf.claimsCanBeUnconnectedIfOwnedByOtherFaction || !currentFaction.isNormal())) {
             if (Conf.claimsCanBeUnconnectedIfOwnedByOtherFaction) {
-                error = P.p.txt.parse("<b>You can only claim additional land which is connected to your first claim or controlled by another faction!");
+                error = P.p.txt.parse(FMessages.ERROR_LAND_NOT_CONNECTED_OR_OWNED.getMessage());
             } else {
-                error = P.p.txt.parse("<b>You can only claim additional land which is connected to your first claim!");
+                error = P.p.txt.parse(FMessages.ERROR_LAND_NOT_CONNECTED.getMessage());
             }
         } else if (currentFaction.isNormal()) {
             if (!currentFaction.hasLandInflation()) {
                 // TODO more messages WARN current faction most importantly
-                error = P.p.txt.parse("%s<i> owns this land and is strong enough to keep it.", currentFaction.getTag(this));
+                error = P.p.txt.parse(FMessages.ERROR_LAND_OWNED_CAN_KEEP.getMessage(), currentFaction.getTag(this));
             } else if (!Board.isBorderLocation(flocation)) {
-                error = P.p.txt.parse("<b>You must start claiming land at the border of the territory.");
+                error = P.p.txt.parse(FMessages.ERROR_MUST_CLAIM_BORDER.getMessage());
             }
         }
 
@@ -616,7 +615,7 @@ public class FPlayer extends PlayerEntity implements EconomyParticipator {
                 payee = this;
             }
 
-            if (!Econ.hasAtLeast(payee, cost, "to claim this land")) {
+            if (!Econ.hasAtLeast(payee, cost, FMessages.ERROR_NOT_ENOUGH_MONEY_TO_CLAIM.getMessage())) {
                 return false;
             }
         }
@@ -628,7 +627,7 @@ public class FPlayer extends PlayerEntity implements EconomyParticipator {
         }
 
         // then make 'em pay (if applicable)
-        if (mustPay && !Econ.modifyMoney(payee, -cost, "to claim this land", "for claiming this land")) {
+        if (mustPay && !Econ.modifyMoney(payee, -cost, FMessages.ERROR_NOT_ENOUGH_MONEY_TO_CLAIM.getMessage(), FMessages.ERROR_NOT_ENOUGH_MONEY_FOR_CLAIMING.getMessage())) {
             return false;
         }
 
@@ -637,7 +636,7 @@ public class FPlayer extends PlayerEntity implements EconomyParticipator {
         informTheseFPlayers.add(this);
         informTheseFPlayers.addAll(forFaction.getFPlayersWhereOnline(true));
         for (FPlayer fp : informTheseFPlayers) {
-            fp.msg("<h>%s<i> claimed land for <h>%s<i> from <h>%s<i>.", this.describeTo(fp, true), forFaction.describeTo(fp), currentFaction.describeTo(fp));
+            fp.msg(FMessages.PLAYER_LAND_CLAIMED.getMessage(), this.describeTo(fp, true), forFaction.describeTo(fp), currentFaction.describeTo(fp));
         }
 
         Board.setFactionAt(forFaction, flocation);

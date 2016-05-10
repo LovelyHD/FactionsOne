@@ -1,7 +1,7 @@
 package com.massivecraft.factions.zcore.util;
 
-import com.massivecraft.factions.zcore.Lang;
 import com.massivecraft.factions.zcore.MPlugin;
+import io.github.dre2n.factionsone.config.FMessages;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -21,7 +21,7 @@ public class PermUtil {
     }
 
     public String getForbiddenMessage(String perm) {
-        return p.txt.parse(Lang.permForbidden, getPermissionDescription(perm));
+        return p.txt.parse(FMessages.ERROR_PERM_FORBIDDEN.getMessage(), getPermissionDescription(perm));
     }
 
     /**
@@ -37,7 +37,7 @@ public class PermUtil {
     public String getPermissionDescription(String perm) {
         String desc = permissionDescriptions.get(perm);
         if (desc == null) {
-            return Lang.permDoThat;
+            return FMessages.ERROR_PERM_DO_THAT.getMessage();
         }
         return desc;
     }

@@ -3,6 +3,7 @@ package com.massivecraft.factions.cmd;
 import com.massivecraft.factions.Conf;
 import com.massivecraft.factions.struct.Permission;
 import io.github.dre2n.factionsone.api.event.FactionsReloadEvent;
+import org.bukkit.Bukkit;
 
 public class CmdReload extends FCommand {
 
@@ -25,7 +26,7 @@ public class CmdReload extends FCommand {
     @Override
     public void perform() {
         FactionsReloadEvent event = new FactionsReloadEvent();
-
+        Bukkit.getServer().getPluginManager().callEvent(event);
         if (event.isCancelled()) {
             return;
         }
