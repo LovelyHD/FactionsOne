@@ -512,6 +512,17 @@ public class Faction extends Entity implements EconomyParticipator {
     }
 
     // ----------------------------------------------//
+    // Land
+    // ----------------------------------------------//
+    public Set<FLocation> getClaims() {
+        return Board.getFactionClaims(this);
+    }
+
+    public void unclaimAll() {
+        Board.unclaimAll(id);
+    }
+
+    // ----------------------------------------------//
     // Messages
     // ----------------------------------------------//
     @Override

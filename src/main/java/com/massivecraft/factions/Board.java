@@ -11,9 +11,11 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.TreeMap;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -144,6 +146,20 @@ public class Board {
             }
         }
         return ret;
+    }
+
+    public static Set<FLocation> getFactionClaims(Faction faction) {
+        Set<FLocation> claims = new HashSet<>();
+
+        Iterator<Entry<FLocation, TerritoryAccess>> iter = flocationIds.entrySet().iterator();
+        while (iter.hasNext()) {
+            Entry<FLocation, TerritoryAccess> entry = iter.next();
+            if (entry.getValue().getHostFactionID().equals(faction.getId())) {
+                claims.add(entry.getKey());
+            }
+        }
+
+        return claims;
     }
 
     // ----------------------------------------------//
