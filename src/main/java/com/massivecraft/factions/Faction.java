@@ -10,6 +10,7 @@ import com.massivecraft.factions.util.LazyLocation;
 import com.massivecraft.factions.util.MiscUtil;
 import com.massivecraft.factions.util.RelationUtil;
 import com.massivecraft.factions.zcore.persist.Entity;
+import io.github.dre2n.factionsone.config.FMessages;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumSet;
@@ -124,7 +125,7 @@ public class Faction extends Entity implements EconomyParticipator {
             return;
         }
 
-        msg("<b>Your faction home has been un-set since it is no longer in your territory.");
+        msg(FMessages.FACTION_HOME_UNSET_NOT_IN_TERRITORY.getMessage());
         home = null;
     }
 
@@ -506,7 +507,7 @@ public class Faction extends Entity implements EconomyParticipator {
                 oldLeader.setRole(Rel.MEMBER);
             }
             replacements.get(0).setRole(Rel.LEADER);
-            msg("<i>Faction leader <h>%s<i> has been removed. %s<i> has been promoted as the new faction leader.", oldLeader == null ? "" : oldLeader.getName(), replacements.get(0).getName());
+            msg(FMessages.FACTION_LEADER_REMOVED.getMessage(), oldLeader == null ? "" : oldLeader.getName(), replacements.get(0).getName());
             P.p.log("Faction " + this.getTag() + " (" + getId() + ") leader was removed. Replacement leader: " + replacements.get(0).getName());
         }
     }

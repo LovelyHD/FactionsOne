@@ -4,7 +4,7 @@ import com.massivecraft.factions.Faction;
 import com.massivecraft.factions.struct.FPerm;
 import com.massivecraft.factions.struct.Permission;
 import com.massivecraft.factions.struct.Rel;
-import com.massivecraft.factions.zcore.Lang;
+import io.github.dre2n.factionsone.config.FMessages;
 
 public class CmdPerm extends FCommand {
 
@@ -36,7 +36,7 @@ public class CmdPerm extends FCommand {
         }
         if (faction == null) {
             if (senderIsConsole) {
-                msg(Lang.commandToFewArgs);
+                msg(FMessages.ERROR_COMMAND_TOO_FEW_ARGUMENTS.getMessage());
                 sender.sendMessage(this.getUseageTemplate());
             }
             return;

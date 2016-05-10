@@ -39,8 +39,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class P extends MPlugin {
-    // Our single plugin instance
 
+    // Our single plugin instance
     public static P p;
 
     // Listeners
