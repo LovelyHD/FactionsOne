@@ -10,6 +10,11 @@ import org.bukkit.configuration.file.YamlConfiguration;
  */
 public enum FMessages implements Messages {
 
+    CMD_ACCESS_LIST1("Cmd_AccessList1", "<b>This territory isn't controlled by your faction, so you can't view the access list."),
+    CMD_ACCESS_LIST2("Cmd_AccessList2", "<b>ex. /f access p SomePlayer  -or-  /f access f SomeFaction"),
+    CMD_ACCESS_LIST3("Cmd_AccessList3", "<b>Alternately, you can use the command with nothing (or \"view\") specified to simply view the access list."),
+    CMD_ACCESS_LIST4("Cmd_AccessList4", "<i>%s has been <lime>added to<i> the access list for this territory."),
+    CMD_ACCESS_LIST5("Cmd_AccessList5", "<i>%s has been <rose>removed from<i> the access list for this territory."),
     ERROR_BANK_DISABLED("Error_BankDisabled", "<b>The faction bank system is disabled on this server."),
     ERROR_CLAIMING_FROM_OTHERS("Error_ClaimingFromOthers", "<b>You may not claim land from others."),
     ERROR_CLAIM_RELATION("Error_ClaimRelation", "<b>You can't claim this land due to your relation with the current owner."),
@@ -35,6 +40,7 @@ public enum FMessages implements Messages {
     ERROR_PERM_DO_THAT("Error_PermDoThat", Lang.permDoThat),
     ERROR_PERM_FORBIDDEN("Error_PermForbidden", Lang.permForbidden),
     ERROR_POWER_NOT_POSITIVE("Error_PowerNotPositive", "<b>You cannot leave until your power is positive."),
+    ERROR_SPECIFY_PLAYER_OR_FACTION("Error_SpecifyPlayerOrFaction", "<b>You must specify \"p\" or \"player\" to indicate a player or \"f\" or \"faction\" to indicate a faction."),
     ERROR_TAG_NOT_ALPHANUMERIC("Error_TagNotAlphanumeric", "<i>Faction tag must be alphanumeric. \"<h>%s<i>\" is not allowed."),
     ERROR_TAG_TOO_LONG("Error_TagTooLong", "<i>The faction tag can't be longer than <h>%s<i> chars."),
     ERROR_TAG_TOO_SHORT("Error_TagTooShort", "<i>The faction tag can't be shorter than <h>%s<i> chars."),
@@ -44,8 +50,7 @@ public enum FMessages implements Messages {
     FACTION_DISBANDED("Faction_Disbanded", "<i>%s<i> was disbanded."),
     FACTION_DISBANDED2("Faction_Disbanded2", "The faction %s<i> was disbanded."),
     FACTION_HOME_UNSET_NOT_IN_TERRITORY("FactionHomeUnsetNotInTerritory", "<b>Your faction home has been un-set since it is no longer in your territory."),
-    FACTION_LEADER_REMOVED("Faction_LeaderRemoved", "<i>Faction leader <h>%s<i> has been removed. %s<i> has been promoted as the new faction leader."),
-    ;
+    FACTION_LEADER_REMOVED("Faction_LeaderRemoved", "<i>Faction leader <h>%s<i> has been removed. %s<i> has been promoted as the new faction leader."),;
 
     private String identifier;
     private String message;
@@ -109,8 +114,8 @@ public enum FMessages implements Messages {
      */
     public static FileConfiguration toConfig() {
         FileConfiguration config = new YamlConfiguration();
-        for (Messages message : values()) {
-            config.set(message.getIdentifier(), message.getMessage());
+        for (FMessages message : values()) {
+            config.set(message.getIdentifier(), message.message);
         }
 
         return config;

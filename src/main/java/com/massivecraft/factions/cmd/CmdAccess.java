@@ -8,6 +8,7 @@ import com.massivecraft.factions.struct.FPerm;
 import com.massivecraft.factions.struct.Permission;
 import com.massivecraft.factions.struct.TerritoryAccess;
 import com.massivecraft.factions.zcore.util.TextUtil;
+import io.github.dre2n.factionsone.config.FMessages;
 
 public class CmdAccess extends FCommand {
 
@@ -43,7 +44,7 @@ public class CmdAccess extends FCommand {
                 return;
             }
             if (!accessAny && !territory.doesHostFactionMatch(fme)) {
-                msg("<b>This territory isn't controlled by your faction, so you can't view the access list.");
+                msg(FMessages.CMD_ACCESS_LIST1.getMessage());
                 return;
             }
             showAccessList(territory, locFaction);
@@ -61,9 +62,9 @@ public class CmdAccess extends FCommand {
         if (type.equals("f") || type.equals("faction")) {
             doPlayer = false;
         } else if (!type.equals("p") && !type.equals("player")) {
-            msg("<b>You must specify \"p\" or \"player\" to indicate a player or \"f\" or \"faction\" to indicate a faction.");
-            msg("<b>ex. /f access p SomePlayer  -or-  /f access f SomeFaction");
-            msg("<b>Alternately, you can use the command with nothing (or \"view\") specified to simply view the access list.");
+            msg(FMessages.ERROR_SPECIFY_PLAYER_OR_FACTION.getMessage());
+            msg(FMessages.CMD_ACCESS_LIST2.getMessage());
+            msg(FMessages.CMD_ACCESS_LIST3.getMessage());
             return;
         }
 
@@ -86,7 +87,12 @@ public class CmdAccess extends FCommand {
             target = "Faction \"" + targetFaction.getTag() + "\"";
         }
 
-        msg("<i>%s has been %s<i> the access list for this territory.", target, TextUtil.parseColor(added ? "<lime>added to" : "<rose>removed from"));
+        if (added) {
+            msg(FMessages.CMD_ACCESS_LIST4.getMessage(), target);
+        } else {
+            msg(FMessages.CMD_ACCESS_LIST5.getMessage(), target);
+        }
+
         showAccessList(territory, locFaction);
     }
 
