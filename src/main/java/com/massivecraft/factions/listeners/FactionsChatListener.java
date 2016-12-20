@@ -1,10 +1,17 @@
 package com.massivecraft.factions.listeners;
 
-import com.massivecraft.factions.Conf;
-import com.massivecraft.factions.FPlayer;
-import com.massivecraft.factions.FPlayers;
-import com.massivecraft.factions.P;
+import com.massivecraft.factions.*;
+import com.massivecraft.factions.struct.ChatMode;
 import com.massivecraft.factions.struct.Rel;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
+import org.bukkit.event.*;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.plugin.AuthorNagException;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.RegisteredListener;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,17 +20,10 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
-import org.bukkit.event.HandlerList;
-import org.bukkit.event.Listener;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
-import org.bukkit.plugin.AuthorNagException;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.RegisteredListener;
+
+import static com.massivecraft.factions.struct.ChatMode.FACTION;
+import static com.massivecraft.factions.struct.ChatMode.PUBLIC;
+import static com.massivecraft.factions.struct.Rel.ALLY;
 
 public class FactionsChatListener implements Listener {
 
@@ -55,10 +55,45 @@ public class FactionsChatListener implements Listener {
         if (Conf.chatSetFormat) {
             event.setFormat(Conf.chatSetFormatTo);
         }
+
+        FPlayer fPlayer = FPlayers.i.get(event.getPlayer());
+        Faction faction = fPlayer.getFaction();
+        ChatMode chatMode = fPlayer.getChatMode();
+        String message = event.getMessage();
+
+        if (chatMode == PUBLIC) {
+            return;
+        }
+
+        event.setCancelled(true);
+
+        if (chatMode == FACTION) {
+            faction.getFPlayers().forEach(member -> {
+                if (member.isOnline()) {
+                    member.msg(ChatColor.GREEN + "[Faction] " + fPlayer.getName() + ": " + message);
+                }
+            });
+
+            return;
+        }
+
+        messageRelation(fPlayer, chatMode, ALLY, message);
+    }
+
+    private void messageRelation(FPlayer sender, ChatMode mode, Rel rel, String message) {
+        Faction faction = sender.getFaction();
+
+        sender.msg(sender.getColorTo(sender) + "[" + mode.getDisplayName() + "] " + sender.getName() + ": " + message);
+        FPlayers.i.getOnline().forEach(fPlayer -> {
+            if (fPlayer.getRelationTo(faction) == rel) {
+                fPlayer.msg(sender.getColorTo(faction) + "[" + mode.getDisplayName() + "] " + fPlayer.getName() + ": " + message);
+            }
+        });
     }
 
     // this is for handling insertion of the player's faction tag, set at
     // highest priority to give other plugins a chance to modify chat first
+
     /**
      * At the Highest event priority we apply chat formating. Relation colored faction tags may or
      * may not be disabled (Conf.chatParseTagsColored) If color is disabled it works flawlessly. If

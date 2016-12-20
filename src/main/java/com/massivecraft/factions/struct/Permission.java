@@ -9,6 +9,7 @@ public enum Permission {
     ACCESS_VIEW("access.view"),
     ADMIN("adminmode"),
     AUTOCLAIM("autoclaim"),
+    CHAT("chat"),
     CAPE("cape"),
     CAPE_GET("cape.get"),
     CAPE_SET("cape.set"),

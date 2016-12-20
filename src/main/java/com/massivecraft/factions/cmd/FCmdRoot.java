@@ -10,6 +10,7 @@ public class FCmdRoot extends FCommand {
     public CmdLeader cmdLeader = new CmdLeader();
     public CmdAutoClaim cmdAutoClaim = new CmdAutoClaim();
     public CmdAdmin cmdBypass = new CmdAdmin();
+    public CmdChat cmdChat = new CmdChat();
     public CmdClaim cmdClaim = new CmdClaim();
     public CmdConfig cmdConfig = new CmdConfig();
     public CmdCreate cmdCreate = new CmdCreate();
@@ -87,6 +88,7 @@ public class FCmdRoot extends FCommand {
         addSubCommand(cmdDeinvite);
         addSubCommand(cmdOpen);
         addSubCommand(cmdMoney);
+        addSubCommand(cmdChat);
         addSubCommand(cmdClaim);
         addSubCommand(cmdAutoClaim);
         addSubCommand(cmdUnclaim);

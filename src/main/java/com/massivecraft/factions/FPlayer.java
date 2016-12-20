@@ -6,19 +6,21 @@ import com.massivecraft.factions.iface.EconomyParticipator;
 import com.massivecraft.factions.iface.RelationParticipator;
 import com.massivecraft.factions.integration.Econ;
 import com.massivecraft.factions.integration.Worldguard;
+import com.massivecraft.factions.struct.ChatMode;
 import com.massivecraft.factions.struct.FFlag;
 import com.massivecraft.factions.struct.FPerm;
 import com.massivecraft.factions.struct.Rel;
 import com.massivecraft.factions.util.RelationUtil;
 import com.massivecraft.factions.zcore.persist.PlayerEntity;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
 
 /**
  * Logged in players always have exactly one FPlayer instance. Logged out players may or may not
@@ -67,6 +69,17 @@ public class FPlayer extends PlayerEntity implements EconomyParticipator {
         }
         faction.addFPlayer(this);
         factionId = faction.getId();
+    }
+
+    //FIELD: chat
+    private ChatMode chatMode = ChatMode.PUBLIC;
+
+    public ChatMode getChatMode() {
+        return chatMode;
+    }
+
+    public void setChatMode(ChatMode chatMode) {
+        this.chatMode = chatMode;
     }
 
     // FIELD: role
@@ -425,7 +438,7 @@ public class FPlayer extends PlayerEntity implements EconomyParticipator {
     }
 
     /* public boolean isInOthersTerritory() { Faction factionHere = Board.getFactionAt(new
-	 * FLocation(this)); return factionHere != null && factionHere.isNormal() && factionHere !=
+     * FLocation(this)); return factionHere != null && factionHere.isNormal() && factionHere !=
 	 * this.getFaction(); } */
  /* public boolean isInAllyTerritory() { return Board.getFactionAt(new
 	 * FLocation(this)).getRelationTo(this) == Rel.ALLY; } */
