@@ -29,7 +29,7 @@ public class CmdClaim extends FCommand {
     public void perform() {
         // Read and validate input
         int radius = this.argAsInt(0, 1);
-        final Faction forFaction = this.argAsFaction(1, myFaction);
+        Faction forFaction = this.argAsFaction(1, myFaction);
 
         if (radius < 1) {
             msg("<b>If you specify a radius, it must be at least 1.");
@@ -65,5 +65,4 @@ public class CmdClaim extends FCommand {
             };
         }
     }
-
 }
