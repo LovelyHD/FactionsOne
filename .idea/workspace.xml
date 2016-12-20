@@ -2,9 +2,141 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ecfe709-f1f6-453e-a026-d586bed348cc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/Conf.class" afterPath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/Conf.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdUnclaim.class" afterPath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdUnclaim.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/struct/Permission.class" afterPath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/struct/Permission.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/Board$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/Board.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/Conf.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/FLocation.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/FPlayer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/FPlayers$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/FPlayers.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/Faction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/Factions$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/Factions.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/P.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/Patch.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/adapters/FFlagTypeAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/adapters/FPermTypeAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/adapters/LocationTypeAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/adapters/RelTypeAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdAccess.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdAdmin.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdAutoClaim.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdAutoHelp.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdClaim$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdClaim.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdCreate.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdDeinvite.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdDemote.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdDescription.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdDisband.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdFlag.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdHelp.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdHome.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdInvite.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdJoin.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdKick.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdLeader.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdLeave.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdList$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdList$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdList.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdLock.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdMap.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdMoney.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdMoneyBalance.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdMoneyDeposit.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdMoneyTransferFf.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdMoneyTransferFp.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdMoneyTransferPf.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdMoneyWithdraw.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdOfficer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdOpen.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdPerm.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdPower.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdPowerBoost.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdPromote.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdRelationAlly.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdRelationEnemy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdRelationNeutral.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdRelationTruce.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdReload.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdSaveAll.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdSeeChunk.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdSethome.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdShow.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdTag.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdTitle.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdUnclaim.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdUnclaimall.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdVersion.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/FCmdRoot.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/FCommand.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/FRelationCommand.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/event/FPlayerJoinEvent$PlayerJoinReason.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/event/FPlayerJoinEvent.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/event/FPlayerLeaveEvent$PlayerLeaveReason.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/event/FPlayerLeaveEvent.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/event/FactionCreateEvent.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/event/FactionDisbandEvent.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/event/FactionRelationEvent.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/event/FactionRenameEvent.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/event/LandClaimEvent.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/event/LandUnclaimAllEvent.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/event/LandUnclaimEvent.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/event/PowerLossEvent.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/iface/EconomyParticipator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/iface/RelationParticipator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/integration/Econ.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/integration/Essentials.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/integration/Worldguard.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/listeners/FactionsBlockListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/listeners/FactionsChatListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/listeners/FactionsEntityListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/listeners/FactionsExploitListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/listeners/FactionsPlayerListener$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/listeners/FactionsPlayerListener$InteractAttemptSpam.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/listeners/FactionsPlayerListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/listeners/FactionsServerListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/struct/FFlag.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/struct/FPerm.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/struct/Permission.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/struct/Rel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/struct/TerritoryAccess.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/util/AsciiCompass$Point.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/util/AsciiCompass.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/util/AutoLeaveProcessTask.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/util/AutoLeaveTask.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/util/EconLandRewardTask.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/util/LazyLocation.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/util/MiscUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/util/RelationUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/util/SpiralTask.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/util/VisualizeUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/CommandVisibility.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/Lang.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/MCommand.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/MPlugin$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/MPlugin.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/MPluginSecretPlayerListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/persist/EM.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/persist/Entity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/persist/EntityCollection.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/persist/PlayerEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/persist/PlayerEntityCollection.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/persist/SaveTask.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/util/ClassLoadHack.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/util/DiscUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/util/LibLoader.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/util/PermUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/util/Persist.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/util/SmokeUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/util/TextUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/util/UUIDFetcher.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/util/WorldUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/io/github/dre2n/factionsone/api/Placeholders.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/io/github/dre2n/factionsone/api/event/FactionsReloadEvent.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/3.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdAdmin.java" afterPath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdAdmin.java" />
     </list>
@@ -110,8 +242,8 @@
       <file leaf-file-name="CmdAdmin.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdAdmin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+            <state relative-caret-position="374">
+              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -767,7 +899,14 @@
       <option name="project" value="LOCAL" />
       <updated>1482224910457</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added /f bypass as an alias of /f admin">
+      <created>1482225279688</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1482225279688</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -805,7 +944,8 @@
     <MESSAGE value="Initial commit + converted from maven to gradle" />
     <MESSAGE value="changed the argument order in /f claim&#10;&#10;from:&#10;/f claim (optional&lt;tag&gt;) (optional&lt;radius&gt;) &#10;&#10;to:&#10;/f claim (optional&lt;radius&gt;) (optional&lt;tag&gt;)" />
     <MESSAGE value="Added ability to unclaim radius" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ability to unclaim radius" />
+    <MESSAGE value="added /f bypass as an alias of /f admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="added /f bypass as an alias of /f admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -994,8 +1134,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdAdmin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+        <state relative-caret-position="374">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding />
         </state>
       </provider>

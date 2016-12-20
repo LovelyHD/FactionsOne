@@ -24,13 +24,9 @@ public class CmdAdmin extends FCommand {
     @Override
     public void perform() {
         fme.setHasAdminMode(argAsBool(0, !fme.hasAdminMode()));
+        String status = fme.hasAdminMode() ? "enabled" : "disabled";
 
-        if (fme.hasAdminMode()) {
-            fme.msg("<i>You have enabled admin bypass mode.");
-            P.p.log(fme.getName() + " has ENABLED admin bypass mode.");
-        } else {
-            fme.msg("<i>You have disabled admin bypass mode.");
-            P.p.log(fme.getName() + " DISABLED admin bypass mode.");
-        }
+        fme.msg("<i>You have " + status + " admin bypass mode.");
+        P.p.log(fme.getName() + " " + status.toUpperCase() + " admin bypass mode.");
     }
 }
