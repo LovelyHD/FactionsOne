@@ -13,8 +13,8 @@ public class CmdClaim extends FCommand {
         aliases.add("claim");
 
         // this.requiredArgs.add("");
-        optionalArgs.put("faction", "your");
         optionalArgs.put("radius", "1");
+        optionalArgs.put("faction", "your");
 
         permission = Permission.CLAIM.node;
         disableOnLock = true;
@@ -28,8 +28,8 @@ public class CmdClaim extends FCommand {
     @Override
     public void perform() {
         // Read and validate input
-        final Faction forFaction = this.argAsFaction(0, myFaction);
-        int radius = this.argAsInt(1, 1);
+        int radius = this.argAsInt(0, 1);
+        final Faction forFaction = this.argAsFaction(1, myFaction);
 
         if (radius < 1) {
             msg("<b>If you specify a radius, it must be at least 1.");
