@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
 
 import static com.massivecraft.factions.struct.ChatMode.FACTION;
 import static com.massivecraft.factions.struct.ChatMode.PUBLIC;
-import static com.massivecraft.factions.struct.Rel.ALLY;
+import static com.massivecraft.factions.struct.Rel.MEMBER;
 
 public class FactionsChatListener implements Listener {
 
@@ -68,25 +68,30 @@ public class FactionsChatListener implements Listener {
         event.setCancelled(true);
 
         if (chatMode == FACTION) {
+            String prefix = "[Faction] ";
+            String role = fPlayer.getRole().getPrefix() + fPlayer.getTag() + " ";
+
             faction.getFPlayers().forEach(member -> {
                 if (member.isOnline()) {
-                    member.msg(ChatColor.GREEN + "[Faction] " + fPlayer.getName() + ": " + message);
+                    member.msg(MEMBER.getColor() + prefix + role + fPlayer.getName() + ": " + message);
                 }
             });
-
             return;
         }
 
-        messageRelation(fPlayer, chatMode, ALLY, message);
+        messageRelation(fPlayer, chatMode, message);
     }
 
-    private void messageRelation(FPlayer sender, ChatMode mode, Rel rel, String message) {
+    private void messageRelation(FPlayer sender, ChatMode mode, String message) {
         Faction faction = sender.getFaction();
+        String prefix = "[" + mode.getDisplayName() + "] ";
+        String role = sender.getRole().getPrefix() + sender.getTag() + " ";
+        ChatColor color = mode.getRel().getColor();
 
-        sender.msg(sender.getColorTo(sender) + "[" + mode.getDisplayName() + "] " + sender.getName() + ": " + message);
+        sender.msg(color + prefix + role + sender.getName() + ": " + message);
         FPlayers.i.getOnline().forEach(fPlayer -> {
-            if (fPlayer.getRelationTo(faction) == rel) {
-                fPlayer.msg(sender.getColorTo(faction) + "[" + mode.getDisplayName() + "] " + fPlayer.getName() + ": " + message);
+            if (fPlayer.getRelationTo(faction) == mode.getRel()) {
+                fPlayer.msg(color + prefix + role + sender.getName() + ": " + message);
             }
         });
     }

@@ -1,17 +1,24 @@
 package com.massivecraft.factions.struct;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import static org.apache.commons.lang.WordUtils.capitalizeFully;
 
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public enum ChatMode {
     FACTION,
-    ALLY,
-    TRUCE,
+    ALLY(Rel.ALLY),
+    TRUCE(Rel.TRUCE),
     PUBLIC;
 
-    private static ChatMode[] modes = values();
+    private Rel rel;
 
     public ChatMode next() {
-        return modes[(ordinal() + 1) % modes.length];
+        return values()[(ordinal() + 1) % values().length];
     }
 
     public String getDisplayName() {
