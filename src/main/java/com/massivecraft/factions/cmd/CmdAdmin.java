@@ -8,8 +8,8 @@ public class CmdAdmin extends FCommand {
     public CmdAdmin() {
         super();
         aliases.add("admin");
+        aliases.add("bypass");
 
-        // this.requiredArgs.add("");
         optionalArgs.put("on/off", "flip");
 
         permission = Permission.ADMIN.node;
@@ -23,7 +23,7 @@ public class CmdAdmin extends FCommand {
 
     @Override
     public void perform() {
-        fme.setHasAdminMode(this.argAsBool(0, !fme.hasAdminMode()));
+        fme.setHasAdminMode(argAsBool(0, !fme.hasAdminMode()));
 
         if (fme.hasAdminMode()) {
             fme.msg("<i>You have enabled admin bypass mode.");
@@ -33,5 +33,4 @@ public class CmdAdmin extends FCommand {
             P.p.log(fme.getName() + " DISABLED admin bypass mode.");
         }
     }
-
 }
