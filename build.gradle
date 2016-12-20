@@ -1,0 +1,35 @@
+group 'org.mcdevs'
+version '1.0.0'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+task fatJar(type: Jar) {
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+/*    maven { url 'http://nexus.theyeticave.net/content/repositories/pub_releases' }
+    maven { url 'http://repo.ess3.net/content/groups/essentials' }
+    maven { url 'http://maven.sk89q.com/artifactory/repo/' }
+    maven { url 'http://feuerstern.bplaced.net/repo/' }*/
+}
+
+dependencies {
+    compileOnly "org.projectlombok:lombok:1.16.8"
+
+    compile group: 'org.spigotmc', name: 'spigot-api', version:'1.10.2-R0.1-SNAPSHOT'
+/*    compile group: 'net.milkbowl.vault', name: 'VaultAPI', version: '1.5'
+    compile group: 'com.sk89q', name: 'worldguard', version: '6.1'
+    compile group: 'com.sk89q.worldedit', name: 'worldedit', version: '6.1'
+    compile group: 'net.ess3', name: 'Essentials', version: '2.13.1'
+    compile group: 'net.ess3', name: 'EssentialsChat', version: '2.13.1'
+    compile group: 'io.github.dre2n', name: 'commons', version: '1.0'*/
+    compile fileTree(dir: 'lib', include: '*.jar')
+}
