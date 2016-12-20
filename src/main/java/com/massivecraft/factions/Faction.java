@@ -55,6 +55,15 @@ public class Faction extends Entity implements EconomyParticipator {
         warps.add(warp);
     }
 
+    public void removeWarp(Warp warp) {
+        warps.remove(warp);
+    }
+
+    public Optional<Warp> getWarp(String name) {
+        return warps.stream().filter(warp -> warp.getName().equalsIgnoreCase(name)).findFirst();
+    }
+
+
     // FIELD: open
     private boolean open;
 
@@ -629,6 +638,10 @@ public class Faction extends Entity implements EconomyParticipator {
     @Deprecated
     public boolean isSafeZone() {
         return !getFlag(FFlag.EXPLOSIONS);
+    }
+
+    public boolean isWilderness() {
+        return getId().equals("0");
     }
 
     // ----------------------------------------------//
