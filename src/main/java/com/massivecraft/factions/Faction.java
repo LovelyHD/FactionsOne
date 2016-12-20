@@ -6,22 +6,17 @@ import com.massivecraft.factions.integration.Econ;
 import com.massivecraft.factions.struct.FFlag;
 import com.massivecraft.factions.struct.FPerm;
 import com.massivecraft.factions.struct.Rel;
+import com.massivecraft.factions.struct.Warp;
 import com.massivecraft.factions.util.LazyLocation;
 import com.massivecraft.factions.util.MiscUtil;
 import com.massivecraft.factions.util.RelationUtil;
 import com.massivecraft.factions.zcore.persist.Entity;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import lombok.Getter;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+
+import java.util.*;
 
 public class Faction extends Entity implements EconomyParticipator {
     // FIELD: relationWish
@@ -50,6 +45,14 @@ public class Faction extends Entity implements EconomyParticipator {
 
     public boolean isInvited(FPlayer fplayer) {
         return invites.contains(fplayer.getId());
+    }
+
+    //FIELD: warps
+    @Getter
+    private List<Warp> warps;
+
+    public void addWarp(Warp warp) {
+        warps.add(warp);
     }
 
     // FIELD: open
@@ -193,7 +196,7 @@ public class Faction extends Entity implements EconomyParticipator {
     }
 
     /* public void addPermittedRelation(FPerm perm, Rel rel) { Set<Rel> newPermittedRelations =
-	 * EnumSet.noneOf(Rel.class); newPermittedRelations.addAll(this.getPermittedRelations(perm));
+     * EnumSet.noneOf(Rel.class); newPermittedRelations.addAll(this.getPermittedRelations(perm));
 	 * newPermittedRelations.add(rel); this.setPermittedRelations(perm, newPermittedRelations); }
 	 * 
 	 * public void removePermittedRelation(FPerm perm, Rel rel) { Set<Rel> newPermittedRelations =
@@ -237,6 +240,7 @@ public class Faction extends Entity implements EconomyParticipator {
         powerBoost = 0.0;
         flagOverrides = new LinkedHashMap<>();
         permOverrides = new LinkedHashMap<>();
+        warps = new ArrayList<>();
     }
 
     // -------------------------------
@@ -586,6 +590,7 @@ public class Faction extends Entity implements EconomyParticipator {
     // ----------------------------------------------//
     // Deprecated
     // ----------------------------------------------//
+
     /**
      * @deprecated As of release 1.7, replaced by {@link #getFPlayerLeader()}
      */

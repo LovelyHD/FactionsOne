@@ -8,6 +8,7 @@ public class FCmdRoot extends FCommand {
 
     public CmdAccess cmdAccess = new CmdAccess();
     public CmdLeader cmdLeader = new CmdLeader();
+    public CmdCoLeader cmdCoLeader = new CmdCoLeader();
     public CmdAutoClaim cmdAutoClaim = new CmdAutoClaim();
     public CmdAdmin cmdBypass = new CmdAdmin();
     public CmdChat cmdChat = new CmdChat();
@@ -48,6 +49,7 @@ public class FCmdRoot extends FCommand {
     public CmdUnclaim cmdUnclaim = new CmdUnclaim();
     public CmdUnclaimall cmdUnclaimall = new CmdUnclaimall();
     public CmdVersion cmdVersion = new CmdVersion();
+    public CmdWarp cmdWarp = new CmdWarp();
 
     public FCmdRoot() {
         super();
@@ -97,6 +99,7 @@ public class FCmdRoot extends FCommand {
         addSubCommand(cmdKick);
         addSubCommand(cmdOfficer);
         addSubCommand(cmdLeader);
+        addSubCommand(cmdCoLeader);
         addSubCommand(cmdTitle);
         addSubCommand(cmdMap);
         addSubCommand(cmdSeeChunks);
@@ -113,6 +116,7 @@ public class FCmdRoot extends FCommand {
         addSubCommand(cmdConfig);
         addSubCommand(cmdSaveAll);
         addSubCommand(cmdVersion);
+        addSubCommand(cmdWarp);
     }
 
     @Override

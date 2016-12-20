@@ -32,6 +32,7 @@ public enum Permission {
     JOIN_OTHERS("join.others"),
     KICK("kick"),
     LEADER("leader"),
+    COLEADER("coleader"),
     LEADER_ANY("leader.any"),
     LEAVE("leave"),
     LIST("list"),
