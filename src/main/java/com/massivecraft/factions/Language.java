@@ -2,6 +2,7 @@ package com.massivecraft.factions;
 
 import com.massivecraft.factions.iface.EconomyParticipator;
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 
@@ -26,6 +27,10 @@ public enum Language {
     WARP_EMPTY("&8[&cGW&8] &7Your faction does not have any warps to display."),
     WARP_ACCESS_CHANGED("&8[&cGW&8] &7%player% has been %state% from this warp."),
 
+    TAG_IN_USE("&8[&cGW&8] &7That faction tag is already in use!"),
+
+    VERSION("&8[&cGW&8] &7Factions version %version%"),
+
     CHAT_MODE_CHANGED("&8[&cGW&8] &7Your chat mode has been changed to %mode%"),
     CHAT_MODE_INVALID("&8[&cGW&8] &7That chat mode doesn't exist!"),
 
@@ -40,6 +45,10 @@ public enum Language {
 
     public void sendTo(EconomyParticipator participator, String... args) {
         stream(messages).forEach(message -> participator.msg(replaceArguments(message, args)));
+    }
+
+    public void sendTo(CommandSender sender, String... args) {
+        stream(messages).forEach(message -> sender.sendMessage(replaceArguments(message, args)));
     }
 
     public static void load(Plugin plugin) {

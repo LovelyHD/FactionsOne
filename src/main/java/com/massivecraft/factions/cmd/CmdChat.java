@@ -9,7 +9,7 @@ public class CmdChat extends FCommand {
         aliases.add("c");
         aliases.add("chat");
 
-        optionalArgs.put("mode", "next");
+        optionalArgs.put("mode", "chat mode");
 
         permission = Permission.CHAT.node;
         disableOnLock = false;

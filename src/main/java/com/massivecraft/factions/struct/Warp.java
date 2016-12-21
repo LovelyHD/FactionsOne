@@ -15,7 +15,7 @@ public class Warp {
     private final String name;
     private final LazyLocation destination;
     private final String password;
-    private final List<UUID> accessors = new ArrayList<>();
+    private final List<UUID> cache = new ArrayList<>();
 
     public Warp(String name, Player player, String password) {
         this.name = name;
@@ -32,15 +32,15 @@ public class Warp {
     }
 
     public boolean hasAccess(UUID uniqueId) {
-        return accessors.contains(uniqueId);
+        return cache.contains(uniqueId);
     }
 
     public void remember(UUID uniqueId) {
-        accessors.add(uniqueId);
+        cache.add(uniqueId);
     }
 
     public void forget(UUID uniqueId) {
-        accessors.remove(uniqueId);
+        cache.remove(uniqueId);
     }
 
     public void teleport(Player player) {

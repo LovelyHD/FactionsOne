@@ -4,7 +4,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class EM {
-
     public static Map<Class<? extends Entity>, EntityCollection<? extends Entity>> class2Entities = new LinkedHashMap<>();
 
     @SuppressWarnings("unchecked")
@@ -21,41 +20,32 @@ public class EM {
     // -------------------------------------------- //
     @SuppressWarnings("unchecked")
     public static <T extends Entity> void attach(T entity) {
-        EntityCollection<T> ec = (EntityCollection<T>) getEntitiesCollectionForEntityClass(entity.getClass());
-        ec.attach(entity);
+        ((EntityCollection<T>) getEntitiesCollectionForEntityClass(entity.getClass())).attach(entity);
     }
 
     @SuppressWarnings("unchecked")
     public static <T extends Entity> void detach(T entity) {
-        EntityCollection<T> ec = (EntityCollection<T>) getEntitiesCollectionForEntityClass(entity.getClass());
-        ec.detach(entity);
+        ((EntityCollection<T>) getEntitiesCollectionForEntityClass(entity.getClass())).detach(entity);
     }
 
     @SuppressWarnings("unchecked")
     public static <T extends Entity> boolean attached(T entity) {
-        EntityCollection<T> ec = (EntityCollection<T>) getEntitiesCollectionForEntityClass(entity.getClass());
-        return ec.attached(entity);
+        return ((EntityCollection<T>) getEntitiesCollectionForEntityClass(entity.getClass())).attached(entity);
     }
 
     @SuppressWarnings("unchecked")
     public static <T extends Entity> boolean detached(T entity) {
-        EntityCollection<T> ec = (EntityCollection<T>) getEntitiesCollectionForEntityClass(entity.getClass());
-        return ec.detached(entity);
+        return ((EntityCollection<T>) getEntitiesCollectionForEntityClass(entity.getClass())).detached(entity);
     }
 
     // -------------------------------------------- //
     // DISC
     // -------------------------------------------- //
     public static void saveAllToDisc() {
-        for (EntityCollection<? extends Entity> ec : class2Entities.values()) {
-            ec.saveToDisc();
-        }
+        class2Entities.values().forEach(EntityCollection::saveToDisc);
     }
 
     public static void loadAllFromDisc() {
-        for (EntityCollection<? extends Entity> ec : class2Entities.values()) {
-            ec.loadFromDisc();
-        }
+        class2Entities.values().forEach(EntityCollection::loadFromDisc);
     }
-
 }

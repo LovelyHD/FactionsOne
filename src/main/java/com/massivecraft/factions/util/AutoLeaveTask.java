@@ -4,9 +4,8 @@ import com.massivecraft.factions.Conf;
 import com.massivecraft.factions.P;
 
 public class AutoLeaveTask implements Runnable {
-
     private static AutoLeaveProcessTask task;
-    double rate;
+    private final double rate;
 
     public AutoLeaveTask() {
         rate = Conf.autoLeaveRoutineRunsEveryXMinutes;
@@ -26,5 +25,4 @@ public class AutoLeaveTask implements Runnable {
             P.p.startAutoLeaveTask(true);
         }
     }
-
 }

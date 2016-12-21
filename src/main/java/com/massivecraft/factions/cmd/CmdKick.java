@@ -92,5 +92,4 @@ public class CmdKick extends FCommand {
         yourFaction.deinvite(you);
         you.resetFactionData();
     }
-
 }

@@ -3,6 +3,7 @@ package com.massivecraft.factions.cmd;
 import com.massivecraft.factions.Conf;
 import com.massivecraft.factions.Faction;
 import com.massivecraft.factions.Factions;
+import com.massivecraft.factions.Language;
 import com.massivecraft.factions.event.FactionRenameEvent;
 import com.massivecraft.factions.struct.Permission;
 import com.massivecraft.factions.util.MiscUtil;
@@ -11,12 +12,10 @@ import org.bukkit.Bukkit;
 import java.util.ArrayList;
 
 public class CmdTag extends FCommand {
-
     public CmdTag() {
         aliases.add("tag");
 
         requiredArgs.add("new tag");
-        // this.optionalArgs.put("", "");
 
         permission = Permission.TAG.node;
         disableOnLock = true;
@@ -33,7 +32,7 @@ public class CmdTag extends FCommand {
 
         // TODO does not first test cover selfcase?
         if (Factions.i.isTagTaken(tag) && !MiscUtil.getComparisonString(tag).equals(myFaction.getComparisonTag())) {
-            msg("<b>That tag is already taken");
+            Language.TAG_IN_USE.sendTo(sender);
             return;
         }
 

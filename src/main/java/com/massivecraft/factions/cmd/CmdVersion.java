@@ -1,5 +1,6 @@
 package com.massivecraft.factions.cmd;
 
+import com.massivecraft.factions.Language;
 import com.massivecraft.factions.P;
 import com.massivecraft.factions.struct.Permission;
 
@@ -20,6 +21,7 @@ public class CmdVersion extends FCommand {
 
     @Override
     public void perform() {
-        msg("<i>You are running " + P.p.getDescription().getFullName());
+        Language.VERSION.sendTo(sender,
+                "%version%", P.p.getDescription().getFullName());
     }
 }

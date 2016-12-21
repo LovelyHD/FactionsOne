@@ -1,38 +1,42 @@
 package com.massivecraft.factions.struct;
 
-import com.massivecraft.factions.Board;
-import com.massivecraft.factions.Conf;
-import com.massivecraft.factions.FLocation;
-import com.massivecraft.factions.FPlayer;
-import com.massivecraft.factions.FPlayers;
-import com.massivecraft.factions.Faction;
-import com.massivecraft.factions.P;
+import com.massivecraft.factions.*;
 import com.massivecraft.factions.iface.RelationParticipator;
+import org.bukkit.Location;
+import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.entity.Player;
+
 import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Set;
-import org.bukkit.Location;
-import org.bukkit.command.ConsoleCommandSender;
-import org.bukkit.entity.Player;
 
 /**
  * Permissions that you (a player) may or may not have in the territory of a certain faction. Each
  * faction have many Rel's assigned to each one of these Perms.
  */
 public enum FPerm {
-    BUILD("build", "edit the terrain", Rel.LEADER, Rel.OFFICER, Rel.MEMBER, Rel.RECRUIT, Rel.ALLY), PAINBUILD("painbuild", "edit, take damage"), DOOR("door", "use doors", Rel.LEADER, Rel.OFFICER,
-            Rel.MEMBER, Rel.RECRUIT, Rel.ALLY), BUTTON("button", "use stone buttons", Rel.LEADER, Rel.OFFICER, Rel.MEMBER, Rel.RECRUIT, Rel.ALLY), LEVER("lever", "use levers", Rel.LEADER,
-            Rel.OFFICER, Rel.MEMBER, Rel.RECRUIT, Rel.ALLY), CONTAINER("container", "use containers", Rel.LEADER, Rel.OFFICER, Rel.MEMBER), INVITE("invite", "invite players", Rel.LEADER, Rel.OFFICER), KICK(
-            "kick", "kick members", Rel.LEADER, Rel.OFFICER), SETHOME("sethome", "set the home", Rel.LEADER, Rel.OFFICER), WITHDRAW("withdraw", "withdraw money", Rel.LEADER, Rel.OFFICER), TERRITORY(
-            "territory", "claim or unclaim", Rel.LEADER, Rel.OFFICER), CAPE("cape", "set the cape", Rel.LEADER, Rel.OFFICER), ACCESS("access", "grant territory", Rel.LEADER, Rel.OFFICER), DISBAND(
-            "disband", "disband the faction", Rel.LEADER), PERMS("perms", "manage permissions", Rel.LEADER),;
+    BUILD("build", "edit the terrain", Rel.LEADER, Rel.OFFICER, Rel.MEMBER, Rel.RECRUIT, Rel.ALLY),
+    PAINBUILD("painbuild", "edit, take damage"),
+    DOOR("door", "use doors", Rel.LEADER, Rel.OFFICER, Rel.MEMBER, Rel.RECRUIT, Rel.ALLY),
+    BUTTON("button", "use stone buttons", Rel.LEADER, Rel.OFFICER, Rel.MEMBER, Rel.RECRUIT, Rel.ALLY),
+    LEVER("lever", "use levers", Rel.LEADER, Rel.OFFICER, Rel.MEMBER, Rel.RECRUIT, Rel.ALLY),
+    CONTAINER("container", "use containers", Rel.LEADER, Rel.OFFICER, Rel.MEMBER),
+    INVITE("invite", "invite players", Rel.LEADER, Rel.OFFICER),
+    KICK("kick", "kick members", Rel.LEADER, Rel.OFFICER),
+    SETHOME("sethome", "set the home", Rel.LEADER, Rel.OFFICER),
+    WITHDRAW("withdraw", "withdraw money", Rel.LEADER, Rel.OFFICER),
+    TERRITORY("territory", "claim or unclaim", Rel.LEADER, Rel.OFFICER),
+    CAPE("cape", "set the cape", Rel.LEADER, Rel.OFFICER),
+    ACCESS("access", "grant territory", Rel.LEADER, Rel.OFFICER),
+    DISBAND("disband", "disband the faction", Rel.LEADER),
+    PERMS("perms", "manage permissions", Rel.LEADER),;
 
     private final String nicename;
     private final String desc;
     public final Set<Rel> defaultDefaultValue;
 
-    private FPerm(final String nicename, final String desc, final Rel... rels) {
+    FPerm(final String nicename, final String desc, final Rel... rels) {
         this.nicename = nicename;
         this.desc = desc;
         defaultDefaultValue = new HashSet<>();
