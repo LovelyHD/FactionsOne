@@ -1,5 +1,6 @@
 package com.massivecraft.factions.cmd;
 
+import com.massivecraft.factions.Conf;
 import com.massivecraft.factions.Faction;
 import com.massivecraft.factions.struct.Warp;
 
@@ -34,6 +35,11 @@ public class CmdWarpCreate extends FCommand {
         }
 
         Faction faction = fme.getFaction();
+
+        if(faction.getWarps().size() == Conf.factionWarpLimit) {
+            fme.msg("<i>You have reached the faction warp limit");
+            return;
+        }
 
         if (!fme.isInOwnTerritory()) {
             fme.msg("<i>You are not in your own territory.");

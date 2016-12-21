@@ -11,7 +11,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 public class Essentials {
-
     private static IEssentials essentials;
 
     public static void setup() {
@@ -37,5 +36,4 @@ public class Essentials {
         }
         return true;
     }
-
 }

@@ -68,6 +68,8 @@ public class Conf {
     // default is 0, no limit
     public static int factionMemberLimit = 0;
 
+    public static int factionWarpLimit = 5;
+
     // what faction ID to start new players in when they first join the server;
     // default is 0, "no faction"
     public static String newPlayerStartingFactionID = "0";

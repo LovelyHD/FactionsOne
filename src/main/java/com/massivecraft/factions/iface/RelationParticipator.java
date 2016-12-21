@@ -4,15 +4,13 @@ import com.massivecraft.factions.struct.Rel;
 import org.bukkit.ChatColor;
 
 public interface RelationParticipator {
+    String describeTo(RelationParticipator observer);
 
-    public String describeTo(RelationParticipator observer);
+    String describeTo(RelationParticipator observer, boolean ucfirst);
 
-    public String describeTo(RelationParticipator observer, boolean ucfirst);
+    Rel getRelationTo(RelationParticipator observer);
 
-    public Rel getRelationTo(RelationParticipator observer);
+    Rel getRelationTo(RelationParticipator observer, boolean ignorePeaceful);
 
-    public Rel getRelationTo(RelationParticipator observer, boolean ignorePeaceful);
-
-    public ChatColor getColorTo(RelationParticipator observer);
-
+    ChatColor getColorTo(RelationParticipator observer);
 }

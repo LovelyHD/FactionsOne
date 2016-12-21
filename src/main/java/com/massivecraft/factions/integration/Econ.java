@@ -19,7 +19,6 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
 public class Econ {
-
     private static Economy econ = null;
 
     public static void setup() {

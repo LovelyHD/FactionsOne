@@ -1,14 +1,9 @@
 package com.massivecraft.factions.adapters;
 
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
+import com.google.gson.*;
 import com.massivecraft.factions.P;
 import com.massivecraft.factions.util.LazyLocation;
+
 import java.lang.reflect.Type;
 import java.util.logging.Level;
 
@@ -22,7 +17,7 @@ public class LocationTypeAdapter implements JsonDeserializer<LazyLocation>, Json
     private static final String PITCH = "pitch";
 
     @Override
-    public LazyLocation deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+    public LazyLocation deserialize(JsonElement json, Type type, JsonDeserializationContext context) throws JsonParseException {
         try {
             JsonObject obj = json.getAsJsonObject();
 
@@ -43,7 +38,7 @@ public class LocationTypeAdapter implements JsonDeserializer<LazyLocation>, Json
     }
 
     @Override
-    public JsonElement serialize(LazyLocation src, Type typeOfSrc, JsonSerializationContext context) {
+    public JsonElement serialize(LazyLocation src, Type type, JsonSerializationContext context) {
         JsonObject obj = new JsonObject();
 
         try {
@@ -61,5 +56,4 @@ public class LocationTypeAdapter implements JsonDeserializer<LazyLocation>, Json
             return obj;
         }
     }
-
 }

@@ -6,8 +6,9 @@ import com.massivecraft.factions.Factions;
 import com.massivecraft.factions.event.FactionRenameEvent;
 import com.massivecraft.factions.struct.Permission;
 import com.massivecraft.factions.util.MiscUtil;
-import java.util.ArrayList;
 import org.bukkit.Bukkit;
+
+import java.util.ArrayList;
 
 public class CmdTag extends FCommand {
 
@@ -73,5 +74,4 @@ public class CmdTag extends FCommand {
             faction.msg("<i>The faction %s<i> changed their name to %s.", fme.getColorTo(faction) + oldtag, myFaction.getTag(faction));
         }
     }
-
 }

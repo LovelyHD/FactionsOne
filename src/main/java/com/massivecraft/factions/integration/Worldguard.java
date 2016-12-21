@@ -3,26 +3,27 @@ package com.massivecraft.factions.integration;
 import com.massivecraft.factions.P;
 import com.sk89q.worldedit.BlockVector;
 import com.sk89q.worldedit.Vector;
-import static com.sk89q.worldguard.bukkit.BukkitUtil.toVector;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import com.sk89q.worldguard.protection.ApplicableRegionSet;
 import com.sk89q.worldguard.protection.flags.DefaultFlag;
 import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedCuboidRegion;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+
+import static com.sk89q.worldguard.bukkit.BukkitUtil.toVector;
+
 /* Worldguard Region Checking Author: Spathizilla */
 public class Worldguard {
-
     private static WorldGuardPlugin wg;
     private static boolean enabled = false;
 
@@ -109,5 +110,4 @@ public class Worldguard {
 
         return foundregions;
     }
-
 }

@@ -9,33 +9,37 @@ import com.massivecraft.factions.Conf;
  */
 public enum FFlag {
     // Faction flags
-    PERMANENT("permanent", "<i>A permanent faction will never be deleted.", false), PEACEFUL("peaceful", "<i>Allways in truce with other factions.", false), INFPOWER("infpower",
-            "<i>This flag gives the faction infinite power.", false),
+    PERMANENT("permanent", "<i>A permanent faction will never be deleted.", false),
+    PEACEFUL("peaceful", "<i>Allways in truce with other factions.", false),
+    INFPOWER("infpower", "<i>This flag gives the faction infinite power.", false),
     // This faction has infinite power: TODO: Add faction has enough method.
     // Replace the permanentpower level
 
     // (Faction) Territory flags
     // If a faction later could have many different territories this would
     // probably be in another enum
-    POWERLOSS("powerloss", "<i>Is power lost on death in this territory?", true), PVP("pvp", "<i>Can you PVP in territory?", true), FRIENDLYFIRE("friendlyfire", "<i>Can friends hurt eachother here?",
-            false), MONSTERS("monsters", "<i>Can monsters spawn in this territory?", true), EXPLOSIONS("explosions", "<i>Can explosions occur in this territory?", true), FIRESPREAD("firespread",
-            "<i>Can fire spread in territory?", true),
+    POWERLOSS("powerloss", "<i>Is power lost on death in this territory?", true),
+    PVP("pvp", "<i>Can you PVP in territory?", true),
+    FRIENDLYFIRE("friendlyfire", "<i>Can friends hurt eachother here?", false),
+    MONSTERS("monsters", "<i>Can monsters spawn in this territory?", true),
+    EXPLOSIONS("explosions", "<i>Can explosions occur in this territory?", true),
+    FIRESPREAD("firespread", "<i>Can fire spread in territory?", true),
     // LIGHTNING("lightning", "<i>Can lightning strike in this territory?",
     // true), Possible to add later.
     ENDERGRIEF("endergrief", "<i>Can endermen grief in this territory?", false),;
 
-    private final String nicename;
+    private final String display;
     private final String desc;
     public final boolean defaultDefaultValue;
 
-    private FFlag(final String nicename, final String desc, final boolean defaultDefaultValue) {
-        this.nicename = nicename;
+    private FFlag(final String display, final String desc, final boolean defaultDefaultValue) {
+        this.display = display;
         this.desc = desc;
         this.defaultDefaultValue = defaultDefaultValue;
     }
 
-    public String getNicename() {
-        return nicename;
+    public String getDisplayName() {
+        return display;
     }
 
     public String getDescription() {
@@ -90,7 +94,7 @@ public enum FFlag {
     }
 
     public String getStateInfo(boolean value, boolean withDesc) {
-        String ret = (value ? "<g>YES" : "<b>NOO") + "<c> " + getNicename();
+        String ret = (value ? "<g>YES" : "<b>NOO") + "<c> " + getDisplayName();
         if (withDesc) {
             ret += " " + getDescription();
         }
