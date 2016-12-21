@@ -2,15 +2,13 @@ package com.massivecraft.factions.cmd;
 
 import com.massivecraft.factions.Conf;
 import com.massivecraft.factions.Faction;
+import com.massivecraft.factions.Language;
 import com.massivecraft.factions.struct.Warp;
 
 import java.util.Optional;
 
 public class CmdWarpCreate extends FCommand {
-
     public CmdWarpCreate() {
-        super();
-
         aliases.add("create");
         aliases.add("c");
 
@@ -26,34 +24,34 @@ public class CmdWarpCreate extends FCommand {
 
     @Override
     public void perform() {
-        String name = argAsString(0);
-        String password = argAsString(1, "");
-
         if (!fme.hasFaction()) {
-            fme.msg("<i>You do not belong to a faction.");
+            Language.NO_FACTION.sendTo(fme);
             return;
         }
 
         Faction faction = fme.getFaction();
 
-        if(faction.getWarps().size() == Conf.factionWarpLimit) {
-            fme.msg("<i>You have reached the faction warp limit");
+        if (faction.getWarps().size() == Conf.factionWarpLimit) {
+            Language.WARP_LIMIT_REACHED.sendTo(fme);
             return;
         }
 
         if (!fme.isInOwnTerritory()) {
-            fme.msg("<i>You are not in your own territory.");
+            Language.NOT_IN_TERRITORY.sendTo(fme);
             return;
         }
 
+        String name = argAsString(0);
         Optional<Warp> warp = faction.getWarp(name);
 
         if (warp.isPresent()) {
-            fme.msg("<i>Your faction already has a warp by this name.");
+            Language.WARP_NAME_EXISTS.sendTo(fme);
             return;
         }
 
-        fme.msg("<i>You have set a warp for your faction.");
+        Language.WARP_CREATED.sendTo(fme);
+
+        String password = argAsString(1, "");
 
         if (password.isEmpty()) {
             faction.addWarp(new Warp(name, me));

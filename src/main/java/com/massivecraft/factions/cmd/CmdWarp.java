@@ -4,7 +4,6 @@ import com.massivecraft.factions.Faction;
 import com.massivecraft.factions.Language;
 import com.massivecraft.factions.struct.Permission;
 import com.massivecraft.factions.struct.Warp;
-import com.massivecraft.factions.zcore.Lang;
 
 import java.util.Optional;
 
@@ -57,29 +56,35 @@ public class CmdWarp extends FCommand {
         Optional<Warp> optional = faction.getWarp(name);
 
         if (!optional.isPresent()) {
-            fme.msg("<i> The target warp doesn't exist.");
+            Language.WARP_INVALID.sendTo(fme);
             return;
         }
 
         Warp warp = optional.get();
 
         if (warp.hasPassword()) {
-            if(warp.hasAccess(me.getUniqueId())) {
-                fme.msg("<i>You have been teleported to faction warp " + warp.getName());
+            if (warp.hasAccess(me.getUniqueId())) {
+                Language.WARP_TELEPORTED.sendTo(fme,
+                        "%warp%", warp.getName());
+
                 warp.teleport(me);
             } else {
                 if (!password.isEmpty() && warp.getPassword().equals(password)) {
-                    fme.msg("<i>You have been teleported to faction warp " + warp.getName());
-                    fme.msg("<i>Account will be remembered to this warp.");
+                    Language.WARP_TELEPORTED.sendTo(fme,
+                            "%warp%", warp.getName());
+
+                    Language.WARP_REMEMBER_ME.sendTo(fme);
 
                     warp.teleport(me);
                     warp.remember(me.getUniqueId());
                 } else {
-                    fme.msg("<i>You did not enter the password for this warp correctly.");
+                    Language.WARP_PASSWORD_INCORRECT.sendTo(fme);
                 }
             }
         } else {
-            fme.msg("<i>You have been teleported to faction warp " + warp.getName());
+            Language.WARP_TELEPORTED.sendTo(fme,
+                    "%warp%", warp.getName());
+
             warp.teleport(me);
         }
     }

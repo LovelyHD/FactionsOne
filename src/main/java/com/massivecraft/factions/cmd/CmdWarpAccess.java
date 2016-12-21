@@ -2,15 +2,13 @@ package com.massivecraft.factions.cmd;
 
 import com.massivecraft.factions.FPlayer;
 import com.massivecraft.factions.Faction;
+import com.massivecraft.factions.Language;
 import com.massivecraft.factions.struct.Warp;
 
 import java.util.Optional;
 
 public class CmdWarpAccess extends FCommand {
-
     public CmdWarpAccess() {
-        super();
-
         aliases.add("access");
         aliases.add("a");
 
@@ -28,7 +26,7 @@ public class CmdWarpAccess extends FCommand {
     @Override
     public void perform() {
         if (!fme.hasFaction()) {
-            fme.msg("<i>You are not in any faction.");
+            Language.NO_FACTION.sendTo(fme);
             return;
         }
 
@@ -40,7 +38,7 @@ public class CmdWarpAccess extends FCommand {
         Optional<Warp> optional = faction.getWarp(name);
 
         if (!optional.isPresent()) {
-            fme.msg("<i>Your faction does not have a warp by this name.");
+            Language.WARP_INVALID.sendTo(fme);
             return;
         }
 
@@ -49,37 +47,36 @@ public class CmdWarpAccess extends FCommand {
         if (warp.hasPassword()) {
             if (password.isEmpty()) {
                 if (warp.hasAccess(me.getUniqueId())) {
-                    if (warp.hasAccess(fPlayer.getUniqueId())) {
-                        fme.msg("<i>" + fPlayer.getName() + " has been removed from this warp.");
-                        warp.forget(fPlayer.getUniqueId());
-                    } else {
-                        fme.msg("<i>" + fPlayer.getName() + " has been added to this warp.");
-                        warp.remember(fPlayer.getUniqueId());
-                    }
+                    changeAccess(fPlayer, warp, warp.hasAccess(fPlayer.getUniqueId()));
                 } else {
-                    fme.msg("<i>Please enter the password for this warp.");
+                    Language.WARP_PASSWORD_INCORRECT.sendTo(fme);
                 }
             } else {
                 if (warp.getPassword().equals(password)) {
-                    if (warp.hasAccess(fPlayer.getUniqueId())) {
-                        fme.msg("<i>" + fPlayer.getName() + " has been removed from this warp.");
-                        warp.forget(fPlayer.getUniqueId());
-                    } else {
-                        fme.msg("<i>" + fPlayer.getName() + " has been added to this warp.");
-                        warp.remember(fPlayer.getUniqueId());
-                    }
+                    changeAccess(fPlayer, warp, warp.hasAccess(fPlayer.getUniqueId()));
                 } else {
-                    fme.msg("<i>The password you provided was incorrect.");
+                    Language.WARP_PASSWORD_INCORRECT.sendTo(fme);
                 }
             }
         } else {
-            if (warp.hasAccess(fPlayer.getUniqueId())) {
-                fme.msg("<i>" + fPlayer.getName() + " has been removed from this warp.");
-                warp.forget(fPlayer.getUniqueId());
-            } else {
-                fme.msg("<i>" + fPlayer.getName() + " has been added to this warp.");
-                warp.remember(fPlayer.getUniqueId());
-            }
+            changeAccess(fPlayer, warp, warp.hasAccess(fPlayer.getUniqueId()));
         }
+    }
+
+    private void changeAccess(FPlayer fPlayer, Warp warp, boolean state) {
+        if (state) {
+            Language.WARP_ACCESS_CHANGED.sendTo(fme,
+                    "%player%", fPlayer.getName(),
+                    "%state%", "removed");
+
+            warp.forget(fPlayer.getUniqueId());
+            return;
+        }
+
+        Language.WARP_ACCESS_CHANGED.sendTo(fme,
+                "%player%", fPlayer.getName(),
+                "%state%", "added");
+
+        warp.remember(fPlayer.getUniqueId());
     }
 }

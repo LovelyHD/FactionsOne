@@ -1,15 +1,12 @@
 package com.massivecraft.factions.cmd;
 
-import com.massivecraft.factions.Faction;
+import com.massivecraft.factions.Language;
 import com.massivecraft.factions.struct.Warp;
 
 import java.util.stream.Collectors;
 
 public class CmdWarpList extends FCommand {
-
     public CmdWarpList() {
-        super();
-
         aliases.add("list");
         aliases.add("l");
 
@@ -22,15 +19,20 @@ public class CmdWarpList extends FCommand {
     @Override
     public void perform() {
         if (!fme.hasFaction()) {
-            fme.msg("<i>You are not in any faction.");
+            Language.NO_FACTION.sendTo(fme);
             return;
         }
 
-        Faction faction = fme.getFaction();
-
-        fme.msg("Warps: " + faction.getWarps()
+        String warps = fme.getFaction().getWarps()
                 .stream()
                 .map(Warp::getName)
-                .collect(Collectors.joining(", ")));
+                .collect(Collectors.joining(", "));
+
+        if (warps.isEmpty()) {
+            Language.WARP_EMPTY.sendTo(fme);
+        } else {
+            Language.WARP_LIST_PREFIX.sendTo(fme,
+                    "%warps%", warps);
+        }
     }
 }

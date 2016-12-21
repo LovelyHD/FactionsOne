@@ -1,15 +1,13 @@
 package com.massivecraft.factions.cmd;
 
 import com.massivecraft.factions.Faction;
+import com.massivecraft.factions.Language;
 import com.massivecraft.factions.struct.Warp;
 
 import java.util.Optional;
 
 public class CmdWarpRemove extends FCommand {
-
     public CmdWarpRemove() {
-        super();
-
         aliases.add("remove");
         aliases.add("r");
 
@@ -26,7 +24,7 @@ public class CmdWarpRemove extends FCommand {
     @Override
     public void perform() {
         if (!fme.hasFaction()) {
-            fme.msg("<i>You are not in any faction.");
+            Language.NO_FACTION.sendTo(fme);
             return;
         }
 
@@ -37,7 +35,7 @@ public class CmdWarpRemove extends FCommand {
         Optional<Warp> optional = faction.getWarp(name);
 
         if (!optional.isPresent()) {
-
+            Language.WARP_INVALID.sendTo(fme);
             return;
         }
 
@@ -48,15 +46,14 @@ public class CmdWarpRemove extends FCommand {
                 if (warp.hasAccess(me.getUniqueId())) {
                     faction.removeWarp(warp);
                 } else {
-                    fme.msg("<i>Please provide the password for that warp.");
+                    Language.WARP_PASSWORD_INCORRECT.sendTo(fme);
                     return;
                 }
             } else {
-                if(warp.getPassword().equals(password)) {
+                if (warp.getPassword().equals(password)) {
                     faction.removeWarp(warp);
                 } else {
-                    fme.msg("<i>The password for that warp was not correct.");
-                    //fail
+                    Language.WARP_PASSWORD_INCORRECT.sendTo(fme);
                     return;
                 }
             }
@@ -64,6 +61,6 @@ public class CmdWarpRemove extends FCommand {
             faction.removeWarp(warp);
         }
 
-        fme.msg("<i>You successfully removed the faction warp " + warp.getName());
+        Language.WARP_REMOVED.sendTo(fme);
     }
 }
