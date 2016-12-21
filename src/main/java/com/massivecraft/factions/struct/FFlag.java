@@ -94,7 +94,7 @@ public enum FFlag {
     }
 
     public String getStateInfo(boolean value, boolean withDesc) {
-        String ret = (value ? "<g>YES" : "<b>NOO") + "<c> " + getDisplayName();
+        String ret = (value ? "<g>Y" : "<b>N") + "<c> " + getDisplayName();
         if (withDesc) {
             ret += " " + getDescription();
         }
