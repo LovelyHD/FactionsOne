@@ -65,6 +65,10 @@ public class FactionsChatListener implements Listener {
             return;
         }
 
+        if(!fPlayer.hasFaction()) {
+            fPlayer.setChatMode(PUBLIC);
+        }
+
         event.setCancelled(true);
 
         if (chatMode == FACTION) {

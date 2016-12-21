@@ -1,8 +1,10 @@
 package com.massivecraft.factions.cmd;
 
 import com.massivecraft.factions.Faction;
+import com.massivecraft.factions.Language;
 import com.massivecraft.factions.struct.Permission;
 import com.massivecraft.factions.struct.Warp;
+import com.massivecraft.factions.zcore.Lang;
 
 import java.util.Optional;
 
@@ -46,7 +48,7 @@ public class CmdWarp extends FCommand {
 
         // make sure they have a faction
         if (!fme.hasFaction()) {
-            fme.msg("<i>You are not in any faction.");
+            Language.NO_FACTION.sendTo(fme);
             return;
         }
 

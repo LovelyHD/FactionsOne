@@ -659,5 +659,4 @@ public class Faction extends Entity implements EconomyParticipator {
         // Clean the fplayers
         FPlayers.i.clean();
     }
-
 }

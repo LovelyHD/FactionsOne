@@ -4,21 +4,21 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.massivecraft.factions.Conf;
-import com.massivecraft.factions.Patch;
 import com.massivecraft.factions.zcore.persist.EM;
 import com.massivecraft.factions.zcore.persist.SaveTask;
 import com.massivecraft.factions.zcore.util.LibLoader;
 import com.massivecraft.factions.zcore.util.PermUtil;
 import com.massivecraft.factions.zcore.util.Persist;
 import com.massivecraft.factions.zcore.util.TextUtil;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.java.JavaPlugin;
+
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.logging.Level;
-import org.bukkit.Bukkit;
-import org.bukkit.plugin.java.JavaPlugin;
 
 public abstract class MPlugin extends JavaPlugin {
     // Some utils
@@ -185,7 +185,6 @@ public abstract class MPlugin extends JavaPlugin {
     }
 
     public void log(Level level, Object msg) {
-        Bukkit.getLogger().log(level, "[" + Patch.getFullName() + "] " + msg);
+        Bukkit.getLogger().log(level, "[Factions] " + msg);
     }
-
 }

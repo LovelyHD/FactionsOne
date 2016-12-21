@@ -95,13 +95,15 @@ public class P extends MPlugin {
         if (!preEnable()) {
             return;
         }
+
         loadSuccessful = false;
 
-        // Load Conf from disk
+        //Load Conf from disk
         Conf.load();
         FPlayers.i.loadFromDisc();
         Factions.i.loadFromDisc();
         Board.load();
+        Language.load(this);
 
         // Add Base Commands
         cmdAutoHelp = new CmdAutoHelp();
