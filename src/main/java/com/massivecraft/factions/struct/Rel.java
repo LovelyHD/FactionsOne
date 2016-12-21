@@ -73,6 +73,9 @@ public enum Rel {
         if (c == 'l') {
             return LEADER;
         }
+        if(c == 'c') {
+            return COLEADER;
+        }
         if (c == 'o') {
             return OFFICER;
         }

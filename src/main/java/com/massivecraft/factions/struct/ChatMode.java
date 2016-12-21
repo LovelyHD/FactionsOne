@@ -13,6 +13,7 @@ public enum ChatMode {
     FACTION,
     ALLY(Rel.ALLY),
     TRUCE(Rel.TRUCE),
+    ENEMY(Rel.ENEMY),
     PUBLIC;
 
     private Rel rel;
