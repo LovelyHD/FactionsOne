@@ -26,6 +26,9 @@ public enum Language {
     WARP_EMPTY("&8[&cGW&8] &7Your faction does not have any warps to display."),
     WARP_ACCESS_CHANGED("&8[&cGW&8] &7%player% has been %state% from this warp."),
 
+    CHAT_MODE_CHANGED("&8[&cGW&8] &7Your chat mode has been changed to %mode%"),
+    CHAT_MODE_INVALID("&8[&cGW&8] &7That chat mode doesn't exist!"),
+
     NOT_IN_TERRITORY("&8[&cGW&8] &7You are not in your own territory!"),
     NO_FACTION("&8[&cGW&8] &7You don't belong to any faction!");
 

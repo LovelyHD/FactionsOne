@@ -1,10 +1,10 @@
 package com.massivecraft.factions.cmd;
 
+import com.massivecraft.factions.Language;
 import com.massivecraft.factions.struct.ChatMode;
 import com.massivecraft.factions.struct.Permission;
 
 public class CmdChat extends FCommand {
-
     public CmdChat() {
         aliases.add("c");
         aliases.add("chat");
@@ -22,30 +22,33 @@ public class CmdChat extends FCommand {
 
     @Override
     public void perform() {
+        if (!fme.hasFaction()) {
+            Language.NO_FACTION.sendTo(fme);
+            return;
+        }
+
         String mode = argAsString(0, "next").toLowerCase();
 
         if (mode.equals("next")) {
             ChatMode newMode = fme.getChatMode().next();
 
-            fme.msg("<i>Your chat mode has been set to " + newMode.getDisplayName());
+            Language.CHAT_MODE_CHANGED.sendTo(fme,
+                    "%mode%", newMode.getDisplayName());
+
             fme.setChatMode(newMode);
             return;
         }
 
-        boolean found = false;
-
         for (ChatMode chatMode : ChatMode.values()) {
             if (chatMode.name().toLowerCase().startsWith(mode.substring(0, 1))) {
-                found = true;
+                Language.CHAT_MODE_CHANGED.sendTo(fme,
+                        "%mode%", chatMode.getDisplayName());
 
-                fme.msg("<i>Your chat mode has been set to " + chatMode.getDisplayName());
                 fme.setChatMode(chatMode);
                 return;
             }
         }
 
-        if(!found) {
-            fme.msg("<i>That chat mode doesn't exist!");
-        }
+        Language.CHAT_MODE_INVALID.sendTo(fme);
     }
 }
