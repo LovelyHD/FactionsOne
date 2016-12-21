@@ -4,7 +4,6 @@ import com.massivecraft.factions.Faction;
 import com.massivecraft.factions.Language;
 import com.massivecraft.factions.struct.FFlag;
 import com.massivecraft.factions.struct.Permission;
-import com.massivecraft.factions.zcore.Lang;
 
 public class CmdFlag extends FCommand {
 

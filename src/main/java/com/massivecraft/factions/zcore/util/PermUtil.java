@@ -1,7 +1,6 @@
 package com.massivecraft.factions.zcore.util;
 
 import com.massivecraft.factions.Language;
-import com.massivecraft.factions.zcore.Lang;
 import com.massivecraft.factions.zcore.MPlugin;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

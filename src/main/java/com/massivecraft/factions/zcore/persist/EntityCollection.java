@@ -348,7 +348,7 @@ public abstract class EntityCollection<E extends Entity> {
         while (!isIdFree(this.nextId)) {
             this.nextId += 1;
         }
-        return Integer.toString(this.nextId);
+        return Integer.toString(nextId);
     }
 
     public boolean isIdFree(String id) {

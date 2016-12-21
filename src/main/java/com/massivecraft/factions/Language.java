@@ -2,7 +2,6 @@ package com.massivecraft.factions;
 
 import com.massivecraft.factions.iface.EconomyParticipator;
 import lombok.Getter;
-import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
@@ -13,10 +12,15 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import static java.util.Arrays.stream;
+import static org.bukkit.ChatColor.stripColor;
+import static org.bukkit.ChatColor.translateAlternateColorCodes;
 import static org.bukkit.configuration.file.YamlConfiguration.loadConfiguration;
 
 @Getter
 public enum Language {
+    ADMIN_BYPASS("&8[&cGW&8] &7You have %state% admin bypass."),
+    ADMIN_BYPASS_CONSOLE("&8[&cGW&8] &7%player% has %state% admin bypass"),
+
     WARP_LIMIT_REACHED("&8[&cGW&8] &7You have reached the warp limit for your faction!"),
     WARP_NAME_EXISTS("&8[&cGW&8] &7Your faction already has a warp by this name."),
     WARP_CREATED("&8[&cGW&8] &7You have created a new warp for your faction!"),
@@ -29,6 +33,8 @@ public enum Language {
     WARP_EMPTY("&8[&cGW&8] &7Your faction does not have any warps to display."),
     WARP_ACCESS_CHANGED("&8[&cGW&8] &7%player% has been %state% from this warp."),
 
+    FACTION_CREATED("&8[&cGW&8] &7%player% has created a new faction called %tag%"),
+
     TAG_IN_USE("&8[&cGW&8] &7That faction tag is already in use!"),
 
     VERSION("&8[&cGW&8] &7Factions version %version%"),
@@ -36,19 +42,28 @@ public enum Language {
     CHAT_MODE_CHANGED("&8[&cGW&8] &7Your chat mode has been changed to %mode%"),
     CHAT_MODE_INVALID("&8[&cGW&8] &7That chat mode doesn't exist!"),
 
-    SENDER_NOT_PLAYER("&8[&cGW&8] &7This factions command can only be used by ingame players"),
+    SENDER_NOT_PLAYER("&8[&cGW&8] &7This factions command can only be used by in-game players"),
 
     TOO_MANY_ARGS("&8[&cGW&8] &7Strange argument '%arg%'. Use the command like this:"),
+
+    MUST_LEAVE_CURRENT_FACTION("&8[&cGW&8] &7You must leave your current faction to do this."),
 
     NOT_ENOUGH_ARGS("&8[&cGW&8] &7Too few arguments. Use like this:"),
     NOT_IN_TERRITORY("&8[&cGW&8] &7You are not in your own territory!"),
     NO_FACTION("&8[&cGW&8] &7You don't belong to any faction!"),
     NO_PERMISSION("&8[&cGW&8] &7You don't have permission to %thing%.");
 
+    private static Plugin plugin;
     private String[] messages;
 
     Language(String... messages) {
         this.messages = messages;
+    }
+
+    public void log(String... args) {
+        stream(messages).forEach(message -> {
+            plugin.getLogger().info(stripColor(replaceArguments(message, args)));
+        });
     }
 
     public void sendTo(EconomyParticipator participator, String... args) {
@@ -56,10 +71,12 @@ public enum Language {
     }
 
     public void sendTo(CommandSender sender, String... args) {
-        stream(messages).forEach(message -> sender.sendMessage(replaceArguments(message, args)));
+        stream(messages).forEach(message -> sender.sendMessage(translateAlternateColorCodes('&', replaceArguments(message, args))));
     }
 
     public static void load(Plugin plugin) {
+        Language.plugin = plugin;
+
         File file = new File(plugin.getDataFolder(), "language.yml");
 
         if (!file.exists()) {
@@ -106,7 +123,7 @@ public enum Language {
 
     private void setMessages(String... messages) {
         for (int i = 0; i < messages.length; i++) {
-            messages[i] = ChatColor.translateAlternateColorCodes('&', messages[i]);
+            messages[i] = translateAlternateColorCodes('&', messages[i]);
         }
 
         this.messages = messages;

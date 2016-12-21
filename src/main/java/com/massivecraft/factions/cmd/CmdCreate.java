@@ -1,26 +1,19 @@
 package com.massivecraft.factions.cmd;
 
-import com.massivecraft.factions.Conf;
-import com.massivecraft.factions.FPlayer;
-import com.massivecraft.factions.FPlayers;
-import com.massivecraft.factions.Faction;
-import com.massivecraft.factions.Factions;
-import com.massivecraft.factions.P;
+import com.massivecraft.factions.*;
 import com.massivecraft.factions.event.FPlayerJoinEvent;
 import com.massivecraft.factions.event.FactionCreateEvent;
 import com.massivecraft.factions.struct.Permission;
 import com.massivecraft.factions.struct.Rel;
-import java.util.ArrayList;
 import org.bukkit.Bukkit;
 
-public class CmdCreate extends FCommand {
+import java.util.ArrayList;
 
+public class CmdCreate extends FCommand {
     public CmdCreate() {
-        super();
         aliases.add("create");
 
         requiredArgs.add("faction tag");
-        // this.optionalArgs.put("", "");
 
         permission = Permission.CREATE.node;
         disableOnLock = true;
@@ -33,15 +26,15 @@ public class CmdCreate extends FCommand {
 
     @Override
     public void perform() {
-        String tag = this.argAsString(0);
+        String tag = argAsString(0);
 
         if (fme.hasFaction()) {
-            msg("<b>You must leave your current faction first.");
+            Language.MUST_LEAVE_CURRENT_FACTION.sendTo(fme);
             return;
         }
 
         if (Factions.i.isTagTaken(tag)) {
-            msg("<b>That tag is already in use.");
+            Language.TAG_IN_USE.sendTo(fme);
             return;
         }
 
@@ -70,14 +63,6 @@ public class CmdCreate extends FCommand {
         }
 
         Faction faction = Factions.i.create();
-
-        // TODO: Why would this even happen??? Auto increment clash??
-        if (faction == null) {
-            msg("<b>There was an internal error while trying to create your faction. Please try again.");
-            return;
-        }
-
-        // finish setting up the Faction
         faction.setTag(tag);
 
         // trigger the faction join event for the creator
@@ -90,7 +75,9 @@ public class CmdCreate extends FCommand {
         fme.setFaction(faction);
 
         for (FPlayer follower : FPlayers.i.getOnline()) {
-            follower.msg("%s<i> created a new faction %s", fme.describeTo(follower, true), faction.getTag(follower));
+            Language.FACTION_CREATED.sendTo(follower,
+                    "%player%", fme.describeTo(follower, true),
+                    "%tag%", faction.getTag(follower));
         }
 
         msg("<i>You should now: %s", p.cmdBase.cmdDescription.getUseageTemplate());
@@ -99,5 +86,4 @@ public class CmdCreate extends FCommand {
             P.p.log(fme.getName() + " created a new faction: " + tag);
         }
     }
-
 }

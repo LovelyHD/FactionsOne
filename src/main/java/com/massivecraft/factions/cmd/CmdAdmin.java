@@ -1,12 +1,10 @@
 package com.massivecraft.factions.cmd;
 
-import com.massivecraft.factions.P;
+import com.massivecraft.factions.Language;
 import com.massivecraft.factions.struct.Permission;
 
 public class CmdAdmin extends FCommand {
-
     public CmdAdmin() {
-        super();
         aliases.add("admin");
         aliases.add("bypass");
 
@@ -26,7 +24,11 @@ public class CmdAdmin extends FCommand {
         fme.setHasAdminMode(argAsBool(0, !fme.hasAdminMode()));
         String status = fme.hasAdminMode() ? "enabled" : "disabled";
 
-        fme.msg("<i>You have " + status + " admin bypass mode.");
-        P.p.log(fme.getName() + " " + status.toUpperCase() + " admin bypass mode.");
+        Language.ADMIN_BYPASS.sendTo(fme,
+                "%state%", status);
+
+        Language.ADMIN_BYPASS_CONSOLE.log(
+                "%player%", fme.getName(),
+                "%state%", status);
     }
 }

@@ -5,7 +5,6 @@ import com.massivecraft.factions.Language;
 import com.massivecraft.factions.struct.FPerm;
 import com.massivecraft.factions.struct.Permission;
 import com.massivecraft.factions.struct.Rel;
-import com.massivecraft.factions.zcore.Lang;
 
 public class CmdPerm extends FCommand {
 
