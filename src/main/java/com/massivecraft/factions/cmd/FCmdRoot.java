@@ -2,13 +2,13 @@ package com.massivecraft.factions.cmd;
 
 import com.massivecraft.factions.Conf;
 import com.massivecraft.factions.P;
+
 import java.util.Collections;
 
 public class FCmdRoot extends FCommand {
 
     public CmdAccess cmdAccess = new CmdAccess();
     public CmdLeader cmdLeader = new CmdLeader();
-    public CmdCoLeader cmdCoLeader = new CmdCoLeader();
     public CmdAutoClaim cmdAutoClaim = new CmdAutoClaim();
     public CmdAdmin cmdBypass = new CmdAdmin();
     public CmdChat cmdChat = new CmdChat();
@@ -99,7 +99,6 @@ public class FCmdRoot extends FCommand {
         addSubCommand(cmdKick);
         addSubCommand(cmdOfficer);
         addSubCommand(cmdLeader);
-        addSubCommand(cmdCoLeader);
         addSubCommand(cmdTitle);
         addSubCommand(cmdMap);
         addSubCommand(cmdSeeChunks);
@@ -124,5 +123,4 @@ public class FCmdRoot extends FCommand {
         commandChain.add(this);
         P.p.cmdAutoHelp.execute(sender, args, commandChain);
     }
-
 }

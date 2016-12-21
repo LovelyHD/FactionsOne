@@ -5,6 +5,7 @@ import org.bukkit.ChatColor;
 
 public enum Rel {
     LEADER(70, "your faction leader", "your faction leader", "", ""),
+    COLEADER(70, "your faction coleader", "your faction coleader", "", ""),
     OFFICER(60, "an officer in your faction", "officers in your faction", "", ""),
     MEMBER(50, "a member in your faction", "members in your faction", "your faction", "your factions"),
     RECRUIT(45, "a recruit in your faction", "recruits in your faction", "", ""),
@@ -68,6 +69,7 @@ public enum Rel {
 
         // This is how we check: Based on first char.
         char c = str.charAt(0);
+
         if (c == 'l') {
             return LEADER;
         }
@@ -126,36 +128,38 @@ public enum Rel {
     }
 
     public String getPrefix() {
-        if (this == LEADER) {
-            return Conf.prefixLeader;
-        }
+        switch (this) {
+            case LEADER:
+            case COLEADER:
+                return Conf.prefixLeader;
 
-        if (this == OFFICER) {
-            return Conf.prefixOfficer;
-        }
+            case OFFICER:
+                return Conf.prefixOfficer;
 
-        if (this == MEMBER) {
-            return Conf.prefixMember;
-        }
+            case MEMBER:
+                return Conf.prefixMember;
 
-        if (this == RECRUIT) {
-            return Conf.prefixRecruit;
-        }
+            case RECRUIT:
+                return Conf.prefixRecruit;
 
-        return "";
+            default:
+                return "";
+        }
     }
 
-    // TODO: ADD TRUCE!!!!
-    // TODO.... or remove it...
     public double getRelationCost() {
-        if (this == ENEMY) {
-            return Conf.econCostEnemy;
-        } else if (this == ALLY) {
-            return Conf.econCostAlly;
-        } else if (this == TRUCE) {
-            return Conf.econCostTruce;
-        } else {
-            return Conf.econCostNeutral;
+        switch (this) {
+            case ENEMY:
+                return Conf.econCostEnemy;
+
+            case ALLY:
+                return Conf.econCostAlly;
+
+            case TRUCE:
+                return Conf.econCostTruce;
+
+            default:
+                return Conf.econCostNeutral;
         }
     }
 }

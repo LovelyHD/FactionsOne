@@ -69,6 +69,9 @@ public class Conf {
     public static int factionMemberLimit = 0;
 
     public static int factionWarpLimit = 5;
+    public static double factionWarpCreateCost = 0.0;
+    public static double factionWarpRemoveCost = 0.0;
+    public static double factionWarpUseCost = 0.0;
 
     // what faction ID to start new players in when they first join the server;
     // default is 0, "no faction"

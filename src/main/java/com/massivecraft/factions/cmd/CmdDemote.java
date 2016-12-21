@@ -49,7 +49,7 @@ public class CmdDemote extends FCommand {
             }
             you.setRole(Rel.RECRUIT);
             myFaction.msg("%s<i> was demoted to being a recruit in your faction.", you.describeTo(myFaction, true));
-        } else if (you.getRole() == Rel.OFFICER) {
+        } else if (you.getRole() == Rel.OFFICER || you.getRole() == Rel.COLEADER) {
             if (!fme.getRole().isAtLeast(Rel.LEADER)) {
                 msg("<b>You must be the leader to demote an officer to member.");
                 return;
