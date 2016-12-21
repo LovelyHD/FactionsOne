@@ -1,27 +1,23 @@
 package com.massivecraft.factions.zcore.persist;
 
 import com.massivecraft.factions.zcore.MPlugin;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 public class SaveTask implements Runnable {
-
-    static private boolean running = false;
-
-    MPlugin p;
-
-    public SaveTask(MPlugin p) {
-        this.p = p;
-    }
+    private static boolean running = false;
+    private final MPlugin plugin;
 
     @Override
     public void run() {
-        if (!p.getAutoSave() || running) {
+        if (!plugin.getAutoSave() || running) {
             return;
         }
+
         running = true;
-        p.preAutoSave();
+        plugin.preAutoSave();
         EM.saveAllToDisc();
-        p.postAutoSave();
+        plugin.postAutoSave();
         running = false;
     }
-
 }

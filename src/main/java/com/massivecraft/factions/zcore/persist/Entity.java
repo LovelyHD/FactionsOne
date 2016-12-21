@@ -1,12 +1,9 @@
 package com.massivecraft.factions.zcore.persist;
 
 public abstract class Entity {
-
-    public Entity() {
-
-    }
-
     protected transient String id = null;
+
+    protected Entity() {}
 
     public String getId() {
         return id;

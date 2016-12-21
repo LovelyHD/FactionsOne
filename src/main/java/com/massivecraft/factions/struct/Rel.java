@@ -1,8 +1,12 @@
 package com.massivecraft.factions.struct;
 
 import com.massivecraft.factions.Conf;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.bukkit.ChatColor;
 
+@Getter
+@RequiredArgsConstructor
 public enum Rel {
     LEADER(70, "your faction leader", "your faction leader", "", ""),
     COLEADER(70, "your faction coleader", "your faction coleader", "", ""),
@@ -16,88 +20,50 @@ public enum Rel {
 
     private final int value;
     private final String descPlayerOne;
-
-    public String getDescPlayerOne() {
-        return descPlayerOne;
-    }
-
     private final String descPlayerMany;
-
-    public String getDescPlayerMany() {
-        return descPlayerMany;
-    }
-
     private final String descFactionOne;
-
-    public String getDescFactionOne() {
-        return descFactionOne;
-    }
-
     private final String descFactionMany;
 
-    public String getDescFactionMany() {
-        return descFactionMany;
-    }
-
-    private Rel(final int value, final String descPlayerOne, final String descPlayerMany, final String descFactionOne, final String descFactionMany) {
-        this.value = value;
-        this.descPlayerOne = descPlayerOne;
-        this.descPlayerMany = descPlayerMany;
-        this.descFactionOne = descFactionOne;
-        this.descFactionMany = descFactionMany;
-    }
-
-    public static Rel parse(String str) {
-        if (str == null || str.length() < 1) {
+    public static Rel parse(String input) {
+        if (input == null || input.length() < 1) {
             return null;
         }
 
-        str = str.toLowerCase();
+        input = input.toLowerCase();
 
         // These are to allow conversion from the old system.
-        if (str.equals("admin")) {
-            return LEADER;
-        }
-
-        if (str.equals("moderator")) {
-            return OFFICER;
-        }
-
-        if (str.equals("normal")) {
-            return MEMBER;
+        switch (input) {
+            case "admin":
+                return LEADER;
+            case "moderator":
+                return OFFICER;
+            case "normal":
+                return MEMBER;
         }
 
         // This is how we check: Based on first char.
-        char c = str.charAt(0);
-
-        if (c == 'l') {
-            return LEADER;
+        switch (input.charAt(0)) {
+            case 'l':
+                return LEADER;
+            case 'c':
+                return COLEADER;
+            case 'o':
+                return OFFICER;
+            case 'm':
+                return MEMBER;
+            case 'r':
+                return RECRUIT;
+            case 'a':
+                return ALLY;
+            case 't':
+                return TRUCE;
+            case 'n':
+                return NEUTRAL;
+            case 'e':
+                return ENEMY;
+            default:
+                return null;
         }
-        if(c == 'c') {
-            return COLEADER;
-        }
-        if (c == 'o') {
-            return OFFICER;
-        }
-        if (c == 'm') {
-            return MEMBER;
-        }
-        if (c == 'r') {
-            return RECRUIT;
-        }
-        if (c == 'a') {
-            return ALLY;
-        }
-        if (c == 't') {
-            return TRUCE;
-        }
-        if (c == 'n') {
-            return NEUTRAL;
-        }
-        if (c == 'e') {
-            return ENEMY;
-        }
-        return null;
     }
 
     public boolean isAtLeast(Rel rel) {
@@ -119,14 +85,17 @@ public enum Rel {
     public ChatColor getColor() {
         if (isAtLeast(RECRUIT)) {
             return Conf.colorMember;
-        } else if (this == ALLY) {
-            return Conf.colorAlly;
-        } else if (this == NEUTRAL) {
-            return Conf.colorNeutral;
-        } else if (this == TRUCE) {
-            return Conf.colorTruce;
-        } else {
-            return Conf.colorEnemy;
+        }
+
+        switch (this) {
+            case ALLY:
+                return Conf.colorAlly;
+            case NEUTRAL:
+                return Conf.colorNeutral;
+            case TRUCE:
+                return Conf.colorTruce;
+            default:
+                return Conf.colorEnemy;
         }
     }
 
@@ -135,16 +104,12 @@ public enum Rel {
             case LEADER:
             case COLEADER:
                 return Conf.prefixLeader;
-
             case OFFICER:
                 return Conf.prefixOfficer;
-
             case MEMBER:
                 return Conf.prefixMember;
-
             case RECRUIT:
                 return Conf.prefixRecruit;
-
             default:
                 return "";
         }
@@ -154,13 +119,10 @@ public enum Rel {
         switch (this) {
             case ENEMY:
                 return Conf.econCostEnemy;
-
             case ALLY:
                 return Conf.econCostAlly;
-
             case TRUCE:
                 return Conf.econCostTruce;
-
             default:
                 return Conf.econCostNeutral;
         }

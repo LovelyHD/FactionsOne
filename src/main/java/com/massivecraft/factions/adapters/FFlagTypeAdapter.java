@@ -14,5 +14,4 @@ public class FFlagTypeAdapter implements JsonDeserializer<FFlag> {
     public FFlag deserialize(JsonElement json, Type type, JsonDeserializationContext context) throws JsonParseException {
         return FFlag.parse(json.getAsString());
     }
-
 }
