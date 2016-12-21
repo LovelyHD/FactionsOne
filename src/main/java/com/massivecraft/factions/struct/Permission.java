@@ -64,6 +64,7 @@ public enum Permission {
     UNCLAIM("unclaim"),
     UNCLAIM_ALL("unclaimall"),
     UNCLAIM_RADIUS("unclaim.radius"),
+    WARP("warp"),
     VERSION("version");
 
     public final String node;

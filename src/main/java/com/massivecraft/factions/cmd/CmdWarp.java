@@ -1,10 +1,8 @@
 package com.massivecraft.factions.cmd;
 
 import com.massivecraft.factions.Faction;
-import com.massivecraft.factions.integration.Essentials;
+import com.massivecraft.factions.struct.Permission;
 import com.massivecraft.factions.struct.Warp;
-import org.bukkit.Location;
-import org.bukkit.entity.Player;
 
 import java.util.Optional;
 
@@ -12,6 +10,7 @@ public class CmdWarp extends FCommand {
     private final CmdWarpCreate cmdWarpCreate = new CmdWarpCreate();
     private final CmdWarpRemove cmdWarpRemove = new CmdWarpRemove();
     private final CmdWarpList cmdWarpList = new CmdWarpList();
+    private final CmdWarpAccess cmdWarpAccess = new CmdWarpAccess();
 
     public CmdWarp() {
         aliases.add("warp");
@@ -20,6 +19,8 @@ public class CmdWarp extends FCommand {
         optionalArgs.put("name", "warp name");
         optionalArgs.put("password", "warp password");
 
+        permission = Permission.WARP.node;
+
         senderMustBePlayer = false;
         senderMustBeMember = false;
         senderMustBeOfficer = false;
@@ -27,6 +28,7 @@ public class CmdWarp extends FCommand {
         addSubCommand(cmdWarpCreate);
         addSubCommand(cmdWarpRemove);
         addSubCommand(cmdWarpList);
+        addSubCommand(cmdWarpAccess);
     }
 
     @Override
@@ -38,11 +40,12 @@ public class CmdWarp extends FCommand {
 
         // make sure name isn't empty
         if (name.isEmpty()) {
+            cmdWarpList.execute(sender, args, commandChain);
             return;
         }
 
         // make sure they have a faction
-        if(!fme.hasFaction()) {
+        if (!fme.hasFaction()) {
             fme.msg("<i>You are not in any faction.");
             return;
         }
@@ -59,25 +62,23 @@ public class CmdWarp extends FCommand {
         Warp warp = optional.get();
 
         if (warp.hasPassword()) {
-            if (!password.isEmpty() && warp.getPassword().equals(password)) {
-                tryWrap(me, warp);
+            if(warp.hasAccess(me.getUniqueId())) {
+                fme.msg("<i>You have been teleported to faction warp " + warp.getName());
+                warp.teleport(me);
             } else {
-                fme.msg("<i>You did not enter the password for this warp correctly.");
+                if (!password.isEmpty() && warp.getPassword().equals(password)) {
+                    fme.msg("<i>You have been teleported to faction warp " + warp.getName());
+                    fme.msg("<i>Account will be remembered to this warp.");
+
+                    warp.teleport(me);
+                    warp.remember(me.getUniqueId());
+                } else {
+                    fme.msg("<i>You did not enter the password for this warp correctly.");
+                }
             }
         } else {
-            tryWrap(me, warp);
+            fme.msg("<i>You have been teleported to faction warp " + warp.getName());
+            warp.teleport(me);
         }
-    }
-
-    private void tryWrap(Player player, Warp warp) {
-        Location location = warp.getDestination().getLocation();
-
-        // if Essentials teleport handling is enabled and available, pass the
-        // teleport off to it (for delay and cooldown)
-        if (Essentials.handleTeleport(me, location)) {
-            return;
-        }
-
-        player.teleport(location);
     }
 }
