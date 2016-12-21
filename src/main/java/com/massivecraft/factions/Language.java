@@ -1,6 +1,7 @@
 package com.massivecraft.factions;
 
 import com.massivecraft.factions.iface.EconomyParticipator;
+import lombok.Getter;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -14,6 +15,7 @@ import java.util.regex.Pattern;
 import static java.util.Arrays.stream;
 import static org.bukkit.configuration.file.YamlConfiguration.loadConfiguration;
 
+@Getter
 public enum Language {
     WARP_LIMIT_REACHED("&8[&cGW&8] &7You have reached the warp limit for your faction!"),
     WARP_NAME_EXISTS("&8[&cGW&8] &7Your faction already has a warp by this name."),
@@ -34,8 +36,14 @@ public enum Language {
     CHAT_MODE_CHANGED("&8[&cGW&8] &7Your chat mode has been changed to %mode%"),
     CHAT_MODE_INVALID("&8[&cGW&8] &7That chat mode doesn't exist!"),
 
+    SENDER_NOT_PLAYER("&8[&cGW&8] &7This factions command can only be used by ingame players"),
+
+    TOO_MANY_ARGS("&8[&cGW&8] &7Strange argument '%arg%'. Use the command like this:"),
+
+    NOT_ENOUGH_ARGS("&8[&cGW&8] &7Too few arguments. Use like this:"),
     NOT_IN_TERRITORY("&8[&cGW&8] &7You are not in your own territory!"),
-    NO_FACTION("&8[&cGW&8] &7You don't belong to any faction!");
+    NO_FACTION("&8[&cGW&8] &7You don't belong to any faction!"),
+    NO_PERMISSION("&8[&cGW&8] &7You don't have permission to %thing%.");
 
     private String[] messages;
 
@@ -104,7 +112,7 @@ public enum Language {
         this.messages = messages;
     }
 
-    private String[] getMessages(String... args) {
+    public String[] getMessages(String... args) {
         String[] messages = this.messages;
 
         for (int i = 0; i < messages.length; i++) {

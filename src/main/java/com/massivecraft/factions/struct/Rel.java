@@ -102,8 +102,9 @@ public enum Rel {
     public String getPrefix() {
         switch (this) {
             case LEADER:
-            case COLEADER:
                 return Conf.prefixLeader;
+            case COLEADER:
+                return Conf.prefixColeader;
             case OFFICER:
                 return Conf.prefixOfficer;
             case MEMBER:

@@ -1,13 +1,15 @@
 package com.massivecraft.factions.zcore.util;
 
+import com.massivecraft.factions.Language;
 import com.massivecraft.factions.zcore.Lang;
 import com.massivecraft.factions.zcore.MPlugin;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.Permission;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class PermUtil {
 
@@ -21,7 +23,7 @@ public class PermUtil {
     }
 
     public String getForbiddenMessage(String perm) {
-        return p.txt.parse(Lang.permForbidden, getPermissionDescription(perm));
+        return Language.NO_PERMISSION.getMessages("%thing%", getPermissionDescription(perm))[0];
     }
 
     /**
@@ -37,7 +39,7 @@ public class PermUtil {
     public String getPermissionDescription(String perm) {
         String desc = permissionDescriptions.get(perm);
         if (desc == null) {
-            return Lang.permDoThat;
+            return "do that";
         }
         return desc;
     }
@@ -81,5 +83,4 @@ public class PermUtil {
 
         return ret;
     }
-
 }

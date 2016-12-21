@@ -9,13 +9,10 @@ import com.massivecraft.factions.struct.Rel;
 import org.bukkit.Bukkit;
 
 public abstract class FRelationCommand extends FCommand {
-
-    public Rel targetRelation;
+    protected Rel targetRelation;
 
     public FRelationCommand() {
-        super();
         requiredArgs.add("faction");
-        // this.optionalArgs.put("", "");
 
         permission = Permission.RELATION.node;
         disableOnLock = true;
@@ -87,5 +84,4 @@ public abstract class FRelationCommand extends FCommand {
             myFaction.msg("<i>This will have no effect while your faction is peaceful.");
         }
     }
-
 }

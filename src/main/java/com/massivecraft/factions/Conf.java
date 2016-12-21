@@ -54,6 +54,7 @@ public class Conf {
     public static double powerFactionMax = 0.0; // if greater than 0, the cap on how much power a faction can have (additional power from players beyond that will act as a "buffer" of sorts)
 
     public static String prefixLeader = "**";
+    public static String prefixColeader = "**";
     public static String prefixOfficer = "*";
     public static String prefixMember = "+";
     public static String prefixRecruit = "-";

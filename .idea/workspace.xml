@@ -2,25 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ecfe709-f1f6-453e-a026-d586bed348cc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/3.1/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.1/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.1/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdTag.class" afterPath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdTag.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdVersion.class" afterPath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/cmd/CmdVersion.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/struct/FPerm.class" afterPath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/struct/FPerm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/struct/Rel.class" afterPath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/struct/Rel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/util/AutoLeaveTask.class" afterPath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/util/AutoLeaveTask.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/persist/EM.class" afterPath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/persist/EM.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/persist/Entity.class" afterPath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/persist/Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/persist/PlayerEntity.class" afterPath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/persist/PlayerEntity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/persist/SaveTask.class" afterPath="$PROJECT_DIR$/build/classes/main/com/massivecraft/factions/zcore/persist/SaveTask.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/Lang.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/adapters/FFlagTypeAdapter.java" afterPath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/adapters/FFlagTypeAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/Conf.java" afterPath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/Conf.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/FPlayers.java" afterPath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/FPlayers.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/Language.java" afterPath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/Language.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdFlag.java" afterPath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdFlag.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdPerm.java" afterPath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdPerm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdRelationAlly.java" afterPath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdRelationAlly.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdRelationEnemy.java" afterPath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdRelationEnemy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdRelationNeutral.java" afterPath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdRelationNeutral.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdRelationTruce.java" afterPath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdRelationTruce.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/FRelationCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/FRelationCommand.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/struct/Rel.java" afterPath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/struct/Rel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/persist/Entity.java" afterPath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/persist/Entity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/persist/PlayerEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/persist/PlayerEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/persist/SaveTask.java" afterPath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/persist/SaveTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/MCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/MCommand.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/util/PermUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/util/PermUtil.java" />
     </list>
     <ignored path="factions.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -121,21 +117,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RelTypeAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/adapters/RelTypeAdapter.java">
+      <file leaf-file-name="MCommand.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/MCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+            <state relative-caret-position="418">
+              <caret line="199" column="0" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rel.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/struct/Rel.java">
+      <file leaf-file-name="PermUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/util/PermUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1006">
-              <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+            <state relative-caret-position="558">
+              <caret line="84" column="5" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MPlugin.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/MPlugin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Language.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/Language.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="503">
+              <caret line="40" column="58" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CmdPerm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdPerm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-24">
+              <caret line="39" column="56" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -370,16 +398,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/plugin.yml" />
-        <option value="$PROJECT_DIR$/settings.gradle" />
-        <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdClaim.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdUnclaim.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdAdmin.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/listeners/FactionsPlayerListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/FPlayer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/struct/Permission.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/adapters/RelTypeAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/adapters/FPermTypeAdapter.java" />
@@ -389,7 +407,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/integration/Econ.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/integration/Essentials.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/integration/Worldguard.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/Conf.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdCoLeader.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdDemote.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdPromote.java" />
@@ -398,7 +415,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/struct/FFlag.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/MPlugin.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/Faction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdFlag.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/P.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/dre2n/factionsone/api/Placeholders.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdWarp.java" />
@@ -408,7 +424,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdWarpCreate.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/listeners/FactionsChatListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdVersion.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/Language.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdTag.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdChat.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdKick.java" />
@@ -420,7 +435,20 @@
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/persist/PlayerEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/persist/SaveTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/adapters/FFlagTypeAdapter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/Conf.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/struct/Rel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdRelationAlly.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdRelationEnemy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdRelationNeutral.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdRelationTruce.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/FRelationCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/FPlayers.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/util/PermUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdFlag.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdPerm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/Language.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/Lang.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/MCommand.java" />
       </list>
     </option>
   </component>
@@ -557,6 +585,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1281,12 +1313,19 @@
       <option name="project" value="LOCAL" />
       <updated>1482310071105</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="cleaned up Rel.java">
+      <created>1482310845871</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1482310845871</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1297,7 +1336,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19509476" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17217484" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17377399" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08901919" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1343,7 +1382,8 @@
     <MESSAGE value="finished the f warps and added the language fore them" />
     <MESSAGE value="fixed bug in f chat where if you are in a chat mode other then public and you leave / disband your faction it would not return you to public chat" />
     <MESSAGE value="cleaned up EM.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleaned up EM.java" />
+    <MESSAGE value="cleaned up Rel.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaned up Rel.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1354,132 +1394,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/dre2n/factionsone/api/Placeholders.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="144" column="0" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdWarpAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdWarpList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdWarpRemove.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdWarpCreate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdWarp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/iface/EconomyParticipator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/struct/ChatMode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/listeners/FactionsChatListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="75" column="37" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/plugin.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1703">
-          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdVersion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="24" column="65" selection-start-line="24" selection-start-column="65" selection-end-line="24" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/Factions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="211" column="53" selection-start-line="211" selection-start-column="34" selection-end-line="211" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdTag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="75" column="1" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-330">
-          <caret line="171" column="36" selection-start-line="171" selection-start-column="36" selection-end-line="171" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="524">
@@ -1501,16 +1415,6 @@
         <state relative-caret-position="442">
           <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/Language.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-697">
-          <caret line="29" column="64" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1550,14 +1454,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/MCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="250" column="18" selection-start-line="250" selection-start-column="18" selection-end-line="250" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -1692,14 +1588,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/persist/EntityCollection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="23" column="54" selection-start-line="23" selection-start-column="54" selection-end-line="23" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/persist/EM.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -1764,6 +1652,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/Conf.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4148">
+          <caret line="56" column="47" selection-start-line="56" selection-start-column="47" selection-end-line="56" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/struct/Rel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="104" column="41" selection-start-line="104" selection-start-column="41" selection-end-line="104" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/adapters/RelTypeAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1772,10 +1676,140 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/struct/Rel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdRelationEnemy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1006">
-          <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+        <state relative-caret-position="68">
+          <caret line="4" column="56" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdRelationNeutral.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="58" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdRelationTruce.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="56" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/Faction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="265" column="5" selection-start-line="265" selection-start-column="5" selection-end-line="265" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/FRelationCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="85" column="5" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdRelationAlly.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/persist/EntityCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/FPlayers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/Factions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3298">
+          <caret line="211" column="53" selection-start-line="211" selection-start-column="34" selection-end-line="211" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/util/TextUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-799">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/MPlugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/util/PermUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="84" column="5" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdFlag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="36" column="56" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/cmd/CmdPerm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-24">
+          <caret line="39" column="56" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/Language.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="40" column="58" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/Lang.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/massivecraft/factions/zcore/MCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="199" column="0" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
           <folding />
         </state>
       </provider>

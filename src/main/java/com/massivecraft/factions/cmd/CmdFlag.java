@@ -1,6 +1,7 @@
 package com.massivecraft.factions.cmd;
 
 import com.massivecraft.factions.Faction;
+import com.massivecraft.factions.Language;
 import com.massivecraft.factions.struct.FFlag;
 import com.massivecraft.factions.struct.Permission;
 import com.massivecraft.factions.zcore.Lang;
@@ -33,7 +34,7 @@ public class CmdFlag extends FCommand {
         }
         if (faction == null) {
             if (senderIsConsole) {
-                msg(Lang.commandToFewArgs);
+                Language.NOT_ENOUGH_ARGS.sendTo(sender);
                 sender.sendMessage(this.getUseageTemplate());
             }
             return;
