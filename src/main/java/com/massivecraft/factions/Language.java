@@ -41,6 +41,8 @@ public enum Language {
 
     CHAT_MODE_CHANGED("&8[&cGW&8] &7Your chat mode has been changed to %mode%"),
     CHAT_MODE_INVALID("&8[&cGW&8] &7That chat mode doesn't exist!"),
+    CLAIM_LINE_LIMIT("&8[&cGW&8] &7You have reached the distance limit for claim line."),
+    CLAIM_LINE_DIRECTION("&8[&cGW&8] &7Please provide a correct cardinal direction for claiming line."),
 
     SENDER_NOT_PLAYER("&8[&cGW&8] &7This factions command can only be used by in-game players"),
 

@@ -146,6 +146,7 @@ public class Conf {
     // public static boolean peacefulMembersDisablePowerLoss = true;
     public static boolean permanentFactionsDisableLeaderPromotion = false;
 
+    public static int claimLineLimit = 20;
     public static boolean claimsMustBeConnected = false;
     public static boolean claimingFromOthersAllowed = true;
     public static boolean claimsCanBeUnconnectedIfOwnedByOtherFaction = true;
@@ -325,10 +326,6 @@ public class Conf {
         monsters.add(EntityType.WITCH);
         monsters.add(EntityType.WITHER);
         monsters.add(EntityType.ZOMBIE);
-
-        if (Version.andHigher(Version.MC1_9).contains(CompatibilityHandler.getInstance().getVersion())) {
-            monsters.add(EntityType.SHULKER);
-        }
     }
 
     // -------------------------------------------- //

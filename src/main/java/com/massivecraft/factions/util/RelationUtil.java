@@ -11,7 +11,7 @@ import org.bukkit.ChatColor;
 
 public class RelationUtil {
 
-    public static String describeThatToMe(RelationParticipator that, RelationParticipator me, boolean ucfirst) {
+    public static String describeThatToMe(RelationParticipator that, RelationParticipator me, boolean uppercaseFirst) {
         String ret = "";
 
         if (that == null) {
@@ -44,7 +44,7 @@ public class RelationUtil {
             }
         }
 
-        if (ucfirst) {
+        if (uppercaseFirst) {
             ret = TextUtil.upperCaseFirst(ret);
         }
 

@@ -269,8 +269,8 @@ public class Faction extends Entity implements EconomyParticipator {
     // Relation and relation colors
     // -------------------------------
     @Override
-    public String describeTo(RelationParticipator observer, boolean ucfirst) {
-        return RelationUtil.describeThatToMe(this, observer, ucfirst);
+    public String describeTo(RelationParticipator observer, boolean uppercaseFirst) {
+        return RelationUtil.describeThatToMe(this, observer, uppercaseFirst);
     }
 
     @Override

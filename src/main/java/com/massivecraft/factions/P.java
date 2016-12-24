@@ -38,6 +38,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
+import static java.lang.reflect.Modifier.TRANSIENT;
+import static java.lang.reflect.Modifier.VOLATILE;
+
 public class P extends MPlugin {
     // Our single plugin instance
 
@@ -136,9 +139,15 @@ public class P extends MPlugin {
 
     @Override
     public GsonBuilder getGsonBuilder() {
-        return new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().excludeFieldsWithModifiers(Modifier.TRANSIENT, Modifier.VOLATILE)
-                .registerTypeAdapter(LazyLocation.class, new LocationTypeAdapter()).registerTypeAdapter(TerritoryAccess.class, new TerritoryAccess())
-                .registerTypeAdapter(Rel.class, new RelTypeAdapter()).registerTypeAdapter(FPerm.class, new FPermTypeAdapter()).registerTypeAdapter(FFlag.class, new FFlagTypeAdapter());
+        return new GsonBuilder()
+                .setPrettyPrinting()
+                .disableHtmlEscaping()
+                .excludeFieldsWithModifiers(TRANSIENT, VOLATILE)
+                .registerTypeAdapter(LazyLocation.class, new LocationTypeAdapter())
+                .registerTypeAdapter(TerritoryAccess.class, new TerritoryAccess())
+                .registerTypeAdapter(Rel.class, new RelTypeAdapter())
+                .registerTypeAdapter(FPerm.class, new FPermTypeAdapter())
+                .registerTypeAdapter(FFlag.class, new FFlagTypeAdapter());
     }
 
     @Override

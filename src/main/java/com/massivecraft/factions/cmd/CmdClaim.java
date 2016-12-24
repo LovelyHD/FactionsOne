@@ -7,6 +7,7 @@ import com.massivecraft.factions.struct.Permission;
 import com.massivecraft.factions.util.SpiralTask;
 
 public class CmdClaim extends FCommand {
+    private final CmdClaimLine cmdClaimLine = new CmdClaimLine();
 
     public CmdClaim() {
         super();
@@ -23,10 +24,14 @@ public class CmdClaim extends FCommand {
         senderMustBeMember = false;
         senderMustBeOfficer = false;
         senderMustBeLeader = false;
+
+        addSubCommand(cmdClaimLine);
     }
 
     @Override
     public void perform() {
+        commandChain.add(this);
+
         // Read and validate input
         int radius = this.argAsInt(0, 1);
         Faction forFaction = this.argAsFaction(1, myFaction);
@@ -53,6 +58,7 @@ public class CmdClaim extends FCommand {
                 @Override
                 public boolean work() {
                     boolean success = fme.attemptClaim(forFaction, currentLocation(), true);
+
                     if (success) {
                         failCount = 0;
                     } else if (!success && failCount++ >= limit) {

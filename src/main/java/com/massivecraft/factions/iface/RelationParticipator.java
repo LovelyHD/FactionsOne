@@ -6,7 +6,7 @@ import org.bukkit.ChatColor;
 public interface RelationParticipator {
     String describeTo(RelationParticipator observer);
 
-    String describeTo(RelationParticipator observer, boolean ucfirst);
+    String describeTo(RelationParticipator observer, boolean uppercaseFirst);
 
     Rel getRelationTo(RelationParticipator observer);
 

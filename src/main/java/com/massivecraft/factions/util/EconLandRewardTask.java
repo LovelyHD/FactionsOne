@@ -5,8 +5,7 @@ import com.massivecraft.factions.Factions;
 import com.massivecraft.factions.P;
 
 public class EconLandRewardTask implements Runnable {
-
-    double rate;
+    private final double rate;
 
     public EconLandRewardTask() {
         rate = Conf.econLandRewardTaskRunsEveryXMinutes;
@@ -20,5 +19,4 @@ public class EconLandRewardTask implements Runnable {
             P.p.startEconLandRewardTask(true);
         }
     }
-
 }
