@@ -50,6 +50,7 @@ public class FCmdRoot extends FCommand {
     public CmdUnclaimall cmdUnclaimall = new CmdUnclaimall();
     public CmdVersion cmdVersion = new CmdVersion();
     public CmdWarp cmdWarp = new CmdWarp();
+    public CmdFly cmdFly = new CmdFly();
 
     public FCmdRoot() {
         super();
@@ -116,6 +117,7 @@ public class FCmdRoot extends FCommand {
         addSubCommand(cmdSaveAll);
         addSubCommand(cmdVersion);
         addSubCommand(cmdWarp);
+        addSubCommand(cmdFly);
     }
 
     @Override
